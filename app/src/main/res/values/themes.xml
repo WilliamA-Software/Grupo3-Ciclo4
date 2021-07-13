@@ -14,12 +14,7 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.Drawermenu.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
+    <style name="Theme.LUMA.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="Theme.Drawermenu.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="Theme.Drawermenu.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.LUMA.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
