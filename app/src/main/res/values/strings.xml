@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">LUMA</string>
+
+    <!-- Strings to Login -->
+    <string name="tv_login">Login</string>
+    <string name="tv_luma">LUMA</string>
+    <string name="tv_mya">Moda y Accesorios</string>
+    <string name="et_email">E-mail</string>
+    <string name="et_password">Password</string>
+    <string name="btn_login">Login</string>
+    <string name="tv_forgot_password"><u>Have you forgotten your password?</u></string>
+    <string name="tv_not_account">You do not have an account?</string>
+    <string name="tv_signup"><u>Sign Up</u></string>
+</resources>
