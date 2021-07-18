@@ -1,6 +1,17 @@
 <resources>
     <string name="app_name">LUMA</string>
 
+    <!-- Strings to Drawer -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">LUMA</string>
+    <string name="nav_header_subtitle">Moda y Accesorios</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_inicio">Inicio</string>
+    <string name="menu_mis_compras">Compras</string>
+    <string name="menu_historial">Historial</string>
+
     <!-- Strings to Login -->
     <string name="tv_login">Login</string>
     <string name="tv_luma">LUMA</string>
