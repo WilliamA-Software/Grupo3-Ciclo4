@@ -1,4 +1,4 @@
-package com.example.drawermenu.ui.home;
+package com.example.luma.ui.home;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.drawermenu.R;
 import com.example.drawermenu.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {

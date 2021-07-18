@@ -1,4 +1,4 @@
-package com.example.drawermenu.ui.gallery;
+package com.example.luma.ui.gallery;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

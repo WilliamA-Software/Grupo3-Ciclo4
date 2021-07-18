@@ -1,4 +1,4 @@
-package com.example.drawermenu.ui.slideshow;
+package com.example.luma.ui.slideshow;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
