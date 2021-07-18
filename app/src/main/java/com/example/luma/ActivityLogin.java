@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class ActivityLogin extends AppCompatActivity {
 
     // Declarar las variables
     private EditText et_email;
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.login_activity);
 
         // Referenciar las variables
         mySelf = this;
@@ -81,14 +81,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // --------- CLICK FORGET PASSWORD ------------
-        tv_password.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                //Cuando el usuario da click en el boton sign up
-                Intent activity_signup = new Intent(mySelf, ForgetActivity.class);
-                startActivity(activity_signup);
-            }
-        });
+//        tv_password.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v){
+//                //Cuando el usuario da click en el boton sign up
+//                Intent activity_signup = new Intent(mySelf, ForgetActivity.class);
+//                startActivity(activity_signup);
+//            }
+//        });
 
 
     }
