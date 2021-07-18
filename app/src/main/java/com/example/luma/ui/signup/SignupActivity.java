@@ -1,16 +1,8 @@
-package com.example.luma.ui.login;
+package com.example.luma.ui.signup;
 
 import android.app.Activity;
-
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-
+import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
@@ -18,27 +10,54 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+
 import com.example.luma.R;
 import com.example.luma.databinding.ActivitySignupBinding;
-import com.example.luma.ui.login.LoginViewModel;
-import com.example.luma.ui.login.LoginViewModelFactory;
 
 public class SignupActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
     private ActivitySignupBinding binding;
+    private boolean validForm;
+
+    // Persistencia con Shared Preference
+    private SharedPreferences storage;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+//// This 2 lines remove the Title Bar from the app
+//        requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//        getSupportActionBar().hide(); // This line removes the Action Bar from each activity, instead is better to remove it from the themes.xml file
+
         binding = ActivitySignupBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        // Instancia del almacenamiento persistente
+        storage = getSharedPreferences("STORAGE", MODE_PRIVATE);
+        // Obtengo los datos de usuario almacenados
+        String name = storage.getString("NAME", "NO NAME");
+        String lastname = storage.getString("LASTNAME", "NO LASTNAME");
+        String mail = storage.getString("MAIL", "NO MAIL");
+        String password = storage.getString("PASSWORD", "NO PASSWORD");
+        if (mail.equals("admin@mail.com") && password.equals("123456789")){
+//            Intent drawer = new Intent(this, DrawerActivity.class);
+//            starActivity(drawer);
+            Toast.makeText(this, "DATA SAVED", Toast.LENGTH_LONG);
+        }
 
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
@@ -49,6 +68,7 @@ public class SignupActivity extends AppCompatActivity {
         final EditText passwordEditText = binding.password;
         final CheckBox checkBox = binding.cbPtc;
         final Button signupButton = binding.btSignup;
+        signupButton.setEnabled(false);
         final ProgressBar loadingProgressBar = binding.loading;
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
@@ -57,7 +77,18 @@ public class SignupActivity extends AppCompatActivity {
                 if (loginFormState == null) {
                     return;
                 }
-                signupButton.setEnabled(loginFormState.isDataValid());
+                validForm = loginFormState.isDataValid();
+
+            // Genera los mensajes de error en cada uno de los campos del registro
+                if (loginFormState.getUsernameError() != null) {
+                    usernameEditText.setError(getString(loginFormState.getUsernameError()));
+                }
+                if (loginFormState.getLastNameError() != null) {
+                    lastnameEditText.setError(getString(loginFormState.getLastNameError()));
+                }
+                if (loginFormState.getMailError() != null) {
+                    mailEditText.setError(getString(loginFormState.getMailError()));
+                }
                 if (loginFormState.getPasswordError() != null) {
                     passwordEditText.setError(getString(loginFormState.getPasswordError()));
                 }
@@ -79,11 +110,11 @@ public class SignupActivity extends AppCompatActivity {
                 }
                 setResult(Activity.RESULT_OK);
 
-                //Complete and destroy login activity once successful
-                finish();
+            //Complete and destroy signup activity once successful
+//                finish();
             }
         });
-
+//    Verifica el estado del formulario
         TextWatcher afterTextChangedListener = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -98,6 +129,8 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 loginViewModel.loginDataChanged(usernameEditText.getText().toString(),
+                        lastnameEditText.getText().toString(),
+                        mailEditText.getText().toString(),
                         passwordEditText.getText().toString());
             }
         };
@@ -105,15 +138,27 @@ public class SignupActivity extends AppCompatActivity {
         lastnameEditText.addTextChangedListener(afterTextChangedListener);
         mailEditText.addTextChangedListener(afterTextChangedListener);
         passwordEditText.addTextChangedListener(afterTextChangedListener);
-
+//    Verifica el estado del password y lanza el proceso de registro
         passwordEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    loginViewModel.login(mailEditText.getText().toString(),
+                    loginViewModel.signup(usernameEditText.getText().toString(),
+                            lastnameEditText.getText().toString(),
+                            mailEditText.getText().toString(),
                             passwordEditText.getText().toString());
                 }
                 return false;
+            }
+        });
+//    Valida el checkBox y cambia el estado del boton si el formulario es valido tambien
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked && validForm){
+                    signupButton.setEnabled(true);
+                } else
+                    signupButton.setEnabled(false);
             }
         });
 
@@ -121,8 +166,20 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 loadingProgressBar.setVisibility(View.VISIBLE);
-                loginViewModel.login(mailEditText.getText().toString(),
-                        passwordEditText.getText().toString());
+
+//          Almacenamiento local de los datos de usuario
+                SharedPreferences.Editor editor = storage.edit();
+                editor.putString("NAME", usernameEditText.toString());
+                editor.putString("LASTNAME", lastnameEditText.toString());
+                editor.putString("MAIL", mailEditText.toString());
+                editor.putString("PASSWORD", passwordEditText.toString());
+                editor.commit();
+
+//                loginViewModel.signup(usernameEditText.getText().toString(),
+//                        lastnameEditText.getText().toString(),
+//                        mailEditText.getText().toString(),
+//                        passwordEditText.getText().toString());
+
             }
         });
     }

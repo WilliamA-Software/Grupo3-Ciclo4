@@ -1,4 +1,4 @@
-package com.example.luma.ui.login;
+package com.example.luma.ui.signup;
 
 import androidx.annotation.Nullable;
 

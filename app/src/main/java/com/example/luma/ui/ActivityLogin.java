@@ -1,4 +1,4 @@
-package com.example.luma;
+package com.example.luma.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +12,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.luma.ui.signup.SignupActivity;
 
 public class ActivityLogin extends AppCompatActivity {
 
@@ -38,7 +41,7 @@ public class ActivityLogin extends AppCompatActivity {
 
 
 
-        // --------- CLICK LOG IN ------------
+        // --------- CLICK LOGIN ------------
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,25 +49,12 @@ public class ActivityLogin extends AppCompatActivity {
                 String username = et_email.getText().toString();
                 String password = et_password.getText().toString();
 
-                Log.e("USERNAME",username);
-                Log.e("PASSWORD",password);
-
-                if (username.equals("admin") && password.equals("123")){
+                if (username.equals("admin@mail.com") && password.equals("123456789")){
                     Log.e("LOGIN","INICIÓ CORRECTAMENTE");
-                    AlertDialog.Builder builder = new AlertDialog.Builder(mySelf);
-                    builder.setTitle("Bienvenido");
-                    builder.setMessage("Entras");
-                    builder.setPositiveButton("aceptar", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Intent activity2 = new Intent(mySelf, MainActivity2.class);
-                            activity2.putExtra("username",username);
-                            activity2.putExtra("password",password);
-                            startActivity(activity2);
-                        }
-                    });
-
-                }else{
+                    Intent mainActivity = new Intent(mySelf, MainActivity.class);
+                    mainActivity.putExtra("username",username);
+                    startActivity(mainActivity);
+                } else{
                     Log.e("LOGIN","ERROR, FALLÓ SESION");
                 }
             }

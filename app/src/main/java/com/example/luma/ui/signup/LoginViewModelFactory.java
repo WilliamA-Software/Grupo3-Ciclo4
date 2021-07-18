@@ -1,8 +1,8 @@
-package com.example.luma.ui.login;
+package com.example.luma.ui.signup;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.annotation.NonNull;
 
 import com.example.luma.data.LoginDataSource;
 import com.example.luma.data.LoginRepository;

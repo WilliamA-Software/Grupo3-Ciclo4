@@ -9,12 +9,14 @@ public class LoggedInUser {
     private String name;
     private String lastname;
     private String mail;
+    private String password; // TODO: encrypt password
 
-    public LoggedInUser(String userId, String name, String lastname, String mail) {
+    public LoggedInUser(String userId, String name, String lastname, String mail, String password) {
         this.userId = userId;
         this.name = name;
         this.lastname = lastname;
         this.mail = mail;
+        this.password = password;
     }
 
     public String getUserId() {
@@ -28,5 +30,8 @@ public class LoggedInUser {
     }
     public String getMail() {
         return mail;
+    }
+    public String getPassword() {
+        return password;
     }
 }

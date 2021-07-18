@@ -8,11 +8,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Drawermenu">
-        <activity
-            android:name="com.example.luma.ui.MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.Drawermenu.NoActionBar">
+        android:theme="@style/Theme.LUMA.NoActionBar">
+        <activity android:name="com.example.luma.ui.login.ForgetPassword"></activity>
+        <activity android:name="com.example.luma.ui.login.TermsConditions" />
+        <activity android:name="com.example.luma.ui.login.SignupActivity" />
+        <activity android:name="com.example.luma.ui.MainActivity"/>
+        <activity android:name="com.example.luma.ui.ActivityLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

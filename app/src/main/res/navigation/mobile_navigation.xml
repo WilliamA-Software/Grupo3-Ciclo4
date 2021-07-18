@@ -12,14 +12,14 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_mis_compras"
+        android:id="@+id/nav_products"
         android:name="com.example.luma.ui.gallery.GalleryFragment"
-        android:label="@string/menu_mis_compras"
-        tools:layout="@layout/fragment_gallery" />
+        android:label="@string/products"
+        tools:layout="@layout/fragment_products" />
 
     <fragment
-        android:id="@+id/nav_historial"
+        android:id="@+id/nav_favorites"
         android:name="com.example.luma.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_historial"
-        tools:layout="@layout/fragment_slideshow" />
+        android:label="@string/favorites"
+        tools:layout="@layout/fragment_favorites" />
 </navigation>

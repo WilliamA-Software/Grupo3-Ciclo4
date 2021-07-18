@@ -11,10 +11,10 @@ public class Result<T> {
     @Override
     public String toString() {
         if (this instanceof Result.Success) {
-            Result.Success success = (Result.Success) this;
+            Success success = (Success) this;
             return "Success[data=" + success.getData().toString() + "]";
         } else if (this instanceof Result.Error) {
-            Result.Error error = (Result.Error) this;
+            Error error = (Error) this;
             return "Error[exception=" + error.getError().toString() + "]";
         }
         return "";

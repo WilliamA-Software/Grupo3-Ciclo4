@@ -9,228 +9,240 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".ui.login.SignupActivity"
-    android:background="@color/gray">
+    tools:context="com.example.luma.ui.signup.SignupActivity"
+    android:background="@color/gray"
+    android:scrollbarAlwaysDrawVerticalTrack="true">
 
-    <TextView
-        android:id="@+id/tv_luma"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="16dp"
-        android:fontFamily="@font/philosopher"
-        android:gravity="center_horizontal"
-        android:text="LUMA"
-        android:textColor="@color/white"
-        android:textSize="90sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView"
+        android:layout_alignParentStart="true"
+        tools:ignore="MissingConstraints"
+        android:verticalScrollbarPosition="right"
+        android:scrollbarStyle="outsideInset">
+        <LinearLayout
+            android:id="@+id/ll_all"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+<!--        Titulo: LUMA -->
+            <TextView
+                android:id="@+id/tv_luma"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/philosopher"
+                android:gravity="center_horizontal"
+                android:text="LUMA"
+                android:textColor="@color/white"
+                android:textSize="90sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ll_all" />
+<!--        Titulo: Moda y Accesorios -->
+            <TextView
+                android:id="@+id/tv_mya"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/monotype_corsiva"
+                android:gravity="center_horizontal"
+                android:text="Moda y Accesorios"
+                android:textColor="@color/white"
+                android:textSize="28sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_luma" />
+<!--        Titulo: Registro -->
+            <TextView
+                android:id="@+id/tv_singup"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/philosopher"
+                android:gravity="start"
+                android:text="@string/tv_signup"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_mya" />
+<!--        Name Box-->
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/et_rounded"
+                android:fontFamily="@font/philosopher"
+                android:textSize="20sp"
+                android:textColor="@color/dark3_gray"
+                android:hint="@string/et_names"
+                android:textColorHint="@color/dark_gray"
+                android:paddingStart="15dp"
+                android:inputType="textPersonName"
+                android:selectAllOnFocus="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_singup" />
+<!--        Lastname Box-->
+            <EditText
+                android:id="@+id/lastname"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/et_rounded"
+                android:fontFamily="@font/philosopher"
+                android:textSize="20sp"
+                android:textColor="@color/dark3_gray"
+                android:hint="@string/et_lastname"
+                android:textColorHint="@color/dark_gray"
+                android:paddingStart="15dp"
+                android:inputType="textPersonName"
+                android:selectAllOnFocus="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/name" />
+<!--        Mail Box-->
+            <EditText
+                android:id="@+id/mail"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/et_rounded"
+                android:fontFamily="@font/philosopher"
+                android:textSize="20sp"
+                android:textColor="@color/dark3_gray"
+                android:hint="@string/et_mail"
+                android:textColorHint="@color/dark_gray"
+                android:paddingStart="15dp"
+                android:inputType="textEmailAddress"
+                android:selectAllOnFocus="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lastname" />
+<!--        Password Box-->
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/et_rounded"
+                android:fontFamily="@font/philosopher"
+                android:textSize="20sp"
+                android:textColor="@color/dark3_gray"
+                android:hint="@string/prompt_password"
+                android:textColorHint="@color/dark_gray"
+                android:paddingStart="15dp"
+                android:imeActionLabel="@string/action_sign_in_short"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:selectAllOnFocus="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mail" />
 
-    <TextView
-        android:id="@+id/tv_mya"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:fontFamily="@font/monotype_corsiva"
-        android:gravity="center_horizontal"
-        android:text="Moda y Accesorios"
-        android:textColor="@color/white"
-        android:textSize="28sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_luma" />
-
-    <TextView
-        android:id="@+id/tv_singup"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:fontFamily="@font/philosopher"
-        android:gravity="start"
-        android:text="@string/tv_signup"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_mya" />
-
-    <EditText
-        android:id="@+id/name"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="16dp"
-        android:background="@color/light_gray"
-        android:fontFamily="@font/philosopher"
-        android:textSize="20sp"
-        android:textColor="@color/dark3_gray"
-        android:hint="@string/et_names"
-        android:textColorHint="@color/dark_gray"
-        android:paddingStart="15dp"
-        android:inputType="textPersonName"
-        android:selectAllOnFocus="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_singup" />
-
-    <EditText
-        android:id="@+id/lastname"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="16dp"
-        android:background="@color/light_gray"
-        android:fontFamily="@font/philosopher"
-        android:textSize="20sp"
-        android:textColor="@color/dark3_gray"
-        android:hint="@string/et_lastname"
-        android:textColorHint="@color/dark_gray"
-        android:paddingStart="15dp"
-        android:inputType="textPersonName"
-        android:selectAllOnFocus="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
-
-    <EditText
-        android:id="@+id/mail"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="16dp"
-        android:background="@color/light_gray"
-        android:fontFamily="@font/philosopher"
-        android:textSize="20sp"
-        android:textColor="@color/dark3_gray"
-        android:hint="@string/et_mail"
-        android:textColorHint="@color/dark_gray"
-        android:paddingStart="15dp"
-        android:inputType="textEmailAddress"
-        android:selectAllOnFocus="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lastname" />
-
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="0dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="16dp"
-        android:background="@color/light_gray"
-        android:fontFamily="@font/philosopher"
-        android:textSize="20sp"
-        android:textColor="@color/dark3_gray"
-        android:hint="@string/prompt_password"
-        android:textColorHint="@color/dark_gray"
-        android:paddingStart="15dp"
-        android:imeActionLabel="@string/action_sign_in_short"
-        android:imeOptions="actionDone"
-        android:inputType="textPassword"
-        android:selectAllOnFocus="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mail" />
-
-    <LinearLayout
-        android:id="@+id/ll_ptc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="16dp"
-        android:gravity="center_vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password">
-        <CheckBox
-            android:id="@+id/cb_ptc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:buttonTint="@color/light_gray"
-            android:checked="true"
-            android:defaultFocusHighlightEnabled="true" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/philosopher"
-            android:text="@string/accept_ptc"
-            android:textSize="18sp"
-            android:textColor="@color/white"/>
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/bt_signup"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/dark_gray"
-        android:enabled="false"
-        android:fontFamily="@font/philosopher"
-        android:text="@string/tv_signup"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ll_ptc"
-        app:rippleColor="@color/dark3_gray" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bt_signup"
-        android:gravity="center_horizontal">
-        <TextView
-            android:id="@+id/already_account"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/philosopher"
-            android:text="@string/already_account"
-            android:textSize="18sp"
-            android:textColor="@color/dark3_gray" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:fontFamily="@font/philosopher"
-            android:text="@string/tv_signin"
-            android:textSize="18sp"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/already_account"
-            app:layout_constraintTop_toBottomOf="@+id/bt_signup"/>
-    </LinearLayout>
-
-
-
-    <ProgressBar
-        android:id="@+id/loading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:progressTint="@color/dark_gray"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@id/lastname"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/lastname"
-        app:layout_constraintVertical_bias="0.3" />
+            <LinearLayout
+                android:id="@+id/ll_ptc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="center_vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/password">
+                <CheckBox
+                    android:id="@+id/cb_ptc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/light_gray"
+                    android:checked="false"
+                    android:defaultFocusHighlightEnabled="true" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/philosopher"
+                    android:text="@string/accept_ptc"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"/>
+            </LinearLayout>
+<!--        Boton de registro-->
+            <Button
+                android:id="@+id/bt_signup"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/philosopher"
+                android:text="@string/tv_signup"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ll_ptc" />
+<!--        Texto de pie de pagina para login-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bt_signup"
+                android:gravity="center_horizontal">
+                <TextView
+                    android:id="@+id/already_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/philosopher"
+                    android:text="@string/already_account"
+                    android:textSize="18sp"
+                    android:textColor="@color/dark3_gray" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/philosopher"
+                    android:text="@string/tv_signin"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/already_account"
+                    app:layout_constraintTop_toBottomOf="@+id/bt_signup"/>
+            </LinearLayout>
+            <ProgressBar
+                android:id="@+id/loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:progressTint="@color/dark_gray"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/lastname"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/lastname"
+                app:layout_constraintVertical_bias="0.3" />
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

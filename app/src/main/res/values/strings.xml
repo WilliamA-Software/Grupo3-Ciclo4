@@ -1,41 +1,464 @@
 <resources>
+    <!-- Main Strings -->
     <string name="app_name">LUMA</string>
+    <string name="tv_luma">LUMA</string>
+    <string name="tv_mya">Moda y Accesorios</string>
 
     <!-- Strings to Drawer -->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">LUMA</string>
-    <string name="nav_header_subtitle">Moda y Accesorios</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-    <string name="menu_inicio">Inicio</string>
-    <string name="menu_mis_compras">Compras</string>
-    <string name="menu_historial">Historial</string>
+    <string name="menu_inicio">Home</string>
+    <string name="products">Products</string>
+    <string name="favorites">Favorites</string>
 
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
+    <string name="action_sign_in_short">Log in</string>
     <string name="welcome">"Welcome"</string>
     <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >6 characters</string>
     <string name="login_failed">"Login failed"</string>
-    <string name="et_names">Name</string>
-    <string name="et_lastname">Last Name</string>
-    <string name="et_mail">Mail</string>
-    <string name="accept_ptc">I agree to policy, terms and conditions</string>
-    <string name="already_account">Have an account already?</string>
-    <string name="tv_signin">Sign In</string>
+    <string name="tv_forgot_password"><u>Forgot your password?</u></string>
+    <string name="tv_not_account">Create a new account </string>
 
     <!-- Strings to Signup -->
+    <string name="et_names">Name</string>
+    <string name="invalid_password">Password must be >6 characters</string>
+    <string name="et_lastname">Last Name</string>
+    <string name="accept_ptc">I agree to policy, terms and conditions</string>
+    <string name="already_account">Have an account already?</string>
     <string name="tv_login">Login</string>
-    <string name="tv_luma">LUMA</string>
-    <string name="tv_mya">Moda y Accesorios</string>
     <string name="et_email">E-mail</string>
     <string name="et_password">Password</string>
-    <string name="btn_login">Login</string>
-    <string name="tv_forgot_password"><u>Have you forgotten your password?</u></string>
-    <string name="tv_not_account">You do not have an account?</string>
-    <string name="tv_signup"><u>Sign Up</u></string>
+    <string name="login">Login</string>
+    <string name="signup"><u>Sign up</u></string>
+
+    <!-- TERMS AND CONDITIONS -->
+    <string name="tv_terms">Terms and Conditions</string>
+    <string name="tv_privacy_policies">Privacy Policies</string>
+    <string name="btn_back">Back</string>
+    <string name="terms_conditions">
+        "TÉRMINOS Y CONDICIONES\n\n"
+        "Última actualización en julio 2021.\n\n"
+        "Encuentra aquí las políticas de privacidad(enlace).\n\n"
+        "ROGAMOS LEAS ATENTAMENTE ESTAS CONDICIONES DE USUARIO ANTES DE DESCARGAR LA APLICACIÓN O
+        UTILIZAR NUESTRO SERVICIO.\n\n"
+        "LUMAPP, en adelante 'LA PLATAFORMA', es una marca de LUMA, en adelante 'LA EMPRESA'.\n\n"
+
+        "LA EMPRESA y su aplicación móvil prestan sus servicios (más adelante descritos) a través"
+        "de su aplicación móvil (LUMAPP); servicios relacionados (colectivamente, tales servicios"
+        "incluyen cualquier actualización, nuevas características o nuevas aplicaciones). Los"
+        "servicios de LA PLATAFORMA están sujetos a lo contenido en estos Términos y Condiciones.\n"
+        "En caso de que estos términos y condiciones no sean aceptados, por favor no haga uso del"
+        "servicio o herramientas que proveemos ya que estos están restringidos únicamente a quienes"
+        "se comprometen a respetar los lineamientos que acá se mencionan.\n"
+        "LA EMPRESA se exime de toda responsabilidad en el caso de que los clientes (en adelante y"
+        "para efectos de este documento “USUARIO o USUARIOS”) utilicen los servicios sin consentir"
+        "a los Términos y Condiciones y se reserva la facultad de tomar las medidas legales"
+        "pertinentes en estos casos.\n"
+        "LA EMPRESA tiene la facultad y autonomía de modificar estos Términos y Condiciones de"
+        "manera unilateral, en cualquier momento, y no se hace responsable por los perjuicios que"
+        "dichas modificaciones puedan causar a los USUARIOS desinformados ya que es exclusiva"
+        "responsabilidad de los USUARIOS revisar los Términos y Condiciones de manera periódica"
+        "para enterarse de las últimas actualizaciones.\n\n"
+
+        "1. ACCESO Y USO DEL SERVICIO.\n\n"
+
+        "Descripción del Servicio: LA PLATAFORMA es una aplicación que pone a disposición de los"
+        "USUARIOS el servicio de venta de artículos de moda y accesorios (en adelante y para"
+        "efectos del presente documento “PRODUCTOS “). Los USUARIOS de LA PLATAFORMA podrán acceder"
+        "a los servicios ofrecidos a través de la aplicación móvil.\n"
+        "LA EMPRESA autoriza a sus usuarios a consultar, revisar y usar su aplicación móvil"
+        "únicamente para su uso personal y no comercial. El contenido de esta plataforma incluyendo,"
+        "pero sin limitarse a los textos, gráficos, imágenes, logotipos, íconos, software y cualquier"
+        "otro contenido, está protegido bajo las leyes colombianas de derechos de autor, propiedad"
+        "industrial y otras leyes aplicables. Todo el contenido es propiedad de la sociedad. El uso"
+        "no autorizado del contenido puede constituir una violación de las leyes colombianas o"
+        "extranjeras sobre derechos de autor, propiedad industrial u otras leyes. Ningún USUARIO"
+        "podrá vender o modificar el contenido, ni usarlo o distribuirlo públicamente para"
+        "propósitos comerciales.\n\n"
+
+        "2. REGISTRO EN LA PLATAFORMA.\n\n"
+        "Con el fin de acceder a todos los PRODUCTOS ofrecidos por LA PLATAFORMA, el USUARIO deberá"
+        "completar un registro en el cual se creará un nombre de usuario y contraseña. El nombre de"
+        "usuario y la contraseña que el USUARIO proporciona son sus credenciales para acceder a la"
+        "aplicación móvil. Los USUARIOS no pueden tener más de un conjunto activo de credenciales."
+        "Además, a los usuarios se les prohíbe vender, negociar o ceder de otra manera sus"
+        "credenciales en LA PLATAFORMA a otra persona. Si el USUARIO escoge registrarse, a su vez,"
+        "acepta los presentes Términos y Condiciones y se compromete a suministrar información actual,"
+        "completa y verídica sobre él o ella. Toda la información personal suministrada por el USUARIO"
+        "a LA PLATAFORMA, se regirá por las políticas de privacidad de LA PLATAFORMA.\n"
+        "LA EMPRESA se reserva el derecho de suspender o cancelar su cuenta y negarle el uso presente"
+        "o futuro de la aplicación móvil (o cualquier porción de la misma) en caso de sospechar que"
+        "el USUARIO ha proporcionado información que sea falsa, inexacta, desactualizada o incompleta"
+        "(o que se ha convertido en falsa, inexacta, no actualizada o incompleta).\n"
+        "El USUARIO que complete el registro para acceder a los servicios. LA EMPRESA NO se"
+        "responsabiliza por la certeza de los datos personales provistos por sus USUARIOS. Los"
+        "USUARIOS garantizan y responden, en cualquier caso, de la veracidad, exactitud, vigencia y"
+        "autenticidad de los Datos Personales ingresados.\n"
+        "LA EMPRESA se reserva el derecho de solicitar algún comprobante y/o dato adicional a efectos"
+        "de corroborar los datos personales, así como de suspender temporal o definitivamente a aquellos"
+        "USUARIOS cuyos datos no hayan podido ser confirmados. En estos casos de inhabilitación, se"
+        "dará de baja la cuenta personal del USUARIO, sin que ello genere algún derecho a resarcimiento"
+        "o reembolso de los dineros abonados a la cuenta.\n\n"
+
+        "3. CAPACIDAD.\n\n"
+
+        "Los servicios ofrecidos por LA PLATAFORMA a través de la aplicación móvil sólo están"
+        "disponibles para los USUARIOS que tengan capacidad legal para contratar. No podrán acceder"
+        "a los servicios las personas que no tengan esa capacidad, los menores de edad o los USUARIOS"
+        "de LA PLATAFORMA que hayan sido suspendidos temporalmente o inhabilitados definitivamente.\n\n"
+
+        "4. CUENTA CLAVES Y SEGURIDAD.\n\n"
+
+        "El USUARIO es el ÚNICO responsable de mantener la confidencialidad de su contraseña, clave"
+        "y cuenta. De conformidad con lo anterior, el USUARIO es el ÚNICO responsable por todas las"
+        "actividades, solicitudes o manejo de información que ocurran en su cuenta.\n"
+        "El USUARIO reconoce y acepta que; (i). Solo podrá crear una cuenta; (ii). notificará"
+        "inmediatamente a LA PLATAFORMA de cualquier uso no autorizado de su cuenta y/o clave o"
+        "cualquier otra violación de la seguridad, y; (iii). Se asegurará de cerrar la sesión cada"
+        "vez que finalice su acceso a la aplicación.\n"
+        "LA EMPRESA no será responsable por cualquier pérdida o daño que se llegue a presentar a"
+        "causa del incumplimiento de esta sección."
+        "En caso de que LA EMPRESA detecte distintas cuentas que contengan datos coincidentes o"
+        "relacionados, podrá cancelar, suspender o inhabilitarlas, sin que esto genere ningún derecho"
+        "a favor del usuario de reparación o reembolso de los dineros abonados.\n\n"
+
+        "5. MODIFICACIONES AL SERVICIO.\n\n"
+
+        "Sin previo aviso y siempre y cuando esto no implique una afectación de los derechos adquiridos"
+        "por el USUARIO, los presentes Términos y Condiciones podrán ser modificados total o parcialmente"
+        "por los siguientes motivos: (i) Variaciones de las características de LA PLATAFORMA; (ii)"
+        "Cambios tecnológicos que afecten el (los) servicio (s); (iii) Variaciones de las condiciones"
+        "económicas existentes en el momento de la contratación del servicio, y; (iv) Evolución del"
+        "mercado. Las características del servicio podrán verse modificadas con la finalidad de"
+        "adaptarlas a su evolución técnica, cuando existan razones para ello.\n"
+        "LA EMPRESA podrá realizar cualquier mejora técnica que permita incorporar un mayor número"
+        "de prestaciones al servicio. Dichas modificaciones surtirán sus efectos inmediatamente, una"
+        "vez que se hayan publicado mediante notificación directa al USUARIO por e-mail, a la dirección"
+        "electrónica informada al momento de la aceptación de los Términos y Condiciones, la cual se"
+        "enviará con cinco (5) días de anticipación a la efectiva modificación. En caso de que el"
+        "USUARIO no esté de acuerdo con la modificación de las condiciones, deberá informarlo por"
+        "correo electrónico para darlo de baja en la prestación del servicio.\n"
+        "El USUARIO podrá acceder, imprimir, descargar y guardar los Términos y Condiciones legales,"
+        "así como los demás textos legales en todo momento.\n"
+        "Asimismo, LA EMPRESA se reserva la posibilidad de modificar sin previo aviso el diseño,"
+        "presentación y/o configuración de la aplicación móvil, así como algunos o todos los servicios,"
+        "y/o añadir servicios nuevos.\n"
+        "En cualquier caso, LA EMPRESA se reserva el derecho de denegar el acceso a la aplicación"
+        "móvil, en cualquier momento y sin necesidad de previo aviso, a aquellos USUARIOS que incumplan"
+        "cualesquiera de los Términos y Condiciones que le sean de aplicación.\n\n"
+
+        "6. ALCANCE DE LOS SERVICIOS DE LA PLATAFORMA.\n\n"
+        "Este Acuerdo no crea ningún contrato de sociedad, de mandato, de franquicia, o relación"
+        "laboral entre LA EMPRESA, y el USUARIO. El USUARIO reconoce y acepta que LA EMPRESA no será"
+        "responsable por la correspondencia o contratos que el USUARIO celebre con otros USUARIOS."
+        "LA EMPRESA hará esfuerzos razonables para garantizar la calidad del servicio prestado a fin"
+        "de contribuir con tranquilidad del USUARIO y mitigar el riesgo de incumplimiento frente"
+        "al USUARIO.\n\n"
+
+        "7. PRÁCTICAS GENERALES ACERCA DEL USO Y ALMACENAMIENTO DE INFORMACIÓN.\n\n"
+        "El USUARIO reconoce y acepta que: (i) LA EMPRESA podrá establecer prácticas generales y"
+        "límites concernientes al uso de la aplicación móvil, incluyendo sin limitación alguna el"
+        "periodo máximo de tiempo de almacenamiento de la información; (ii) LA EMPRESA no será"
+        "responsable por la pérdida o falla de la información que pueda presentarse por el mantenimiento"
+        "o actualización de  la aplicación móvil; (iii) LA EMPRESA se reserva el derecho de terminar"
+        "cuentas que estén inactivas por un periodo de tiempo extendido; (iv) LA EMPRESA se reserva"
+        "el derecho de cambiar y/o modificar estas prácticas y límites en cualquier momento, bajo su"
+        "propia discreción, sin ningún aviso previo.\n\n"
+
+        "8. ACCESO A LA PLATAFORMA.\n\n"
+
+        "El USUARIO es responsable de obtener acceso a la red de datos necesarios para el uso de los"
+        "servicios. Podrán aplicarse tarifas y tasas de datos y mensajes de la red móvil del USUARIO."
+        "El USUARIO es responsable por el pago de dichas tarifas y tasas, así como, de la adquisición"
+        "y actualización del hardware compatible o los dispositivos necesarios para acceder y utilizar"
+        "la aplicación móvil, y cualquier actualización. Los servicios podrán ser objeto de disfunciones"
+        "o retrasos inherentes al uso de Internet y de las comunicaciones electrónicas.\n"
+        "LA EMPRESA no garantiza al USUARIO una determinada disponibilidad del funcionamiento de la"
+        "aplicación móvil. No obstante, LA EMPRESA hará esfuerzos razonables por mantener su"
+        "plataforma disponible.\n\n"
+
+        "9. CONDICIONES DE USO.\n\n"
+        "Conducta del USUARIO: Los ejemplos mencionados seguido de este párrafo hacen referencia al"
+        "tipo de conducta o usos prohibidos por LA EMPRESA y por la Ley. LA EMPRESA se reserva el"
+        "derecho de denunciar ante las autoridades correspondientes cualquier actividad que en"
+        "consideración de LA EMPRESA viole estas provisiones. Adicionalmente, en caso de considerarlo"
+        "necesario, LA EMPRESA podrá tomar cualquiera de estas acciones: (i) La remoción del contenido"
+        "violatorio del servicio; (ii) La suspensión o terminación de la cuenta.\n\n"
+
+        "El USUARIO reconoce y acepta NO usar el servicio para:\n\n"
+
+        "(i) Interrumpir o interferir el servicio, servidores o redes conectadas a la aplicación"
+        "móvil, o desobedecer cualquier requerimiento, términos y condiciones o políticas de"
+        "privacidad vinculadas al servicio.\n"
+        "(ii) Violar cualquier Ley o regulación nacional o internacional.\n"
+        "(iii) Hacerse pasar por cualquier persona, o falsamente representar vínculo con otra persona.\n"
+        "(iv) Solicitar información confidencial de otros USUARIOS.\n"
+        "(v) Publicar u ofrecer vender, ceder o comprar servicios o bienes de LA PLATAFORMA"
+        "directamente a terceros, omitiendo el uso de la aplicación móvil sin la previa autorización"
+        "por LA EMPRESA.\n"
+        "(vi) Compartir o promover cualquier actividad criminal o información acerca de actividades"
+        "ilícitas.\n"
+        "(vii) Aplicar ingeniería inversa, descompilar o valerse de cualquier otro medio para tratar"
+        "de descubrir el código fuente, código objeto de la estructura de la aplicación.\n"
+        "(viii) Obtener o intentar obtener acceso a cualquier información confidencial de LA EMPRESA"
+        "o de sus USUARIOS a través de cualquier medio.\n\n"
+
+        "10. TARIFAS Y PAGOS.\n\n"
+
+        "PSE obra como plataforma de servicios prestados a los USUARIOS, por lo que una vez el USUARIO"
+        "haya seleccionado un, o varios PRODUCTOS, podrán aplicar diferentes tarifas, dependiendo del"
+        "servicio o porción del mismo. El USUARIO deberá seleccionar el método de pago y, dependiendo"
+        "del mismo, suministrar la información referente a su tarjeta de débito o crédito. El USUARIO"
+        "se compromete a suministrar información verdadera y autorizada referente al medio de pago"
+        "usado. Así mismo, el USUARIO reconoce y acepta que: (i) Deberá actualizar la información"
+        "referente al medio de pago, en caso de que hayan modificaciones; (ii) Pagará a LA PLATAFORMA"
+        "el valor previamente detallado de acuerdo con las tarifas al momento de solicitar los PRODUCTOS;"
+        "(iii) Cualquier PRODUCTO solicitado por el USUARIO será cargado en un tiempo prudente previo"
+        "a la hora prevista para su entrega, sin que haya lugar a devoluciones dentro de los límites"
+        "establecidos por la Ley 1480 de 2011.\n"
+        "LA PLATAFORMA no garantiza al USUARIO tiempos de procesamiento de una transacción. No"
+        "obstante, hará esfuerzos razonables para procesar las transacciones ágilmente. En todo caso,"
+        "LA PLATAFORMA se exime del retardo en el procesamiento de transacciones resultantes de"
+        "horarios o procesos bancarios, o de cualquier tipo de fallas en el servicio de los demás"
+        "agentes que intervienen o inciden en el procesamiento de pagos, tales como redes de"
+        "procesamiento, pasarelas de pago, bancos, franquicias, proveedores de Internet y servidores,"
+        "entre otros, y en general de todo evento que exceda su control en el procesamiento.\n"
+        "LA EMPRESA se reserva el derecho de modificar, cambiar, agregar, o eliminar las tarifas"
+        "vigentes, en cualquier momento, lo cual será notificado a los USUARIOS por correo electrónico."
+        "Sin embargo, LA EMPRESA podrá modificar temporalmente las tarifas por sus servicios por"
+        "razón de promociones, siendo efectivas estas modificaciones cuando se haga pública la"
+        "promoción o se realice el anuncio.\n"
+        "LA EMPRESA se reserva el derecho de tomar medidas judiciales y extrajudiciales que estime"
+        "pertinentes para obtener el pago del monto debido.\n"
+        "En caso de haberse facturado cargos que no hubiesen correspondido, el USUARIO deberá"
+        "comunicarse con" nuestro equipo de Atención al Usuario para resolver dicha cuestión.\n"
+
+"11. POLÍTICA DE CANCELACIÓN.\n"
+"El USUARIO deberá cumplir con la hora, fecha y dirección designada para llevar a cabo el domicilio.
+Se dará una espera de 15 minutos y en caso de que el USUARIO no esté disponible para la recepción del
+PRODUCTO, se cobrará el 100% del PRODUCTO valor que será cargado a la tarjeta de crédito correspondiente."
+"Si los PRODUCTOS no se ajustan a la calidad, idoneidad o seguridad propias de cada cual, el cliente
+podrá solicitar el cambio del mismo, siempre que haya fundamento jurídico y racional para ello. La
+garantía solo aplica para características objetivas de los PRODUCTOS que sean informados de manera
+clara a los consumidores y bajo ninguna circunstancia, procederá en casos subjetivos."
+
+"12. USO COMERCIAL.\n"
+"A menos que sea expresamente autorizado por LA EMPRESA, el USUARIO NO podrá: distribuir, desarrollar,
+publicar, reproducir, duplicar, copiar, modificar, vender, re-vender, explotar, transferir, o actualizar
+para ningún propósito comercial cualquier PRODUCTO, o acceso al servicio prestado por LA PLATAFORMA.
+El servicio es para el uso personal del USUARIO."
+
+"13. PROPIEDAD DE LOS DERECHOS INTELECTUALES.\n"
+
+"Contenido del servicio, software y marcas: El USUARIO reconoce y acepta que el PRODUCTO podrá ofrecer
+contenidos y/o características que están protegidas por leyes de derechos de autor. El uso indebido y
+la reproducción total o parcial de dichos contenidos quedan prohibidos, salvo autorización expresa y
+por escrito de LA EMPRESA."
+"La razón social, aplicación, logos, marcas, PRODUCTOS ofrecidos, son propiedad de LA EMPRESA. Ninguna
+cláusula establecida por la empresa da el derecho al USUARIO de modificar, copiar, enmarcar, rentar,
+prestar, vender, re-vender, distribuir, crear aplicaciones derivadas basadas en parte o en el total
+del servicio, a menos que sea con autorización previamente emitida por la empresa."
+"La plataforma podrá contener enlaces a otros Sitios Web, lo cual no indica que sean propiedad u
+operados por LA EMPRESA. En virtud de que LA EMPRESA no tiene control sobre tales sitios NO será
+responsable por los contenidos, materiales, acciones y/o servicios prestados por los mismo, ni por
+daños o pérdidas ocasionadas por la utilización de los mismos, sean causadas directa o indirectamente.
+La presencia de enlaces a otros Sitio Web y/o aplicaciones móviles no implica una sociedad, relación,
+aprobación, respaldo de LA EMPRESA a dichos sitios y sus contenidos."
+
+"14. RESPONSABILIDAD POR LA INFORMACIÓN CONTENIDA.\n"
+
+"LA EMPRESA no será responsable por los daños y perjuicios que pudieran ocasionarse mediante el uso
+de la información provista por medio de la aplicación móvil, salvo que dicha información haya sido
+brindada manifiestamente con ánimo de dañar a los USUARIOS del servicio."
+"Debido a la cantidad de medios técnicos que no permiten garantizar la absoluta injerencia de la
+acción de terceras personas en los sitios publicados en Internet, LA PLATAFORMA no garantiza la
+exactitud y/o veracidad de todo o parte de la información contenida, ni su actualización, ni que
+dicha información haya sido alterada o modificada en todo o en parte, luego de haber sido incluida,
+ni cualquier otro aspecto o característica de la información brindada por medio de la aplicación móvil
+o a través de los links eventualmente incluidos en el misma."
+"LA EMPRESA no se responsabiliza por cualquier daño, perjuicio o pérdida al USUARIO causados por
+fallas en el sistema, en el servidor o en Internet."
+"LA EMPRESA no garantiza la ausencia de virus ni de otros elementos en los contenidos que puedan
+producir alteraciones en su sistema informático o en los documentos electrónicos y ficheros almacenados
+en su dispositivo móvil."
+"LA EMPRESA excluye cualquier responsabilidad por los daños y perjuicios de toda naturaleza que puedan
+deberse a la presencia de virus o a la presencia de otros elementos en los contenidos que puedan
+producir alteraciones en el sistema informático, documentos electrónicos o ficheros de los usuarios.\n"
+
+"Por lo mismo, LA EMPRESA no será responsable por ningún daño que se derive de cualquier alteración
+que se haya efectuado a los materiales para descargar provistos directamente la aplicación móvil.\n"
+
+15. TERMINACIÓN DEL SERVICIO.\n"
+
+"Sin perjuicio de esta Sección, el presente Acuerdo permanecerá en pleno vigor y efecto mientras el
+USUARIO utiliza los PRODUCTOS. De igual forma, El USUARIO reconoce y acepta que LA EMRPESA bajo su
+propia discreción podrá suspender o terminar la cuenta, o parte de esta, con o sin notificación previa
+por cualquier razón, incluyendo la sospecha por parte de LA EMPRESA de violación de los Términos y
+Condiciones aquí descritos. El USUARIO entiende que cualquier terminación de su cuenta implica la
+eliminación de su contenido de USUARIO asociado con el mismo de nuestras bases de datos en vivo.
+No tendremos ninguna responsabilidad hacia el USUARIO por cualquier terminación de este Acuerdo,
+incluyendo la terminación de la Cuenta o la eliminación del contenido del USUARIO. A la terminación
+de este Acuerdo, todas las disposiciones se terminarán excepto aquellos que por su naturaleza deberían
+sobrevivir.\n"
+
+16. RENUNCIA.\n"
+
+"Los PRODUCTOS se proporcionan “tal cual” y “como disponibles”. LA EMPRESA renuncia a toda declaración
+y garantía, expresa, implícita o estatutaria, no expresamente establecida en estas condiciones,
+incluidas las garantías implícitas de comerciabilidad, idoneidad para un fin particular y no violación.
+Además, LA EMPRESA no hace declaración ni presta garantía alguna relativa a la fiabilidad, puntualidad,
+calidad, idoneidad o disponibilidad de los PRODUCTOS o cualquiera de los PRODUCTOS de la aplicación
+móvil, o que los PRODUCTOS no serán interrumpidos o estarán libres de errores. LA EMPRESA no garantiza
+la calidad, idoneidad, seguridad o habilidad de las personas encargadas de realizar el domicilio. No
+obstante, LA EMPRESA hará esfuerzos razonables para prestar calidad en el PRODUCTO prestado a fin de
+contribuir con tranquilidad del USUARIO y mitigar el riesgo de incumplimiento por parte del personal
+encargado de la entrega frente al USUARIO. El USUARIO acuerda que todo riesgo derivado de su uso de
+los servicios y cualquier servicio o bien solicitado en relación con aquellos será únicamente de él
+o ella, en la máxima medida permitida por la ley aplicable.\n"
+
+"17. INDEMNIDAD.\n"
+
+"LA EMPRESA no será responsable y se excluye cualquier responsabilidad por daños, pérdidas (incluyendo
+daños o pérdidas directos, indirectos, resultantes, punitivos, especiales, etc.), reclamaciones,
+demandas, gastos (incluyendo costas legales), daños, sanciones y multas (incluyendo de terceros)
+relacionados directa o indirectamente con el servicio prestado por el personal encargado de la entrega
+del PRODUCTO, incluyendo: (i) el Dispositivo, la Aplicación, el Servicio y los Datos; (ii) el PRODUCTO,
+el Desplazamiento y el Vehículo; (iii) Cualquier daño o peligro asociado con la ejecución de las
+obligaciones del personal encargado de la entrega del PRODUCTO; (iv) Actos u omisiones del USUARIO
+(incluyendo el pago); (v) El contenido y las consecuencias de (la publicación o distribución de)
+cualquier comentario, calificación o crítica acerca del personal encargado de la entrega del PRODUCTO;
+y (vi) La resolución del Contrato de personal encargado de la entrega del PRODUCTO por cualquier
+momento de cualquier tipo.\n"
+
+"18. ATENCIÓN DE PETICIONES, QUEJAS Y RECLAMOS (PQRS)\n"
+
+"En caso de que se presente una petición, queja o recurso (PQRs) contra LA EMPRESA referida al
+servicio prestado por el personal encargado de la entrega del PRODUCTO, ésta dará traslado a personal
+encargado de la entrega del PRODUCTO en un término no mayor a dos (2) días hábiles. Recibida la PQR
+por parte de personal encargado de la entrega del PRODUCTO, éste deberá dar respuesta a la misma
+dentro del término máximo de quince (15) días hábiles contados a partir del día siguiente a la fecha
+de su recibo, enviándola con copia de la misma a LA EMPRESA Cuando no fuere posible atenderlo dentro
+de dicho término, el personal encargado de la entrega del PRODUCTO informará al interesado antes del
+vencimiento del referido plazo los motivos de la demora y la fecha en que se atenderá su reclamo,
+la cual en ningún caso podrá superar los ocho (8) días hábiles siguientes al vencimiento del primer
+término. Adicionalmente, el personal encargado de la entrega del PRODUCTO le notificará LA EMPRESA,
+de la respuesta a la PQR remitiéndole copia de la misma."
+"Es responsabilidad del personal encargado de la entrega del PRODUCTO comunicarle su respuesta a
+LA EMPRESA. En caso de que éste no lo haga, LA EMPRESA, podrá terminar el contrato de forma unilateral
+con justa causa.\n"
+
+"19. COMPROMISO DE CALIDAD.\n"
+
+"Tanto el personal encargado de la entrega del PRODUCTO como LA EMPRESA se comprometen a mantener
+los niveles de calidad en el servicio, los cuales se han puesto a disposición o pueden ponerse a
+disposición de las partes si así se solicita.\n"
+
+"20. RESPONSABILIDAD.\n"
+
+"LA EMRPESA responderá única y exclusivamente frente a terceros y frente al USUARIO, en aquellos
+casos en que se demuestre culpa grave o dolo por parte de LA EMPRESA en la causa que originó el
+daño o evento por el que se deba responder. De igual manera, LA EMPRESA responderá única y
+exclusivamente hasta por el valor de la tarifa de servicio requerido por el USUARIO.\n"
+
+"21. ANEXOS.\n"
+
+"Hacen parte integral de los Términos y Condiciones generales, los siguientes documentos donde se
+detallan políticas y/o Términos y Condiciones de diferentes productos ofrecidos por LA PLATAFORMA
+Los mismos se podrán consultar dentro de la Aplicación mediante el enlace abajo provisto o accediendo
+directamente a las páginas correspondientes.\n"
+
+"22. TRATAMIENTO DE DATOS.\n"
+
+"El USUARIO manifiesta de manera libre y voluntaria que autorizan a LA EMPRESA para realizar el
+tratamiento de sus datos personales que sean suministrados con ocasión a la prestación de servicios,
+los cuales se utilizarán para establecer y mantener la relación comercial, remitir información referente
+a la relación comercial, contractual u obligacional establecida con LA EMPRESA; Compartir su información
+personal y cualquier otra información de contacto y financiera con terceras partes en caso que LA
+EMPRESA considere que podrían servir para sus intereses comerciales; Efectuar el cobro de cuentas por
+pagos debido a los servicios prestados, y; Para cualquier otra finalidad que resulte en el desarrollo
+de la relación comercial que surja con ocasión en la presente relación contractual, dentro de las cuales
+se encuentra la remisión de cualquier información de carácter financiero, comercial, crediticio o de
+servicios con fines estadísticos, de control, o supervisión que deban procesarse, reportarse,
+conservarse, consultarse, suministrarse o actualizarse ante las centrales de información o bases de
+datos debidamente constituidas para tal fin, que estime conveniente, en los términos y durante el
+tiempo que los sistemas de bases de datos, las normas y las autoridades lo establezcan. El USUARIO
+reconoce y acepta que sus datos personales podrán ser puestos a disposición del personal encargado
+de labor correspondiente, dentro de LA EMPRESA, sin excluirse la posibilidad de ser transferidos a
+encargados, consultores, asesores, personas y oficinas externas según sea necesario. LA EMPRESA
+informa a los USUARIOS acerca de sus derechos como titular de datos personales, como lo son conocer,
+actualizar y rectificar sus datos personales frente a los Responsables del Tratamiento o Encargados
+del Tratamiento, solicitar prueba de la autorización otorgada al Responsable del Tratamiento, revocar
+la autorización y/o solicitar la supresión del dato cuando en el Tratamiento no se respeten los
+principios, derechos y garantías constitucionales y legales, y acceder en forma gratuita a sus datos
+personales que hayan sido objeto de Tratamiento, así como los demás dispuestos en la Ley. El USUARIO
+declara y reconoce y acepta que la información suministrada a LA PLATAFORMA, es de forma voluntaria,
+con ocasión del registro y/o prestación del servicio. De igual forma se comprometen a suministrar
+información verídica, que no se ha omitido o adulterado ninguna forma. Adicionalmente, el USUARIO
+manifiesta que se le ha puesto a su disposición, y que por lo tanto conocen los Términos y Condiciones
+de LA PLATAFORMA, los cuales se encuentran disponibles en un lugar visible de las instalaciones y en
+la Aplicación de LA PLATAFORMA, donde se mantendrá a su disposición la última versión de la mencionada
+Política."
+"El USUARIO autoriza a LA EMPRESA para recolectar y utilizar la información, datos y marcas comerciales
+para asuntos de carácter netamente comercial.\n"
+
+"23. LEY APLICABLE Y JURISDICCIÓN.\n"
+
+"Este acuerdo estará regido en todos sus puntos por las leyes vigentes en la Republica de Colombia.
+Cualquier controversia derivada del presente acuerdo, su existencia, validez, interpretación, alcance
+o cumplimiento, será sometida a las Leyes aplicables y a los tribunales competentes de la ciudad de
+Manizales y los procedimientos se llevarán a cabo en el idioma Castellano.\n"
+
+"24. DOMICILIO.\n"
+
+"Se fija como domicilio de LA EMPRESA la ciudad de Manizales, Colombia.\n\n"
+    </string>
+    <string name="privacy_policies">
+        "POLÍTICA DE PRIVACIDAD\n\n"
+        "Encuentra aquí los términos y condiciones (enlace).\n\n"
+        "LUMAPP, en adelante 'LA PLATAFORMA', es una marca de LUMA, en adelante 'LA EMPRESA'.\n\n"
+        "LA PLATAFORMA es utilizada para proteger su privacidad. ('LA EMPRESA ',' nos ',' nosotros'
+        'y' nuestro '), han preparado esta Política de Privacidad para describir a usted nuestras
+  prácticas con respecto a los Datos Personales (como se define más adelante) que obtenemos
+  de los usuarios en nuestra aplicación móvil (la 'Aplicación') y productos (como se define
+  en los Términos de Uso).\n\n"
+        "1.	Consentimiento del usuario: Al enviar datos personales a través de nuestros servicios, usted acepta los términos de esta Política de Privacidad y usted da su consentimiento expreso a la recogida, uso y divulgación de sus Datos Personales de conformidad con esta Política de Privacidad.\n\n"
+"2.	Una nota acerca de los niños: No recopilamos intencionadamente datos personales de los visitantes que están bajo la edad de 13 años.\n\n"
+"3.	Nota para usuarios fuera de Colombia: Sus datos personales pueden ser procesados en el país en el que se recogió y en otros países, incluyendo Colombia, donde las leyes sobre el procesamiento de los datos personales pueden ser menos estrictas que las leyes de su país.\n\n"
+"4.	Tipos de datos que recopilamos: "Datos Personales" significa los datos que permite a alguien identificar o contactar con usted, incluyendo, por ejemplo, su nombre, dirección, número de teléfono, dirección de correo electrónico, así como cualquier otra información no pública acerca de usted que se asocia o se vinculan, a cualquiera de los datos anteriores "Datos Privados" significa datos que no se asocia o se vinculan a sus datos personales; Datos Privados no permiten, por sí mismos, la identificación de las personas individuales. Recopilamos datos personales y datos privados, como se describe a continuación.\n\n"
+        "a.	Información que usted nos proporciona:\n"
+"•	Podemos recopilar datos personales de usted, como su nombre y apellido, e-mail contraseña cuando se crea una cuenta para iniciar sesión en nuestra red (" Cuenta ").\n"
+"•	Conservamos la información en su nombre, por ejemplo, archivos y mensajes que se almacenan utilizando su cuenta."
+"•	Si usted nos proporciona información o se pone en contacto con nosotros vía e-mail, vamos a recoger el nombre y dirección de correo electrónico, así como cualquier otro tipo de contenido incluido en el correo electrónico, con el fin de enviarle una respuesta.\n\n"
+    "b.	Información recopilada a través de la tecnología:\n"
+"•	Para hacer nuestros servicios más útiles para usted, nuestros servidores (que pueden ser acogidos por un tercero proveedor de servicios) recogen información de usted, incluyendo el tipo de navegador, sistema operativo, la dirección de protocolo de Internet (IP) (un número que se asigna automáticamente a su computadora cuando usa el Internet, que puede variar de una sesión a otra), nombre de dominio y de fecha / hora para su visita.\n"
+"•	Si está utilizando una de nuestras aplicaciones, podemos pedirle que nos proporcione su ubicación exacta, pero vamos a recoger la información sólo si usted nos brinda su consentimiento.\n"
+"•	El uso de sus datos personales.\n\n"
+        "c.	Uso General. En general, los datos personales que se nos brindan se utilizan ya sea para responder a las peticiones que se realicen, o para ayudarnos a servirle mejor. Utilizamos sus datos personales de las siguientes maneras:\n"
+"•	Para facilitar la creación y garantizar su cuenta en nuestra red.\n"
+"•	Identificarlo como un usuario en nuestro sistema.\n"
+"•	Proporcionar una mejor administración de nuestros servicios.\n"
+"•	Proporcionar los productos que solicita.\n"
+"•	Mejorar la calidad de la experiencia al interactuar con nuestros Servicios.\n"
+"•	Enviarte notificaciones por correo electrónico administrativos, como los avisos de seguridad o de soporte y mantenimiento.\n\n"
+        "d.	Creación de Datos Anónimos. Podemos crear registros de datos anónimos con Datos de Carácter Personal, al excluir la información (como su nombre) es el dato que se usa como su identificación personal. Utilizamos esta información anónima para analizar los patrones de solicitud y uso para que podamos mejorar el contenido de nuestros servicios y mejorar la navegación de la PLATAFORMA. LA EMPRESA se reserva el derecho de utilizar los datos anónimos para cualquier propósito y revelar datos anónimos a terceros a su sola discreción.\n\n"
+        "5.	La divulgación de sus datos personales. Nos revelan sus datos personales tal como se describe a continuación y como se describe en otra parte de esta Política de Privacidad.\n"
+"•	Proveedores de Servicios de Terceros Podemos compartir sus datos personales con terceros proveedores de servicios a: para facilitar la creación de cuentas; para proporcionar apoyo técnico; y / o para proporcionar otros servicios a la EMPRESA.\n"
+"•	Afiliados y Adquisiciones. Podemos compartir todos o algunos de sus Datos Personales con nuestra empresa matriz, subsidiarias, empresas conjuntas, o de otras compañías bajo un control común (" Afiliados "), en cuyo caso exigiremos nuestros Afiliados para honrar a esta Política de Privacidad. Si otra empresa adquiere nuestra empresa, negocio o nuestros activos, esa compañía poseerá los datos personales recogidos por nosotros y asumirá los derechos y obligaciones con respecto a sus Datos Personales como se describe en esta Política de Privacidad.\n"
+"•	Otras Revelaciones. Independientemente de las decisiones que tome en relación con sus datos personales (como se describe más adelante), la empresa puede divulgar los Datos Personales si cree de buena fe que dicha revelación es necesaria (a) en relación con cualquier investigación legal; (B) para cumplir con las leyes pertinentes o para responder a citaciones u órdenes servido en la empresa; (C) para proteger o defender los derechos o la propiedad de la empresa o de los usuarios de los Servicios; y / o (d) para investigar o ayudar en la prevención de cualquier violación o potencial violación de la ley, esta política de privacidad o condiciones de uso.\n\n"
+"6.	Sitios Web de Terceros. Al hacer clic en un enlace a cualquier otro sitio web o ubicación, saldrá de nuestro sitio e ir a otro sitio y otra entidad puede recopilar datos personales o datos anónimos de usted. No tenemos ningún control sobre esta información y no revisamos y no podemos ser responsables de estos sitios web externos o su contenido. Tenga en cuenta que los términos de esta política de privacidad no se aplican a estos sitios web externos o contenido, o cualquier conjunto de datos después de que haga clic en los enlaces a dichos sitios web externos.\n\n"
+"7.	Sus elecciones respecto a sus datos personales:\n"
+"•	Las opciones. Le ofrecemos opciones con respecto a la recopilación, el uso y la difusión de sus datos personales.\n"
+"•	Vamos a enviarle periódicamente boletines gratuitos y correos electrónicos que promueven directamente el uso de nuestros Servicios. Cuando recibe boletines o comunicaciones promocionales de nuestra parte, puede indicar una preferencia para dejar de recibir más comunicaciones de nosotros y usted tendrá la oportunidad de "Darse de Baja" siguiendo las instrucciones para cancelar la suscripción en la dirección de correo que usted recibe o poniéndose en contacto nosotros directamente (por favor ver la información de contacto más abajo).\n"
+"•	A pesar de sus preferencias de correo electrónico indicadas, podemos enviarle servicio de comunicaciones relacionadas, incluyendo las notificaciones de las actualizaciones a nuestros Términos de Uso o la Política de Privacidad.\n"
+"•	Cambios en los datos personales. Puede cambiar cualquiera de sus datos personales en su cuenta mediante el envío de un correo electrónico a nosotros en la dirección de correo electrónico se indica a continuación. Usted puede solicitar la cancelación de sus datos personales por nosotros, pero tenga en cuenta que vamos a mantener todas las transacciones como registros de negocios y puede ser requerido para mantener otra información y no eliminarla (o para mantener otra información durante un cierto tiempo, en cuyo caso cumpliremos con su solicitud de eliminación sólo después de que hemos cumplido estos requisitos). Cuando borramos cualquier información, se elimina de la base de datos activa, pero puede permanecer en nuestros archivos. Podemos conservar su información para la prevención del fraude o usos similares.\n\n"
+"8.	La seguridad de sus datos personales. Estamos comprometidos a proteger la seguridad de sus Datos Personales. Utilizamos una variedad de tecnologías y procedimientos de seguridad estándar de la industria para ayudar a proteger sus datos personales frente al acceso, uso o divulgación. También requerimos que introduzca una contraseña para acceder a su información de cuenta. Por favor, no revelar su contraseña de su cuenta a las personas no autorizadas. Ningún método de transmisión por Internet, o método de almacenamiento electrónico, es 100% seguro. Por lo tanto, mientras que utilizamos esfuerzos razonables para proteger sus datos personales, no podemos garantizar su seguridad absoluta.\n\n"
+"9.	Información de Contacto. Nuestra empresa le da la bienvenida a sus comentarios o preguntas acerca de esta Política de Privacidad. Por favor, envíenos un correo electrónico a info@luma.com.co\n\n"
+        "CAMBIOS A ESTA POLÍTICA DE PRIVACIDAD\n\n"
+        "Esta Política de Privacidad está sujeta a revisión ocasional, y si hacemos cualquier cambio sustancial en la forma en que utilizamos sus Datos Personales, le notificaremos mediante el envío de un correo electrónico a la última dirección de correo dirección que nos proporcionó y / o colocando avisos prominentes de los cambios en nuestro sitio. Cualquier cambio a esta Política de Privacidad serán eficaces cuando ocurra el primero de los treinta (30) días naturales siguientes a nuestro envío de una notificación por correo electrónico a usted o treinta (30) días naturales siguientes a nuestra publicación de la notificación de los cambios en nuestro sitio. Estos cambios se harán efectivos inmediatamente para los nuevos usuarios de nuestro servicio. Por favor, tenga en cuenta que en todo momento usted es responsable de actualizar sus datos personales que nos proporcione su dirección de e-mail más actual. En el caso de que el último e-mail que usted nos ha proporcionado no es válido, o por cualquier razón no es capaz de entregar a usted el aviso descrito anteriormente, nuestro envío del correo electrónico con dicha notificación constituirá de todos modos notificación efectiva de los cambios descritos en la convocatoria. En cualquier caso, los cambios en esta política de privacidad pueden afectar nuestro uso de los datos personales que usted nos proporcionó antes de nuestra notificación a usted de los cambios. Si usted no desea permitir cambios en nuestro uso de sus datos personales, debe notificarnos antes de la fecha efectiva de los cambios que desea desactivar su cuenta con nosotros. El uso continuado de nuestros servicios, a raíz de comunicar dichos cambios indicará que usted reconoce dichos cambios y el acuerdo en obligarse por los términos y condiciones de dichos cambios.\n\n"
+
+    </string>
+
 </resources>

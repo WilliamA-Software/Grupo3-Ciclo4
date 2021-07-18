@@ -4,14 +4,19 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/gray</item>
         <item name="colorPrimaryVariant">@color/light_gray</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/gray</item>
-        <item name="colorSecondaryVariant">@color/dark_gray</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondaryVariant">@color/dark3_gray</item>
+        <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.LUMA.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
     <style name="Theme.LUMA.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

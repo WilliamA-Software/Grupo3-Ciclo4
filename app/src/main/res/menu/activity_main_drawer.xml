@@ -11,10 +11,10 @@
         <item
             android:fontFamily="@font/monotype_corsiva"
             android:id="@+id/nav_mis_compras"
-            android:title="@string/menu_mis_compras" />
+            android:title="@string/products" />
         <item
             android:fontFamily="@font/monotype_corsiva"
             android:id="@+id/nav_historial"
-            android:title="@string/menu_historial" />
+            android:title="@string/favorites" />
     </group>
 </menu>
