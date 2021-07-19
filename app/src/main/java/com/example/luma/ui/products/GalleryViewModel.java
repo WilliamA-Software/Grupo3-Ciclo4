@@ -1,4 +1,4 @@
-package com.example.luma.ui.gallery;
+package com.example.luma.ui.products;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -10,7 +10,7 @@ public class GalleryViewModel extends ViewModel {
 
     public GalleryViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is gallery fragment");
+        mText.setValue("This is products fragment");
     }
 
     public LiveData<String> getText() {

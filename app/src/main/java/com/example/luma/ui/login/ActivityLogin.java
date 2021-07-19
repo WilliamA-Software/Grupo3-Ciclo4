@@ -1,10 +1,8 @@
-package com.example.luma.ui;
+package com.example.luma.ui.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,8 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.luma.R;
+import com.example.luma.ui.DrawerActivity;
 import com.example.luma.ui.signup.SignupActivity;
 
 public class ActivityLogin extends AppCompatActivity {
@@ -51,7 +50,7 @@ public class ActivityLogin extends AppCompatActivity {
 
                 if (username.equals("admin@mail.com") && password.equals("123456789")){
                     Log.e("LOGIN","INICIÓ CORRECTAMENTE");
-                    Intent mainActivity = new Intent(mySelf, MainActivity.class);
+                    Intent mainActivity = new Intent(mySelf, DrawerActivity.class);
                     mainActivity.putExtra("username",username);
                     startActivity(mainActivity);
                 } else{
@@ -71,14 +70,14 @@ public class ActivityLogin extends AppCompatActivity {
         });
 
         // --------- CLICK FORGET PASSWORD ------------
-//        tv_password.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v){
-//                //Cuando el usuario da click en el boton sign up
-//                Intent activity_signup = new Intent(mySelf, ForgetActivity.class);
-//                startActivity(activity_signup);
-//            }
-//        });
+        tv_password.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                //Cuando el usuario da click en el boton sign up
+                Intent activity_signup = new Intent(mySelf, ForgetPassword.class);
+                startActivity(activity_signup);
+            }
+        });
 
 
     }

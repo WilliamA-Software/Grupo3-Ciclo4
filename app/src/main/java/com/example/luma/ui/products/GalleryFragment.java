@@ -1,4 +1,4 @@
-package com.example.luma.ui.gallery;
+package com.example.luma.ui.products;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,19 +12,19 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.drawermenu.databinding.FragmentGalleryBinding;
+import com.example.luma.databinding.FragmentProductsBinding;
 
 public class GalleryFragment extends Fragment {
 
     private GalleryViewModel galleryViewModel;
-    private FragmentGalleryBinding binding;
+    private FragmentProductsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         galleryViewModel =
                 new ViewModelProvider(this).get(GalleryViewModel.class);
 
-        binding = FragmentGalleryBinding.inflate(inflater, container, false);
+        binding = FragmentProductsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textGallery;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.drawermenu">
+    package="com.example.luma">
 
     <application
         android:allowBackup="true"
@@ -9,11 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LUMA.NoActionBar">
-        <activity android:name="com.example.luma.ui.login.ForgetPassword"></activity>
+        <activity android:name="com.example.luma.ui.login.ForgetPassword"/>
+        <activity android:name="com.example.luma.ui.DrawerActivity"/>
         <activity android:name="com.example.luma.ui.login.TermsConditions" />
-        <activity android:name="com.example.luma.ui.login.SignupActivity" />
-        <activity android:name="com.example.luma.ui.MainActivity"/>
-        <activity android:name="com.example.luma.ui.ActivityLogin">
+        <activity android:name="com.example.luma.ui.signup.SignupActivity" />
+        <activity android:name="com.example.luma.ui.login.ActivityLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

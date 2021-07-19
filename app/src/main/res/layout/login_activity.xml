@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActivityLogin"
+    tools:context="com.example.luma.ui.login.ActivityLogin"
     android:background="@color/gray"
     android:orientation="vertical">
 
@@ -67,7 +67,7 @@
             android:fontFamily="@font/philosopher"
             android:textSize="20sp"
             android:textColor="@color/white"
-            android:hint="@string/tv_login"
+            android:text="@string/tv_login"
             android:layout_marginVertical="10dp">
         </TextView>
 
@@ -83,9 +83,11 @@
             android:layout_marginVertical="5dp"
             android:selectAllOnFocus="true"
             android:padding="15dp"
-            android:textColor="@color/dark_gray"
+            android:textColor="@color/dark3_gray"
             android:drawableStart="@android:drawable/ic_dialog_email"
-            android:autofillHints="email">
+            android:drawablePadding="5dp"
+            android:autofillHints="email"
+            android:drawableLeft="@android:drawable/ic_dialog_email">
         </EditText>
 
         <EditText
@@ -102,7 +104,9 @@
             android:selectAllOnFocus="true"
             android:textColor="@color/dark_gray"
             android:drawableStart="@android:drawable/ic_secure"
-            android:autofillHints="password">
+            android:drawablePadding="5dp"
+            android:autofillHints="password"
+            android:drawableLeft="@android:drawable/ic_secure">
 
         </EditText>
 
@@ -176,7 +180,8 @@
                 android:gravity="center_horizontal"
                 android:text="@string/tv_not_account"
                 android:fontFamily="@font/philosopher"
-                android:layout_marginEnd="5dp">
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp">
             </TextView>
 
             <TextView
