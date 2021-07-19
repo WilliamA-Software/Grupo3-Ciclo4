@@ -1,6 +1,7 @@
 package com.example.luma.ui.signup;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
@@ -24,6 +25,10 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.luma.R;
 import com.example.luma.databinding.ActivitySignupBinding;
+import com.example.luma.ui.DrawerActivity;
+import com.example.luma.ui.login.ActivityLogin;
+import com.example.luma.ui.login.ForgetPassword;
+import com.example.luma.ui.login.TermsConditions;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -69,7 +74,11 @@ public class SignupActivity extends AppCompatActivity {
         final CheckBox checkBox = binding.cbPtc;
         final Button signupButton = binding.btSignup;
         signupButton.setEnabled(false);
+        final TextView loginTextView = binding.tvLogin;
+        final TextView policiestc = binding.tvPtc;
         final ProgressBar loadingProgressBar = binding.loading;
+        final Activity mySelf;
+        mySelf = this;
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
@@ -182,8 +191,38 @@ public class SignupActivity extends AppCompatActivity {
 
             }
         });
-    }
 
+        // --------- CLICK POLITICAS TERMINOS Y CONDICIONES ------------
+        policiestc.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                //Cuando el usuario da click en el texto de Politicas, Terminos y Condiciones
+                Intent activity = new Intent(mySelf, TermsConditions.class);
+                startActivity(activity);
+            }
+        });
+
+        // --------- CLICK SIGN UP ------------
+        signupButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                //Cuando el usuario da click en el boton Sign Up lo lleva al home
+                Intent activity = new Intent(mySelf, DrawerActivity.class);
+                activity.putExtra("name", name);
+                startActivity(activity);
+            }
+        });
+
+        // --------- CLICK LOGIN ------------
+        loginTextView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                //Cuando el usuario da click en el texto de Login
+                Intent activity = new Intent(mySelf, ActivityLogin.class);
+                startActivity(activity);
+            }
+        });
+    }
     private void updateUiWithUser(String s) {
         String welcome = getString(R.string.welcome) + " " + s;
         // TODO : initiate successful logged in experience

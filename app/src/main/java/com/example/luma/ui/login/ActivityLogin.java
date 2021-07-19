@@ -48,13 +48,13 @@ public class ActivityLogin extends AppCompatActivity {
                 String username = et_email.getText().toString();
                 String password = et_password.getText().toString();
 
-                if (username.equals("admin@mail.com") && password.equals("123456789")){
-                    Log.e("LOGIN","INICIÓ CORRECTAMENTE");
+                if (username.equals("admin") && password.equals("123")){
+//                    Log.e("LOGIN","INICIÓ CORRECTAMENTE");
                     Intent mainActivity = new Intent(mySelf, DrawerActivity.class);
                     mainActivity.putExtra("username",username);
                     startActivity(mainActivity);
                 } else{
-                    Log.e("LOGIN","ERROR, FALLÓ SESION");
+                    Log.e("LOGIN","ERROR, FALLÓ DE SESION");
                 }
             }
         });

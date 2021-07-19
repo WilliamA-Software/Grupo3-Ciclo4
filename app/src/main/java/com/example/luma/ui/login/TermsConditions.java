@@ -72,8 +72,9 @@ public class TermsConditions extends AppCompatActivity {
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent mainActivity = new Intent(mySelf, DrawerActivity.class);
-                startActivity(mainActivity);
+//                Intent mainActivity = new Intent(mySelf, DrawerActivity.class);
+//                startActivity(mainActivity);
+                finish();
             }
         });
 

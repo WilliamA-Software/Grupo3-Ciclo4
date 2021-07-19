@@ -8,6 +8,7 @@
     android:background="@color/gray"
     android:orientation="vertical">
 
+    // Encabezado
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -21,19 +22,14 @@
         <TextView
             android:id="@+id/tv_luma"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:fontFamily="@font/philosopher"
-            android:gravity="center_horizontal"
+            android:gravity="center"
             android:text="@string/tv_luma"
             android:textColor="@color/white"
-            android:textSize="90sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-        </TextView>
-
+            android:textSize="90sp" />
         <TextView
             android:id="@+id/tv_mya"
             android:layout_width="match_parent"
@@ -47,10 +43,10 @@
             android:textSize="28sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_luma">
-        </TextView>
-    </LinearLayout>
+            app:layout_constraintTop_toBottomOf="@+id/tv_luma" />
 
+    </LinearLayout>
+/ Login con boxd e email y password
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -75,7 +71,7 @@
             android:id="@+id/et_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/light_gray"
+            android:background="@drawable/et_rounded"
             android:inputType="textEmailAddress"
             android:textSize="20sp"
             android:hint="@string/et_email"
@@ -84,10 +80,8 @@
             android:selectAllOnFocus="true"
             android:padding="15dp"
             android:textColor="@color/dark3_gray"
-            android:drawableStart="@android:drawable/ic_dialog_email"
             android:drawablePadding="5dp"
-            android:autofillHints="email"
-            android:drawableLeft="@android:drawable/ic_dialog_email">
+            android:autofillHints="email" >
         </EditText>
 
         <EditText
@@ -97,7 +91,7 @@
             android:inputType="textPassword"
             android:textSize="20sp"
             android:fontFamily="@font/philosopher"
-            android:background="@color/light_gray"
+            android:background="@drawable/et_rounded"
             android:hint="@string/et_password"
             android:layout_marginVertical="5dp"
             android:padding="15dp"
@@ -105,14 +99,10 @@
             android:textColor="@color/dark_gray"
             android:drawableStart="@android:drawable/ic_secure"
             android:drawablePadding="5dp"
-            android:autofillHints="password"
-            android:drawableLeft="@android:drawable/ic_secure">
-
-        </EditText>
-
+            android:autofillHints="password" />
 
     </LinearLayout>
-
+// Boton y texto de "olvido contraseña"
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -129,13 +119,13 @@
             android:gravity="center_horizontal">
 
             <Button
+                android:id="@+id/btn_login"
                 android:layout_gravity="center"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="16dp"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
-                android:id="@+id/btn_login"
                 android:textSize="18sp"
                 android:fontFamily="@font/philosopher"
                 android:paddingHorizontal="35dp"
@@ -150,14 +140,15 @@
             android:id="@+id/tv_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:textSize="18sp"
+            android:textColor="@color/white"
             android:gravity="center_horizontal"
             android:fontFamily="@font/philosopher"
             android:layout_marginTop="15dp"
             android:text="@string/tv_forgot_password">
         </TextView>
     </LinearLayout>
-
+// Enlace para crear una nueva cuenta
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -168,25 +159,25 @@
         android:gravity="center">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:gravity="center_horizontal"
                 android:text="@string/tv_not_account"
+                android:textColor="@color/dark3_gray"
                 android:fontFamily="@font/philosopher"
-                android:layout_marginEnd="5dp"
-                android:layout_marginRight="5dp">
+                android:layout_marginEnd="10dp">
             </TextView>
 
             <TextView
                 android:id="@+id/tv_signup"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:textColor="@color/white"
