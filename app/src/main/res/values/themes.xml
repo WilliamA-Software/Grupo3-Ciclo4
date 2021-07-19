@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.LUMA" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.LUMA" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/gray</item>
         <item name="colorPrimaryVariant">@color/light_gray</item>
@@ -13,11 +13,6 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
         <item name="buttonStyle">@style/bt_luma1</item>
-    </style>
-
-    <style name="Theme.LUMA.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
     </style>
 
     <style name="Theme.LUMA.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
