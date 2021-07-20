@@ -27,7 +27,6 @@ import com.example.luma.R;
 import com.example.luma.databinding.ActivitySignupBinding;
 import com.example.luma.ui.DrawerActivity;
 import com.example.luma.ui.login.ActivityLogin;
-import com.example.luma.ui.login.ForgetPassword;
 import com.example.luma.ui.login.TermsConditions;
 
 public class SignupActivity extends AppCompatActivity {
@@ -43,30 +42,10 @@ public class SignupActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-//// This 2 lines remove the Title Bar from the app
-//        requestWindowFeature(Window.FEATURE_NO_TITLE);
-//        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-//        getSupportActionBar().hide(); // This line removes the Action Bar from each activity, instead is better to remove it from the themes.xml file
-
         binding = ActivitySignupBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // Instancia del almacenamiento persistente
-        storage = getSharedPreferences("STORAGE", MODE_PRIVATE);
-        // Obtengo los datos de usuario almacenados
-        String name = storage.getString("NAME", "NO NAME");
-        String lastname = storage.getString("LASTNAME", "NO LASTNAME");
-        String mail = storage.getString("MAIL", "NO MAIL");
-        String password = storage.getString("PASSWORD", "NO PASSWORD");
-        if (mail.equals("admin@mail.com") && password.equals("123456789")){
-//            Intent drawer = new Intent(this, DrawerActivity.class);
-//            starActivity(drawer);
-            Toast.makeText(this, "DATA SAVED", Toast.LENGTH_LONG);
-        }
-
-        loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
-                .get(LoginViewModel.class);
-
+        // Declaracion de variables del metodo: onCreate
         final EditText usernameEditText = binding.name;
         final EditText lastnameEditText = binding.lastname;
         final EditText mailEditText = binding.mail;
@@ -79,6 +58,24 @@ public class SignupActivity extends AppCompatActivity {
         final ProgressBar loadingProgressBar = binding.loading;
         final Activity mySelf;
         mySelf = this;
+
+        // Instancia del almacenamiento persistente
+        storage = getSharedPreferences("STORAGE", MODE_PRIVATE);
+
+        // Obtengo los datos de usuario si ya estan almacenados previamente
+        String name = storage.getString("NAME", "NO NAME");
+        String lastname = storage.getString("LASTNAME", "NO LASTNAME");
+        String email = storage.getString("EMAIL", "NO MAIL");
+        String password = storage.getString("PASSWORD", "NO PASSWORD");
+
+        // Almacenamiento local del primer usuario administrador de pruebas
+        SharedPreferences.Editor editor = storage.edit();
+        editor.putString("EMAIL", "admin");
+        editor.putString("PASSWORD", "123");
+        editor.apply();
+
+        loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
+                .get(LoginViewModel.class);
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
@@ -164,31 +161,7 @@ public class SignupActivity extends AppCompatActivity {
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked && validForm){
-                    signupButton.setEnabled(true);
-                } else
-                    signupButton.setEnabled(false);
-            }
-        });
-
-        signupButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loadingProgressBar.setVisibility(View.VISIBLE);
-
-//          Almacenamiento local de los datos de usuario
-                SharedPreferences.Editor editor = storage.edit();
-                editor.putString("NAME", usernameEditText.toString());
-                editor.putString("LASTNAME", lastnameEditText.toString());
-                editor.putString("MAIL", mailEditText.toString());
-                editor.putString("PASSWORD", passwordEditText.toString());
-                editor.commit();
-
-//                loginViewModel.signup(usernameEditText.getText().toString(),
-//                        lastnameEditText.getText().toString(),
-//                        mailEditText.getText().toString(),
-//                        passwordEditText.getText().toString());
-
+                signupButton.setEnabled(isChecked && validForm);
             }
         });
 
@@ -206,10 +179,20 @@ public class SignupActivity extends AppCompatActivity {
         signupButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+//                loadingProgressBar.setVisibility(View.VISIBLE);
+                // Almacenamiento local de las llaves
+//                SharedPreferences.Editor editor = storage.edit();
+                editor.putString("NAME", usernameEditText.getText().toString());
+                editor.putString("LASTNAME", lastnameEditText.getText().toString());
+                editor.putString("EMAIL", mailEditText.getText().toString());
+                editor.putString("PASSWORD", passwordEditText.getText().toString());
+                editor.apply();
+
                 //Cuando el usuario da click en el boton Sign Up lo lleva al home
                 Intent activity = new Intent(mySelf, DrawerActivity.class);
                 activity.putExtra("name", name);
                 startActivity(activity);
+                finish();
             }
         });
 

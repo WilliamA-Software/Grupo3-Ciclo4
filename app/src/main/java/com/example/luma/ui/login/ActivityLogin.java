@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.luma.R;
 import com.example.luma.ui.DrawerActivity;
@@ -67,7 +68,6 @@ public class ActivityLogin extends AppCompatActivity {
                 //Cuando el usuario de click en el boton login
                 String email = et_email.getText().toString();
                 String password = et_password.getText().toString();
-
                 
 // william: ***************************** POR CORREGIR ******************************
 //
