@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.luma.R;
 import com.example.luma.ui.DrawerActivity;
@@ -45,6 +44,9 @@ public class ActivityLogin extends AppCompatActivity {
         tv_password = findViewById(R.id.tv_password);
         tv_signup = findViewById(R.id.tv_signup);
 
+        String email_et = et_email.getText().toString();
+        String password_et = et_password.getText().toString();
+
         // referenciar el preference
         storage = getSharedPreferences("STORAGE", MODE_PRIVATE);
 
@@ -53,13 +55,18 @@ public class ActivityLogin extends AppCompatActivity {
         String email = storage.getString("EMAIL", "NO HAY USUARIO");
         String password = storage.getString("PASSWORD", "NO HAY USUARIO");
 
-        // comprobar si los datos almacenados son correctos
-        // y de una paso al inicio sin pedir login de nuevo
-        if (email.equals("admin") && password.equals("123")) {
+        if(email.equals("NO HAY USUARIO") || password.equals("NO HAY USUARIO")){
+            // Almacenamiento local del primer usuario administrador de pruebas
+            SharedPreferences.Editor editor = storage.edit();
+            editor.putString("EMAIL", "admin");
+            editor.putString("PASSWORD", "123");
+            editor.apply();
+
+        }else{
             Intent drawerActivity = new Intent(mySelf, DrawerActivity.class);
             startActivity(drawerActivity);
+            finish();
         }
-
 
         // --------- CLICK LOGIN ------------
         btn_login.setOnClickListener(new View.OnClickListener() {
@@ -68,29 +75,29 @@ public class ActivityLogin extends AppCompatActivity {
                 //Cuando el usuario de click en el boton login
                 String email = et_email.getText().toString();
                 String password = et_password.getText().toString();
-                
-// william: ***************************** POR CORREGIR ******************************
-//
-//                 Log.e("EMAIL",email);
-//                 Log.e("PASSWORD",password);
 
-//                 if (email.equals("admin") && password.equals("123")){
-//                   AlertDialog.Builder builder = new AlertDialog.Builder(mySelf);
-//                   builder.setTitle(R.string.tv_login);
-//                   builder.setMessage(R.string.txt_success_login);
-//                   builder.setPositiveButton(R.string.txt_accept, new DialogInterface.OnClickListener() {
-//                         @Override
-//                         public void onClick(DialogInterface dialog, int which) {
+                String email_storage = storage.getString("EMAIL", "NO HAY USUARIO");
+                String password_storage = storage.getString("PASSWORD", "NO HAY USUARIO");
 
-//                             //creo aquí los preferences y el commit para escribirlos
-//                             SharedPreferences.Editor editor = storage.edit();
-//                             editor.putString("EMAIL", email);
-//                             editor.putString("PASSWORD", password);
-//                             editor.commit();
+                Log.e("EMAIL del edit",email);
+                Log.e("PASSWORD del edit",password);
 
+                Log.e("EMAIL del storage",email_storage);
+                Log.e("PASSWORD del storage",password_storage);
+
+                if (email.equals(email_storage) && password.equals(password_storage)){
+                  AlertDialog.Builder builder = new AlertDialog.Builder(mySelf);
+                  builder.setTitle(R.string.tv_login);
+                  builder.setMessage(R.string.txt_success_login);
+                  builder.setPositiveButton(R.string.txt_accept, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                            //creo redirecciono
                             Log.e("LOGIN","INICIÓ CORRECTAMENTE");
                             Intent drawerActivity = new Intent(mySelf, DrawerActivity.class);
                             startActivity(drawerActivity);
+                            finish();
                         }
                     });
                     builder.setNegativeButton(R.string.txt_cancel, null);
