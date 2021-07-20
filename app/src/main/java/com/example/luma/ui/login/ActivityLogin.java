@@ -3,7 +3,10 @@ package com.example.luma.ui.login;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -25,12 +28,15 @@ public class ActivityLogin extends AppCompatActivity {
     private TextView tv_password;
     private TextView tv_signup;
 
+    // Declarar SharePreferences
+    private SharedPreferences storage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
 
-        // Referenciar las variables
+        // intanciar las variables
         mySelf = this;
         et_email = findViewById(R.id.et_email);
         et_password = findViewById(R.id.et_password);
@@ -38,6 +44,20 @@ public class ActivityLogin extends AppCompatActivity {
         tv_password = findViewById(R.id.tv_password);
         tv_signup = findViewById(R.id.tv_signup);
 
+        // referenciar el preference
+        storage = getSharedPreferences("STORAGE", MODE_PRIVATE);
+
+        // creo las variables las cuales tienen el string con el get
+        // para los datos guardados
+        String email = storage.getString("EMAIL", "NO HAY USUARIO");
+        String password = storage.getString("PASSWORD", "NO HAY USUARIO");
+
+        // comprobar si los datos almacenados son correctos
+        // y de una paso al inicio sin pedir login de nuevo
+        if (email.equals("admin") && password.equals("123")) {
+            Intent drawerActivity = new Intent(mySelf, DrawerActivity.class);
+            startActivity(drawerActivity);
+        }
 
 
         // --------- CLICK LOGIN ------------
@@ -45,16 +65,42 @@ public class ActivityLogin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Cuando el usuario de click en el boton login
-                String username = et_email.getText().toString();
+                String email = et_email.getText().toString();
                 String password = et_password.getText().toString();
 
-                if (username.equals("admin") && password.equals("123")){
-//                    Log.e("LOGIN","INICIÓ CORRECTAMENTE");
-                    Intent mainActivity = new Intent(mySelf, DrawerActivity.class);
-                    mainActivity.putExtra("username",username);
-                    startActivity(mainActivity);
+                Log.e("EMAIL",email);
+                Log.e("PASSWORD",password);
+
+                if (email.equals("admin") && password.equals("123")){
+                  AlertDialog.Builder builder = new AlertDialog.Builder(mySelf);
+                  builder.setTitle(R.string.tv_login);
+                  builder.setMessage(R.string.txt_success_login);
+                  builder.setPositiveButton(R.string.txt_accept, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                            //creo aquí los preferences y el commit para escribirlos
+                            SharedPreferences.Editor editor = storage.edit();
+                            editor.putString("EMAIL", email);
+                            editor.putString("PASSWORD", password);
+                            editor.commit();
+
+                            Log.e("LOGIN","INICIÓ CORRECTAMENTE");
+                            Intent drawerActivity = new Intent(mySelf, DrawerActivity.class);
+                            startActivity(drawerActivity);
+                        }
+                    });
+                    builder.setNegativeButton(R.string.txt_cancel, null);
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
                 } else{
                     Log.e("LOGIN","ERROR, FALLÓ DE SESION");
+                    AlertDialog.Builder builder = new AlertDialog.Builder(mySelf);
+                    builder.setTitle(R.string.tv_login);
+                    builder.setMessage(R.string.txt_error_login);
+
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
                 }
             }
         });
