@@ -63,16 +63,10 @@ public class SignupActivity extends AppCompatActivity {
         storage = getSharedPreferences("STORAGE", MODE_PRIVATE);
 
         // Obtengo los datos de usuario si ya estan almacenados previamente
-        String name = storage.getString("NAME", "NO NAME");
-        String lastname = storage.getString("LASTNAME", "NO LASTNAME");
-        String email = storage.getString("EMAIL", "NO MAIL");
-        String password = storage.getString("PASSWORD", "NO PASSWORD");
-
-        // Almacenamiento local del primer usuario administrador de pruebas
-        SharedPreferences.Editor editor = storage.edit();
-        editor.putString("EMAIL", "admin");
-        editor.putString("PASSWORD", "123");
-        editor.apply();
+        String name = storage.getString("NAME1", "NO NAME");
+        String lastname = storage.getString("LASTNAME1", "NO LASTNAME");
+        String email = storage.getString("EMAIL1", "NO MAIL");
+        String password = storage.getString("PASSWORD1", "NO PASSWORD");
 
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
@@ -181,11 +175,11 @@ public class SignupActivity extends AppCompatActivity {
             public void onClick(View v){
 //                loadingProgressBar.setVisibility(View.VISIBLE);
                 // Almacenamiento local de las llaves
-//                SharedPreferences.Editor editor = storage.edit();
-                editor.putString("NAME", usernameEditText.getText().toString());
-                editor.putString("LASTNAME", lastnameEditText.getText().toString());
-                editor.putString("EMAIL", mailEditText.getText().toString());
-                editor.putString("PASSWORD", passwordEditText.getText().toString());
+                SharedPreferences.Editor editor = storage.edit();
+                editor.putString("NAME1", usernameEditText.getText().toString());
+                editor.putString("LASTNAME1", lastnameEditText.getText().toString());
+                editor.putString("EMAIL1", mailEditText.getText().toString());
+                editor.putString("PASSWORD1", passwordEditText.getText().toString());
                 editor.apply();
 
                 //Cuando el usuario da click en el boton Sign Up lo lleva al home

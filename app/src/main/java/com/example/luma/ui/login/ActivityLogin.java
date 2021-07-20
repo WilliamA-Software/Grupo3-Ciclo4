@@ -52,20 +52,19 @@ public class ActivityLogin extends AppCompatActivity {
 
         // creo las variables las cuales tienen el string con el get
         // para los datos guardados
-        String email = storage.getString("EMAIL", "NO HAY USUARIO");
-        String password = storage.getString("PASSWORD", "NO HAY USUARIO");
+        String email = storage.getString("EMAIL", "");
+        String password = storage.getString("PASSWORD", "");
 
-        if(email.equals("NO HAY USUARIO") || password.equals("NO HAY USUARIO")){
+        if(email.equals("admin") || password.equals("123")){
+            Intent drawerActivity = new Intent(mySelf, DrawerActivity.class);
+            startActivity(drawerActivity);
+            finish();
+        } else {
             // Almacenamiento local del primer usuario administrador de pruebas
             SharedPreferences.Editor editor = storage.edit();
             editor.putString("EMAIL", "admin");
             editor.putString("PASSWORD", "123");
             editor.apply();
-
-        }else{
-            Intent drawerActivity = new Intent(mySelf, DrawerActivity.class);
-            startActivity(drawerActivity);
-            finish();
         }
 
         // --------- CLICK LOGIN ------------
