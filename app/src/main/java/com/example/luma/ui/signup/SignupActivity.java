@@ -181,12 +181,12 @@ public class SignupActivity extends AppCompatActivity {
             public void onClick(View v){
 //                loadingProgressBar.setVisibility(View.VISIBLE);
                 // Almacenamiento local de las llaves
-                SharedPreferences.Editor editor = storage.edit();
-                editor.putString("NAME", usernameEditText.toString());
-                editor.putString("LASTNAME", lastnameEditText.toString());
-                editor.putString("EMAIL", mailEditText.toString());
-                editor.putString("PASSWORD", passwordEditText.toString());
-                editor.commit();
+//                SharedPreferences.Editor editor = storage.edit();
+                editor.putString("NAME", usernameEditText.getText().toString());
+                editor.putString("LASTNAME", lastnameEditText.getText().toString());
+                editor.putString("EMAIL", mailEditText.getText().toString());
+                editor.putString("PASSWORD", passwordEditText.getText().toString());
+                editor.apply();
 
                 //Cuando el usuario da click en el boton Sign Up lo lleva al home
                 Intent activity = new Intent(mySelf, DrawerActivity.class);
