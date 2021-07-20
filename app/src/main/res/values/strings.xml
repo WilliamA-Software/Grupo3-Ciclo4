@@ -22,6 +22,12 @@
     <string name="tv_forgot_password"><u>Forgot your password?</u></string>
     <string name="tv_not_account">Create a new account </string>
 
+    <!-- Alert Dialog (LOG IN) -->
+    <string name="txt_error_login">Error login</string>
+    <string name="txt_success_login">Successfull login</string>
+    <string name="txt_accept">Accept</string>
+    <string name="txt_cancel">Cancel</string>
+
     <!-- Strings to Signup -->
     <string name="et_names">Name</string>
     <string name="invalid_password">Password must be >6 characters</string>
