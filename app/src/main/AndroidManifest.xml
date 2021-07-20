@@ -3,12 +3,12 @@
     package="com.example.luma">
 
     <application
+        android:theme="@style/Theme.LUMA"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.LUMA.NoActionBar">
+        android:supportsRtl="true" >
         <activity android:name="com.example.luma.ui.login.ForgetPassword"/>
         <activity android:name="com.example.luma.ui.DrawerActivity"/>
         <activity android:name="com.example.luma.ui.login.TermsConditions" />
