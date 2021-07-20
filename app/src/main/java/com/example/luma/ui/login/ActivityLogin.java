@@ -68,22 +68,25 @@ public class ActivityLogin extends AppCompatActivity {
                 String email = et_email.getText().toString();
                 String password = et_password.getText().toString();
 
-                Log.e("EMAIL",email);
-                Log.e("PASSWORD",password);
+                
+// william: ***************************** POR CORREGIR ******************************
+//
+//                 Log.e("EMAIL",email);
+//                 Log.e("PASSWORD",password);
 
-                if (email.equals("admin") && password.equals("123")){
-                  AlertDialog.Builder builder = new AlertDialog.Builder(mySelf);
-                  builder.setTitle(R.string.tv_login);
-                  builder.setMessage(R.string.txt_success_login);
-                  builder.setPositiveButton(R.string.txt_accept, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
+//                 if (email.equals("admin") && password.equals("123")){
+//                   AlertDialog.Builder builder = new AlertDialog.Builder(mySelf);
+//                   builder.setTitle(R.string.tv_login);
+//                   builder.setMessage(R.string.txt_success_login);
+//                   builder.setPositiveButton(R.string.txt_accept, new DialogInterface.OnClickListener() {
+//                         @Override
+//                         public void onClick(DialogInterface dialog, int which) {
 
-                            //creo aquí los preferences y el commit para escribirlos
-                            SharedPreferences.Editor editor = storage.edit();
-                            editor.putString("EMAIL", email);
-                            editor.putString("PASSWORD", password);
-                            editor.commit();
+//                             //creo aquí los preferences y el commit para escribirlos
+//                             SharedPreferences.Editor editor = storage.edit();
+//                             editor.putString("EMAIL", email);
+//                             editor.putString("PASSWORD", password);
+//                             editor.commit();
 
                             Log.e("LOGIN","INICIÓ CORRECTAMENTE");
                             Intent drawerActivity = new Intent(mySelf, DrawerActivity.class);
