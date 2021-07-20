@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.LUMA" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.LUMA" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/gray</item>
         <item name="colorPrimaryVariant">@color/light_gray</item>
@@ -14,10 +14,10 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.LUMA.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
+<!--    <style name="Theme.LUMA.NoActionBar">-->
+<!--        <item name="windowActionBar">false</item>-->
+<!--        <item name="windowNoTitle">true</item>-->
+<!--    </style>-->
 
     <style name="Theme.LUMA.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 

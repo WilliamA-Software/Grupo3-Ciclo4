@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.luma.R;
 import com.example.luma.ui.DrawerActivity;
@@ -47,15 +48,15 @@ public class ActivityLogin extends AppCompatActivity {
                 //Cuando el usuario de click en el boton login
                 String username = et_email.getText().toString();
                 String password = et_password.getText().toString();
-
-                if (username.equals("admin") && password.equals("123")){
-//                    Log.e("LOGIN","INICIÓ CORRECTAMENTE");
-                    Intent mainActivity = new Intent(mySelf, DrawerActivity.class);
-                    mainActivity.putExtra("username",username);
-                    startActivity(mainActivity);
-                } else{
-                    Log.e("LOGIN","ERROR, FALLÓ DE SESION");
-                }
+                Toast.makeText(getApplicationContext(), "WELCOME !", Toast.LENGTH_LONG).show();
+//                if (username.equals("admin") && password.equals("123")){
+////                    Log.e("LOGIN","INICIÓ CORRECTAMENTE");
+//                    Intent mainActivity = new Intent(mySelf, DrawerActivity.class);
+//                    mainActivity.putExtra("username",username);
+//                    startActivity(mainActivity);
+//                } else{
+//                    Log.e("LOGIN","ERROR, FALLÓ DE SESION");
+//                }
             }
         });
 
