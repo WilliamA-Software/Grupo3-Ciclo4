@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/nav_products"
-        android:name="com.example.luma.ui.products.GalleryFragment"
+        android:name="com.example.luma.ui.products.ProductFragment"
         android:label="@string/products"
         tools:layout="@layout/fragment_products" />
 
