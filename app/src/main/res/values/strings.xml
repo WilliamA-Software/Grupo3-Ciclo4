@@ -43,6 +43,15 @@
     <string name="login">Login</string>
     <string name="signup"><u>Sign up</u></string>
 
+    <!--String Products-->
+    <string name="txt_codigo">Código del Prodcuto</string>
+    <string name="txt_descripcion">Descripcion del producto</string>
+    <string name="txt_precio">Precio del producto</string>
+    <string name="BotonRegistrar">Registrar Producto</string>
+    <string name="BotonBuscar">Buscar Producto</string>
+    <string name="BotonEliminar">Eliminar Producto</string>
+    <string name="BotonModificar">Modificar Producto</string>
+
     <!-- TERMS AND CONDITIONS -->
     <string name="tv_terms">Terms and Conditions</string>
     <string name="tv_privacy_policies">Privacy Policies</string>
@@ -470,6 +479,7 @@ Manizales y los procedimientos se llevarán a cabo en el idioma Castellano.\n"
 
     </string>
     <string name="btn_send">Send</string>
+    <string name="txt_name">Nombre del producto</string>
     <string name="Log_Out">Log Out</string>
 
 </resources>

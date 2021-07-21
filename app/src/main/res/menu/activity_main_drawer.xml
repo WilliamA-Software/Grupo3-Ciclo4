@@ -10,7 +10,7 @@
             android:title="@string/menu_inicio" />
         <item
             android:fontFamily="@font/monotype_corsiva"
-            android:id="@+id/nav_mis_compras"
+            android:id="@+id/nav_products"
             android:title="@string/products" />
         <item
             android:fontFamily="@font/monotype_corsiva"
