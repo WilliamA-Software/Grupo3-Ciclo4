@@ -1,9 +1,12 @@
 package com.example.luma.ui.login;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -69,6 +72,7 @@ public class ActivityLogin extends AppCompatActivity {
 
         // --------- CLICK LOGIN ------------
         btn_login.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View v) {
                 //Cuando el usuario de click en el boton login
@@ -85,29 +89,28 @@ public class ActivityLogin extends AppCompatActivity {
                 Log.e("PASSWORD del storage",password_storage);
 
                 if (email.equals(email_storage) && password.equals(password_storage)){
-                  AlertDialog.Builder builder = new AlertDialog.Builder(mySelf);
-                  builder.setTitle(R.string.tv_login);
-                  builder.setMessage(R.string.txt_success_login);
-                  builder.setPositiveButton(R.string.txt_accept, new DialogInterface.OnClickListener() {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(mySelf);
+                    builder.setCancelable(false);
+                    builder.setTitle(R.string.tv_login);
+                    builder.setMessage(R.string.txt_success_login);
+//                    builder.setNegativeButton(R.string.txt_cancel, null);
+                    builder.setPositiveButton(R.string.txt_accept, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-
                             //creo redirecciono
-                            Log.e("LOGIN","INICIÓ CORRECTAMENTE");
                             Intent drawerActivity = new Intent(mySelf, DrawerActivity.class);
                             startActivity(drawerActivity);
-                            finish();
+//                            finish();
                         }
                     });
-                    builder.setNegativeButton(R.string.txt_cancel, null);
                     AlertDialog dialog = builder.create();
+//                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(R.color.dark3_gray);
                     dialog.show();
                 } else{
                     Log.e("LOGIN","ERROR, FALLÓ DE SESION");
                     AlertDialog.Builder builder = new AlertDialog.Builder(mySelf);
                     builder.setTitle(R.string.tv_login);
                     builder.setMessage(R.string.txt_error_login);
-
                     AlertDialog dialog = builder.create();
                     dialog.show();
                 }

@@ -13,9 +13,18 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
         <item name="buttonStyle">@style/bt_luma1</item>
+
+        <item name="android:timePickerDialogTheme">@style/AlertDialogCustom</item>
+        <item name="android:datePickerDialogTheme">@style/AlertDialogCustom</item>
+        <item name="android:alertDialogTheme">@style/AlertDialogCustom</item>
+        <item name="colorAccent">@color/dark3_gray</item>
     </style>
 
-    <style name="Theme.LUMA.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AlertDialogCustom" parent="Base.Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:colorPrimary">@color/black</item>
+        <item name="android:colorAccent">@color/dark_gray</item>
+    </style>
 
-    <style name="Theme.LUMA.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+        <style name="Theme.LUMA.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+        <style name="Theme.LUMA.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
