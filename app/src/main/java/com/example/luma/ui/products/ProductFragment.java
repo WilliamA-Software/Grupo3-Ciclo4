@@ -27,7 +27,7 @@ public class ProductFragment extends Fragment {
 
     private FragmentProductsBinding binding;
 
-    private EditText et_codigo, et_descripcion, et_precio;
+    private EditText et_codigo, et_descripcion, et_precio, et_cantidad, et_imagen;
     private Button btn_insert, btn_search, btn_update, btn_delete;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -38,6 +38,8 @@ public class ProductFragment extends Fragment {
         et_codigo = binding.txtCodigo;
         et_descripcion = binding.txtDescripcion;
         et_precio = binding.txtPrecio;
+        et_cantidad = binding.txtCantidad;
+        et_imagen = binding.txtImagen;
         btn_insert = binding.btnInsert;
         btn_search = binding.btnSearch;
         btn_update = binding.btnUpdate;
@@ -82,10 +84,13 @@ public class ProductFragment extends Fragment {
     public void Registrar(View view){
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(getActivity(), "administracion", null, 1);
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
+        String codigo, descripcion, precio, cantidad, imagen;
 
-        String codigo = et_codigo.getText().toString();
-        String descripcion = et_descripcion.getText().toString();
-        String precio = et_precio.getText().toString();
+        codigo = et_codigo.getText().toString();
+        descripcion = et_descripcion.getText().toString();
+        precio = et_precio.getText().toString();
+        cantidad = et_cantidad.getText().toString();
+        imagen = et_imagen.getText().toString();
 
         if(!codigo.isEmpty() && !descripcion.isEmpty() && !precio.isEmpty()){
             ContentValues registro = new ContentValues();
@@ -94,7 +99,8 @@ public class ProductFragment extends Fragment {
             registro.put("codigo", codigo);
             registro.put("descripcion", descripcion);
             registro.put("precio", precio);
-
+            registro.put("cantidad", cantidad);
+            registro.put("imagen", imagen);
 
             BaseDeDatos.insert("articulos", null, registro);
             BaseDeDatos.close();
@@ -103,6 +109,8 @@ public class ProductFragment extends Fragment {
             et_codigo.setText("");
             et_descripcion.setText("");
             et_precio.setText("");
+            et_cantidad.setText("");
+            et_imagen.setText("");
 
             // Informamos del registro exitoso
             Toast.makeText(getActivity(), "Registro Exitoso", Toast.LENGTH_SHORT).show();
@@ -124,12 +132,15 @@ public class ProductFragment extends Fragment {
         if(!codigo.isEmpty()){
 
             Cursor fila = BaseDeDatabase.rawQuery
-                    ("select descripcion, precio from articulos where codigo =" + codigo, null);
+                    ("select descripcion, precio, cantidad, imagen from articulos where codigo =" + codigo, null);
 
             if(fila.moveToFirst()){
                 et_descripcion.setText(fila.getString(0));
                 et_precio.setText(fila.getString(1));
+                et_cantidad.setText(fila.getString(2));
+                et_imagen.setText(fila.getString(3));
 
+                Toast.makeText(getActivity(), "Articulo encontrado", Toast.LENGTH_SHORT).show();
                 //Cerramos la base de datos para evitar bucles
                 BaseDeDatabase.close();
             } else {
@@ -164,6 +175,8 @@ public class ProductFragment extends Fragment {
             et_codigo.setText("");
             et_descripcion.setText("");
             et_precio.setText("");
+            et_cantidad.setText("");
+            et_imagen.setText("");
 
             if(cantidad ==1 ){
                 Toast.makeText(getActivity(), "Articulo Eliminado Exitosamente", Toast.LENGTH_SHORT).show();
@@ -180,10 +193,13 @@ public class ProductFragment extends Fragment {
     public void Modificar(View view){
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(getActivity(), "administracion", null, 1);
         SQLiteDatabase BaseDatabase = admin.getWritableDatabase();
+        String codigo, descripcion, precio, cantidad, imagen;
 
-        String codigo = et_codigo.getText().toString();
-        String descripcion = et_descripcion.getText().toString();
-        String precio = et_precio.getText().toString();
+        codigo = et_codigo.getText().toString();
+        descripcion = et_descripcion.getText().toString();
+        precio = et_precio.getText().toString();
+        cantidad = et_cantidad.getText().toString();
+        imagen = et_imagen.getText().toString();
 
         if(!codigo.isEmpty() && !descripcion.isEmpty() && !precio.isEmpty()){
 
@@ -192,12 +208,20 @@ public class ProductFragment extends Fragment {
             registro.put("codigo", codigo);
             registro.put("descripcion", descripcion);
             registro.put("precio", precio);
+            registro.put("cantidad", cantidad);
+            registro.put("imagen", imagen);
 
-            int cantidad  = BaseDatabase.update("articulos", registro, "codigo=" + codigo, null);
+            int update  = BaseDatabase.update("articulos", registro, "codigo=" + codigo, null);
             //cerramos la base de datos
             BaseDatabase.close();
 
-            if(cantidad == 1){
+            if(update == 1){
+
+                et_codigo.setText("");
+                et_descripcion.setText("");
+                et_precio.setText("");
+                et_cantidad.setText("");
+                et_imagen.setText("");
 
                 Toast.makeText(getActivity(), "Articulo modificado correctamente", Toast.LENGTH_SHORT).show();
 

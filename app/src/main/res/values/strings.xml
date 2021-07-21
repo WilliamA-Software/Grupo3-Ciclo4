@@ -481,5 +481,7 @@ Manizales y los procedimientos se llevarán a cabo en el idioma Castellano.\n"
     <string name="btn_send">Send</string>
     <string name="txt_name">Nombre del producto</string>
     <string name="Log_Out">Log Out</string>
+    <string name="txt_cantidad">Cantidad</string>
+    <string name="txt_imagen">Imagen</string>
 
 </resources>
