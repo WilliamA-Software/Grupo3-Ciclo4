@@ -484,4 +484,9 @@ Manizales y los procedimientos se llevarán a cabo en el idioma Castellano.\n"
     <string name="txt_cantidad">Cantidad</string>
     <string name="txt_imagen">Imagen</string>
 
+    <!-- Frame Product Individual -->
+    <string name="tv_name_product">Product Name</string>
+    <string name="tv_value_product">Value</string>
+    <string name="iv_image_product">Product Image</string>
+
 </resources>
