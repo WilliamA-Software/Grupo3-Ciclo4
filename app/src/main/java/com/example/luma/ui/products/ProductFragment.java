@@ -41,7 +41,8 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
             et_quantity,
             et_image;
     private Spinner et_type;
-    private String typeAux;
+    private String typeAux,
+            setType;
     private Button btn_insert,
             btn_search,
             btn_update,
@@ -145,6 +146,7 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
                     et_quantity.setText("");
                     et_image.setText("");
                     typeAux="";
+                    et_type.setSelection(getItemPosition(et_type, "Seleccione"));
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -177,6 +179,7 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
                         et_price.setText(document.get("priceProduct").toString());
                         et_quantity.setText(document.get("quantityProduct").toString());
                         et_image.setText(document.get("imageProduct").toString());
+                        et_type.setSelection(getItemPosition(et_type, document.get("typeProduct").toString()));
                         // Read Successful
                         Toast.makeText(getActivity(), "Articulo encontrado", Toast.LENGTH_SHORT).show();
                     }else {
@@ -197,6 +200,7 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
                             et_price.setText(document.get("priceProduct").toString());
                             et_quantity.setText(document.get("quantityProduct").toString());
                             et_image.setText(document.get("imageProduct").toString());
+                            et_type.setSelection(getItemPosition(et_type, document.get("typeProduct").toString()));
                             // Read Successful
                             Toast.makeText(getActivity(), "Articulo encontrado", Toast.LENGTH_SHORT).show();
                         }
@@ -243,6 +247,7 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
                     et_price.setText("");
                     et_quantity.setText("");
                     et_image.setText("");
+                    et_type.setSelection(getItemPosition(et_type, "Seleccione"));
                     typeAux="";
                 }
             }).addOnFailureListener(new OnFailureListener() {
@@ -268,6 +273,13 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
                     // Insert Successful
                     Toast.makeText(getActivity(), "Articulo eliminado", Toast.LENGTH_SHORT).show();
                     et_code.setText("");
+                    et_name.setText("");
+                    et_description.setText("");
+                    et_price.setText("");
+                    et_quantity.setText("");
+                    et_image.setText("");
+                    et_type.setSelection(getItemPosition(et_type, "Seleccione"));
+                    typeAux="";
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -287,6 +299,22 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
         }else {
             return true;
         }
+    }
+
+    public static int getItemPosition(Spinner spinner, String type) {
+        //Creamos la variable posicion y lo inicializamos en 0
+        int position = 0;
+        //Recorre el spinner en busca del ítem que coincida con el parametro `String fruta`
+        //que lo pasaremos posteriormente
+        for (int i = 0; i < spinner.getCount(); i++) {
+            //Almacena la posición del ítem que coincida con la búsqueda
+            if (spinner.getItemAtPosition(i).toString().equalsIgnoreCase(type)) {
+                position = i;
+            }
+        }
+        //Devuelve un valor entero (si encontro una coincidencia devuelve la
+        // posición 0 o N, de lo contrario devuelve 0 = posición inicial)
+        return position;
     }
 
 
