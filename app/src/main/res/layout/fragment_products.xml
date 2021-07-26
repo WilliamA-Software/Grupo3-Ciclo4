@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.luma.ui.products.ActivityProducts">
+    tools:context="com.example.luma.ui.products.ProductFragment">
 
     <EditText
         android:id="@+id/et_code_product"
