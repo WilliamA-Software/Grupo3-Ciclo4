@@ -44,9 +44,13 @@
     <string name="signup"><u>Sign up</u></string>
 
     <!--String Products-->
-    <string name="txt_codigo">Código del Prodcuto</string>
-    <string name="txt_descripcion">Descripcion del producto</string>
-    <string name="txt_precio">Precio del producto</string>
+    <string name="et_code_product">Código del Prodcuto</string>
+    <string name="et_name_product">Nombre del producto</string>
+    <string name="et_description_product">Descripcion del producto</string>
+    <string name="et_price_product">Precio del producto</string>
+    <string name="et_quantity_product">Cantidad</string>
+    <string name="et_image_product">Imagen</string>
+
     <string name="BotonRegistrar">Registrar Producto</string>
     <string name="BotonBuscar">Buscar Producto</string>
     <string name="BotonEliminar">Eliminar Producto</string>
@@ -479,9 +483,6 @@ Manizales y los procedimientos se llevarán a cabo en el idioma Castellano.\n"
 
     </string>
     <string name="btn_send">Send</string>
-    <string name="txt_name">Nombre del producto</string>
     <string name="Log_Out">Log Out</string>
-    <string name="txt_cantidad">Cantidad</string>
-    <string name="txt_imagen">Imagen</string>
 
 </resources>
