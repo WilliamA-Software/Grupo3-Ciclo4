@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "395263116004",
+    "project_id": "luma-eee5c",
+    "storage_bucket": "luma-eee5c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:395263116004:android:c99e6c0305d0f8306fe2f1",
+        "android_client_info": {
+          "package_name": "com.example.luma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "395263116004-1ptqaoo0t0grufs57do12vuia4ko2h4g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmJCUs2KTw-X4PPl4ous5jaqGgPavQNx4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "395263116004-1ptqaoo0t0grufs57do12vuia4ko2h4g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

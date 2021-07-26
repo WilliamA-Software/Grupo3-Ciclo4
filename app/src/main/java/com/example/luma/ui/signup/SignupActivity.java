@@ -17,6 +17,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,10 +25,18 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.luma.R;
+import com.example.luma.data.model.Product;
+import com.example.luma.data.model.User;
 import com.example.luma.databinding.ActivitySignupBinding;
 import com.example.luma.ui.DrawerActivity;
 import com.example.luma.ui.login.ActivityLogin;
 import com.example.luma.ui.login.TermsConditions;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+
+import org.jetbrains.annotations.NotNull;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -37,6 +46,9 @@ public class SignupActivity extends AppCompatActivity {
 
     // Persistencia con Shared Preference
     private SharedPreferences storage;
+
+    //Firebase
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -173,20 +185,50 @@ public class SignupActivity extends AppCompatActivity {
         signupButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-//                loadingProgressBar.setVisibility(View.VISIBLE);
+                String name, lastname, email, password;
+
+                name = usernameEditText.getText().toString();
+                lastname = lastnameEditText.getText().toString();
+                email = mailEditText.getText().toString();
+                password = ActivityLogin.encrypt(passwordEditText.getText().toString());;
+                loadingProgressBar.setVisibility(View.VISIBLE);
                 // Almacenamiento local de las llaves
                 SharedPreferences.Editor editor = storage.edit();
-                editor.putString("NAME1", usernameEditText.getText().toString());
-                editor.putString("LASTNAME1", lastnameEditText.getText().toString());
-                editor.putString("EMAIL1", mailEditText.getText().toString());
-                editor.putString("PASSWORD1", passwordEditText.getText().toString());
+                editor.putString("NAME1", name);
+                editor.putString("LASTNAME1", lastname);
+                editor.putString("EMAIL1", email);
+                editor.putString("PASSWORD1", password);
                 editor.apply();
+                //Create user in Firestore
+                User user = new User(
+                        name,
+                        lastname,
+                        email,
+                        password
+                );
+                db.collection("user").document().set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        // Insert Successful
+                        Toast.makeText(mySelf, "Registro Exitoso", Toast.LENGTH_SHORT).show();
 
-                //Cuando el usuario da click en el boton Sign Up lo lleva al home
-                Intent activity = new Intent(mySelf, DrawerActivity.class);
-                activity.putExtra("name", name);
-                startActivity(activity);
-                finish();
+
+                        //Cuando el usuario da click en el boton Sign Up lo lleva al home
+                        Intent activity = new Intent(mySelf, DrawerActivity.class);
+                        activity.putExtra("name", name);
+                        startActivity(activity);
+                        finish();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull @NotNull Exception e) {
+                        // Insert Failed
+                        Toast.makeText(mySelf, "Registro Fallido", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+
             }
         });
 

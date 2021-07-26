@@ -234,7 +234,7 @@
                 android:id="@+id/loading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
+                android:layout_gravity="center"
                 android:progressTint="@color/dark3_gray"
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@id/lastname"
