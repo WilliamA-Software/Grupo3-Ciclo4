@@ -23,9 +23,14 @@
         android:label="@string/tv_luma"
         tools:layout="@layout/fragment_favorites" />
 
-    <activity
-        android:id="@+id/nav_logout"
+    <fragment
+        android:id="@+id/nav_prod_detail"
         android:name="com.example.luma.ui.products.ProductDetail"
         android:label="@string/tv_luma"
-        tools:layout="@layout/activity_product_detail"/>
+        tools:layout="@layout/fragment_product_detail"/>
+
+    <activity
+        android:id="@+id/nav_logout"
+        android:name="com.example.luma.ui.login.ActivityLogin"
+        tools:layout="@layout/login_activity" />
 </navigation>

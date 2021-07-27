@@ -114,9 +114,6 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
         return root;// Creating adapter for spinner
     }
 
-
-
-
     //Method to create product
     public void Create(View view){
         //local variables
@@ -160,7 +157,6 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
             Toast.makeText(getActivity(), "Debes llenar todos los campos", Toast.LENGTH_SHORT).show();
         }
     }
-
 
     //Method to read product
     public void Read(View view){
@@ -215,7 +211,6 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
         }
 
     }
-
 
     //Method to update a product
     public void Update(View view){
@@ -315,7 +310,6 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
         //Devuelve un valor entero IF encontro una coincidencia, ELSE devuelve 0 = posición inicial)
         return position;
     }
-
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
