@@ -1,5 +1,6 @@
 package com.example.luma.ui.login;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
@@ -16,10 +17,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.luma.R;
 import com.example.luma.ui.DrawerActivity;
 import com.example.luma.ui.signup.SignupActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class ActivityLogin extends AppCompatActivity {
 
@@ -30,6 +41,9 @@ public class ActivityLogin extends AppCompatActivity {
     private Activity mySelf;
     private TextView tv_password;
     private TextView tv_signup;
+
+    //Firestore
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     // Declarar SharePreferences
     private SharedPreferences storage;
@@ -107,12 +121,34 @@ public class ActivityLogin extends AppCompatActivity {
 //                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(R.color.dark3_gray);
                     dialog.show();
                 } else{
-                    Log.e("LOGIN","ERROR, FALLÓ DE SESION");
-                    AlertDialog.Builder builder = new AlertDialog.Builder(mySelf);
-                    builder.setTitle(R.string.login);
-                    builder.setMessage(R.string.txt_error_login);
-                    AlertDialog dialog = builder.create();
-                    dialog.show();
+                    password= encrypt(password);
+                    db.collection("user").whereEqualTo("emailUser",email).whereEqualTo("passwordUser",password).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful()&& !task.getResult().isEmpty()) {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(mySelf);
+                                builder.setCancelable(false);
+                                builder.setTitle(R.string.tv_login);
+                                builder.setMessage(R.string.txt_success_login);
+                                builder.setPositiveButton(R.string.txt_accept, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Intent drawerActivity = new Intent(mySelf, DrawerActivity.class);
+                                        startActivity(drawerActivity);
+                                    }
+                                });
+                                AlertDialog dialog = builder.create();
+                                dialog.show();
+                            } else {
+                                Log.e("LOGIN","ERROR, FALLÓ DE SESION");
+                                AlertDialog.Builder builder = new AlertDialog.Builder(mySelf);
+                                builder.setTitle(R.string.tv_login);
+                                builder.setMessage(R.string.txt_error_login);
+                                AlertDialog dialog = builder.create();
+                                dialog.show();
+                            }
+                        }
+                    });
                 }
             }
         });
@@ -136,7 +172,25 @@ public class ActivityLogin extends AppCompatActivity {
                 startActivity(activity_signup);
             }
         });
+    }
 
+    //password encrypt
 
+    public static String encrypt(String pass){
+        try {
+            MessageDigest digest = java.security.MessageDigest.getInstance("SHA-512");
+            digest.update(pass.getBytes());
+            byte messageDigest[] = digest.digest();
+
+            // Create Hex String
+            StringBuffer hexString = new StringBuffer();
+            for (int i=0; i<messageDigest.length; i++)
+                hexString.append(Integer.toHexString(0xFF & messageDigest[i]));
+            pass=hexString.toString();
+
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return pass;
     }
 }
