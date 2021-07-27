@@ -18,7 +18,7 @@
         android:background="@color/light_gray">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
             // Search box for products
             <EditText
@@ -168,62 +168,122 @@
                         android:fontFamily="@font/philosopher"
                         android:textSize="17sp"
                         android:text="@string/color"/>
-                    <RadioButton
+                    <RadioGroup
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="#0020ED"/>
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/design_default_color_secondary"/>
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="#CDB0DC"/>
+                    </RadioGroup>
                 </LinearLayout>
                 // Size options
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingLeft="20dp">
+                    android:paddingLeft="20dp"
+                    android:paddingTop="4dp">
                     <TextView
                         android:id="@+id/tv_size"
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:textColor="@color/dark3_gray"
-                        android:fontFamily="@font/philosopher"
                         android:textSize="17sp"
                         android:text="@string/size"/>
                     <RadioButton
+                        android:id="@+id/radioS"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/dark_gray"
+                        android:gravity="center"
+                        android:background="@drawable/et_rounded"
+                        android:button="@android:color/transparent"
+                        android:paddingStart="7dp"
+                        android:paddingEnd="7dp"
+                        android:paddingBottom="2dp"
+                        android:paddingTop="2dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="S"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
                     <RadioButton
+                        android:id="@+id/radioM"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/dark_gray"
+                        android:gravity="center"
+                        android:background="@drawable/et_rounded"
+                        android:button="@android:color/transparent"
+                        android:paddingStart="6dp"
+                        android:paddingEnd="6dp"
+                        android:paddingBottom="2dp"
+                        android:paddingTop="2dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="M"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
                     <RadioButton
+                        android:id="@+id/radioL"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/dark_gray"
+                        android:gravity="center"
+                        android:background="@drawable/et_rounded"
+                        android:button="@android:color/transparent"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="7dp"
+                        android:paddingBottom="2dp"
+                        android:paddingTop="2dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="L"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"/>
                     <RadioButton
+                        android:id="@+id/radioXL"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/dark_gray"
+                        android:gravity="center"
+                        android:background="@drawable/et_rounded"
+                        android:button="@android:color/transparent"
+                        android:paddingStart="4dp"
+                        android:paddingEnd="4dp"
+                        android:paddingBottom="2dp"
+                        android:paddingTop="2dp"
+                        android:text="XL"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"/>
                 </LinearLayout>
                 // Quantity
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingLeft="20dp">
+                    android:paddingStart="20dp"
+                    android:paddingTop="8dp">
                     <TextView
                         android:id="@+id/tv_quantity"
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:textColor="@color/dark3_gray"
-                        android:fontFamily="@font/philosopher"
                         android:textSize="17sp"
                         android:text="@string/quantity"/>
                     <EditText
                         android:id="@+id/et_quantity"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="5dp"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:inputType="number"
@@ -232,7 +292,7 @@
                         android:text="1"
                         android:textColor="@color/dark3_gray"
                         android:fontFamily="@font/philosopher"
-                        android:textSize="20sp"
+                        android:textSize="16sp"
                         android:textColorHint="@color/dark3_gray" />
                 </LinearLayout>
                 // Product location text
