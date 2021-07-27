@@ -10,51 +10,53 @@
     android:background="@color/light_gray"
     android:padding="0dp">
 
-    // 1 of 4 layouts: Top Layout with search box
-    <LinearLayout
+    // 1 of 3 layouts: Top Layout with search box
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="8"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp">
-        // Search box for products
-        <EditText
-            android:id="@+id/et_search"
+        android:layout_weight="86"
+        android:background="@color/light_gray">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="text"
-            android:textSize="20sp"
-            android:fontFamily="@font/philosopher"
-            android:background="@drawable/et_rounded"
-            android:backgroundTint="@color/white"
-            android:hint="@string/search"
-            android:gravity="center_vertical"
-            android:layout_marginVertical="8dp"
-            android:paddingStart="10dp"
-            android:selectAllOnFocus="true"
-            android:textColor="@color/dark3_gray"
-            android:drawableStart="@android:drawable/ic_menu_search"
-            android:drawablePadding="5dp" />
-    </LinearLayout>
-    // 2 of 4 layouts: Horizontal layout containing 3 vertical layouts
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="75"
-        android:orientation="horizontal">
-        // Left gray vertical space
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="12"
-            android:layout_height="match_parent"/>
-        // Main Pictures Content and Data
-        <ScrollView
-            android:layout_width="0dp"
-            android:layout_weight="84"
-            android:layout_height="match_parent"
-            android:background="@color/white">
-            <LinearLayout
+            android:orientation="vertical">
+            // Search box for products
+            <EditText
+                android:id="@+id/et_search"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginVertical="8dp"
+                android:layout_marginEnd="12dp"
+                android:inputType="text"
+                android:textSize="20sp"
+                android:background="@drawable/et_rounded"
+                android:backgroundTint="@color/white"
+                android:hint="@string/search"
+                android:textColorHint="@color/dark3_gray"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:selectAllOnFocus="true"
+                android:textColor="@color/dark3_gray"
+                android:drawableTint="@color/black"
+                android:drawableStart="@android:drawable/ic_menu_search"
+                android:drawablePadding="5dp" />
+
+            // Horizontal layout containing 3 vertical layouts
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            // Left gray vertical space
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="12"
+                android:layout_height="match_parent"/>
+
+            // Main Pictures Content and Data
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="75"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="10dp"
@@ -241,85 +243,83 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
                     android:textColor="@color/dark3_gray"
-                    android:fontFamily="@font/philosopher"
-                    android:textSize="18sp"
+                    android:textSize="17sp"
                     android:text="@string/product_location"/>
                 // Google map with location
                 <ImageView
                     android:id="@+id/img_map"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:scaleType="centerInside"
-                    android:background="@color/gray"
+                    android:layout_marginTop="2dp"
+                    android:layout_gravity="center_horizontal"
+                    android:scaleType="fitXY"
+                    android:background="@color/dark3_gray"
+                    android:padding="1dp"
                     android:src="@drawable/dummy_map"
                     android:contentDescription="@string/iv_image_product"/>
             </LinearLayout>
-        </ScrollView>
-        // Right gray vertical space
-        <LinearLayout
-        android:layout_width="0dp"
-        android:layout_weight="12"
-        android:layout_height="match_parent"/>
-    </LinearLayout>
-    // 3 of 4 layouts: Bottom Layout with "Add 2 Cart" button and lower frame
+
+            // Right gray vertical space
+            <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="12"
+            android:layout_height="match_parent"/>
+        </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    // 2 of 3 layouts: Horizontal 3 vertical bottom layouts with button and text
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="10"
-        android:orientation="vertical">
-        // Horizontal 3 vertical bottom layouts with button and text
+        android:layout_weight="9"
+        android:layout_marginBottom="8dp">
+        // Left gray vertical space
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            // Left gray vertical space
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="12"
-                android:layout_height="match_parent"/>
-            // "Add Cart" button and text to view table sizes"
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="84"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:background="@color/white" >
-                <Button
-                    android:id="@+id/bt_add_cart"
-                    android:layout_width="250dp"
-                    android:layout_height="30dp"
-                    android:layout_marginTop="5dp"
-                    android:backgroundTint="@color/black"
-                    android:text="@string/bt_add_cart"
-                    android:textSize="12sp"
-                    android:layout_gravity="center"
-                    android:padding="1dp"/>
-                <TextView
-                    android:id="@+id/tv_value"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
-                    android:text="@string/tv_see_sizes"
-                    android:textColor="@color/dark3_gray"
-                    android:gravity="center"
-                    android:textSize="12sp">
-                </TextView>
-            </LinearLayout>
-            // Right gray vertical space
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="12"
-                android:layout_height="match_parent"/>
+            android:layout_width="0dp"
+            android:layout_weight="12"
+            android:layout_height="match_parent"/>
+        // "Add Cart" button and text to view table sizes"
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="76"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/white" >
+            <Button
+                android:id="@+id/bt_add_cart"
+                android:layout_width="250dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
+                android:backgroundTint="@color/black"
+                android:text="@string/bt_add_cart"
+                android:textSize="12sp"
+                android:layout_gravity="center"
+                android:padding="1dp"/>
+            <TextView
+                android:id="@+id/tv_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/tv_see_sizes"
+                android:textColor="@color/dark3_gray"
+                android:gravity="center"
+                android:textSize="12sp">
+            </TextView>
         </LinearLayout>
+        // Right gray vertical space
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="12"
+            android:layout_height="match_parent"/>
     </LinearLayout>
-    // 4 of 4 layouts: Bottom app bar with 3 icon buttons
+
+    // 3 of 3 layouts: Bottom app bar with 3 icon buttons
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="6"
-        android:background="@color/white"
-        android:layout_marginTop="2dp">
+        android:background="@color/white" >
         // Whatsapp button
         <ImageButton
             android:id="@+id/bt_whatsapp"
