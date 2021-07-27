@@ -50,13 +50,13 @@
             // Left gray vertical space
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_weight="12"
+                android:layout_weight="9"
                 android:layout_height="match_parent"/>
 
             // Main Pictures Content and Data
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_weight="75"
+                android:layout_weight="82"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="10dp"
@@ -67,7 +67,7 @@
                     android:id="@+id/img_main_product"
                     android:src="@drawable/ic_launcher_foreground"
                     android:layout_width="match_parent"
-                    android:layout_height="270dp"
+                    android:layout_height="300dp"
                     android:scaleType="centerInside"
                     android:background="@color/gray"
                     android:contentDescription="@string/iv_image_product"/>
@@ -83,7 +83,7 @@
                         android:src="@drawable/ic_launcher_foreground"
                         android:layout_width="0dp"
                         android:layout_weight="30"
-                        android:layout_height="80dp"
+                        android:layout_height="90dp"
                         android:scaleType="centerInside"
                         android:background="@color/gray"
                         android:contentDescription="@string/iv_image_product"/>
@@ -94,7 +94,7 @@
                         android:src="@drawable/ic_launcher_foreground"
                         android:layout_width="0dp"
                         android:layout_weight="30"
-                        android:layout_height="80dp"
+                        android:layout_height="90dp"
                         android:scaleType="centerInside"
                         android:background="@color/gray"
                         android:contentDescription="@string/iv_image_product"/>
@@ -105,7 +105,7 @@
                         android:src="@drawable/ic_launcher_foreground"
                         android:layout_width="0dp"
                         android:layout_weight="30"
-                        android:layout_height="80dp"
+                        android:layout_height="90dp"
                         android:scaleType="centerInside"
                         android:background="@color/gray"
                         android:contentDescription="@string/iv_image_product"/>
@@ -156,7 +156,7 @@
                 // Color options
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="30dp"
                     android:orientation="horizontal"
                     android:paddingLeft="20dp">
                     <TextView
@@ -189,10 +189,9 @@
                 // Size options
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="30dp"
                     android:orientation="horizontal"
-                    android:paddingLeft="20dp"
-                    android:paddingTop="4dp">
+                    android:paddingLeft="20dp" >
                     <TextView
                         android:id="@+id/tv_size"
                         android:layout_width="80dp"
@@ -201,70 +200,42 @@
                         android:textColor="@color/dark3_gray"
                         android:textSize="17sp"
                         android:text="@string/size"/>
-                    <RadioButton
-                        android:id="@+id/radioS"
+                    <RadioGroup
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/dark_gray"
-                        android:gravity="center"
-                        android:background="@drawable/et_rounded"
-                        android:button="@android:color/transparent"
-                        android:paddingStart="7dp"
-                        android:paddingEnd="7dp"
-                        android:paddingBottom="2dp"
-                        android:paddingTop="2dp"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginEnd="10dp"
-                        android:text="S"
-                        android:textColor="@color/white"
-                        android:textStyle="bold" />
-                    <RadioButton
-                        android:id="@+id/radioM"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/dark_gray"
-                        android:gravity="center"
-                        android:background="@drawable/et_rounded"
-                        android:button="@android:color/transparent"
-                        android:paddingStart="6dp"
-                        android:paddingEnd="6dp"
-                        android:paddingBottom="2dp"
-                        android:paddingTop="2dp"
-                        android:layout_marginEnd="10dp"
-                        android:text="M"
-                        android:textColor="@color/white"
-                        android:textStyle="bold" />
-                    <RadioButton
-                        android:id="@+id/radioL"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/dark_gray"
-                        android:gravity="center"
-                        android:background="@drawable/et_rounded"
-                        android:button="@android:color/transparent"
-                        android:paddingStart="8dp"
-                        android:paddingEnd="7dp"
-                        android:paddingBottom="2dp"
-                        android:paddingTop="2dp"
-                        android:layout_marginEnd="10dp"
-                        android:text="L"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"/>
-                    <RadioButton
-                        android:id="@+id/radioXL"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/dark_gray"
-                        android:gravity="center"
-                        android:background="@drawable/et_rounded"
-                        android:button="@android:color/transparent"
-                        android:paddingStart="4dp"
-                        android:paddingEnd="4dp"
-                        android:paddingBottom="2dp"
-                        android:paddingTop="2dp"
-                        android:text="XL"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"/>
+                        android:orientation="horizontal">
+                        <RadioButton
+                            android:id="@+id/radioS"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="S"
+                            android:textColor="@color/dark3_gray"
+                            android:backgroundTint="@color/dark_gray" />
+                        <RadioButton
+                            android:id="@+id/radioM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="M"
+                            android:textColor="@color/dark3_gray"
+                            android:backgroundTint="@color/dark_gray"
+                            android:gravity="center" />
+                        <RadioButton
+                            android:id="@+id/radioL"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="L"
+                            android:textColor="@color/dark3_gray"
+                            android:backgroundTint="@color/dark_gray"
+                            android:gravity="center" />
+                        <RadioButton
+                            android:id="@+id/radioXL"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="XL"
+                            android:textColor="@color/dark3_gray"
+                            android:backgroundTint="@color/dark_gray"
+                            android:gravity="center" />
+                    </RadioGroup>
                 </LinearLayout>
                 // Quantity
                 <LinearLayout
@@ -272,7 +243,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:paddingStart="20dp"
-                    android:paddingTop="8dp">
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp">
                     <TextView
                         android:id="@+id/tv_quantity"
                         android:layout_width="80dp"
@@ -292,7 +264,7 @@
                         android:text="1"
                         android:textColor="@color/dark3_gray"
                         android:fontFamily="@font/philosopher"
-                        android:textSize="16sp"
+                        android:textSize="18sp"
                         android:textColorHint="@color/dark3_gray" />
                 </LinearLayout>
                 // Product location text
@@ -322,7 +294,7 @@
             // Right gray vertical space
             <LinearLayout
             android:layout_width="0dp"
-            android:layout_weight="12"
+            android:layout_weight="9"
             android:layout_height="match_parent"/>
         </LinearLayout>
         </LinearLayout>
@@ -337,29 +309,34 @@
         // Left gray vertical space
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_weight="12"
+            android:layout_weight="9"
             android:layout_height="match_parent"/>
         // "Add Cart" button and text to view table sizes"
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_weight="76"
+            android:layout_weight="82"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:background="@color/white" >
             <Button
                 android:id="@+id/bt_add_cart"
-                android:layout_width="250dp"
-                android:layout_height="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="70"
                 android:layout_marginTop="5dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
                 android:backgroundTint="@color/black"
                 android:text="@string/bt_add_cart"
+                android:textColor="@color/white"
                 android:textSize="12sp"
                 android:layout_gravity="center"
                 android:padding="1dp"/>
             <TextView
                 android:id="@+id/tv_value"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="30"
                 android:layout_marginTop="2dp"
                 android:text="@string/tv_see_sizes"
                 android:textColor="@color/dark3_gray"
@@ -370,7 +347,7 @@
         // Right gray vertical space
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_weight="12"
+            android:layout_weight="9"
             android:layout_height="match_parent"/>
     </LinearLayout>
 
