@@ -7,7 +7,7 @@
     android:gravity="bottom"
     android:orientation="vertical"
     android:padding="16dp"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+    android:theme="@style/ThemeOverlay.AppCompat.Light">
 
     <TextView
         android:fontFamily="@font/philosopher"
@@ -15,6 +15,7 @@
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:text="@string/tv_luma"
+        android:textColor="@color/white"
         android:textSize="55sp"
         android:gravity="center_horizontal"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
@@ -25,6 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="22sp"
+        android:textColor="@color/white"
         android:gravity="center_horizontal"
         android:text="@string/tv_mya" />
 </LinearLayout>

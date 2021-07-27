@@ -34,13 +34,7 @@ public class ActivityProducts extends AppCompatActivity {
         //et_name = (EditText)findViewById(R.id.txt_name);
         et_descripcion = (EditText)findViewById(R.id.txt_descripcion);
         et_precio = (EditText)findViewById(R.id.txt_precio);
-
-
     }
-
-
-
-
 
     //Login
     private static class SearchProduct extends AsyncTask<Void, Void, Product> {

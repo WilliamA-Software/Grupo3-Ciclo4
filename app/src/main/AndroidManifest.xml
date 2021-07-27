@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true" >
         <activity android:name="com.example.luma.ui.login.ForgetPassword"/>
-        <activity android:name="com.example.luma.ui.DrawerActivity"/>
+        <activity android:name="com.example.luma.ui.DrawerActivity" />
         <activity android:name="com.example.luma.ui.login.TermsConditions" />
         <activity android:name="com.example.luma.ui.signup.SignupActivity" />
         <activity android:name="com.example.luma.ui.login.ActivityLogin">

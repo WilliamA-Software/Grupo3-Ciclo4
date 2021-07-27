@@ -91,7 +91,7 @@ public class ActivityLogin extends AppCompatActivity {
                 if (email.equals(email_storage) && password.equals(password_storage)){
                     AlertDialog.Builder builder = new AlertDialog.Builder(mySelf);
                     builder.setCancelable(false);
-                    builder.setTitle(R.string.tv_login);
+                    builder.setTitle(R.string.login);
                     builder.setMessage(R.string.txt_success_login);
 //                    builder.setNegativeButton(R.string.txt_cancel, null);
                     builder.setPositiveButton(R.string.txt_accept, new DialogInterface.OnClickListener() {
@@ -109,7 +109,7 @@ public class ActivityLogin extends AppCompatActivity {
                 } else{
                     Log.e("LOGIN","ERROR, FALLÓ DE SESION");
                     AlertDialog.Builder builder = new AlertDialog.Builder(mySelf);
-                    builder.setTitle(R.string.tv_login);
+                    builder.setTitle(R.string.login);
                     builder.setMessage(R.string.txt_error_login);
                     AlertDialog dialog = builder.create();
                     dialog.show();

@@ -3,23 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_inicio">
+    app:startDestination="@+id/nav_home">
 
     <fragment
-        android:id="@+id/nav_inicio"
+        android:id="@+id/nav_home"
         android:name="com.example.luma.ui.home.HomeFragment"
-        android:label="@string/menu_inicio"
+        android:label="@string/tv_luma"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_products"
         android:name="com.example.luma.ui.products.ProductFragment"
-        android:label="@string/products"
+        android:label="@string/tv_luma"
         tools:layout="@layout/fragment_products" />
 
     <fragment
         android:id="@+id/nav_favorites"
-        android:name="com.example.luma.ui.slideshow.SlideshowFragment"
-        android:label="@string/favorites"
+        android:name="com.example.luma.ui.favorites.FavoritesFragment"
+        android:label="@string/tv_luma"
         tools:layout="@layout/fragment_favorites" />
+
+    <activity
+        android:id="@+id/nav_logout"
+        android:name="com.example.luma.ui.products.ActivityProducts"
+        android:label="@string/tv_luma"
+        tools:layout="@layout/activity_product_detail"/>
 </navigation>
