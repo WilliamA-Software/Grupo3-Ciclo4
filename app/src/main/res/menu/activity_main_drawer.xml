@@ -5,16 +5,20 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:fontFamily="@font/monotype_corsiva"
-            android:id="@+id/nav_inicio"
+            android:fontFamily="@font/philosopher"
+            android:id="@+id/nav_home"
             android:title="@string/menu_inicio" />
         <item
-            android:fontFamily="@font/monotype_corsiva"
+            android:fontFamily="@font/philosopher"
             android:id="@+id/nav_products"
             android:title="@string/products" />
         <item
-            android:fontFamily="@font/monotype_corsiva"
-            android:id="@+id/nav_historial"
+            android:fontFamily="@font/philosopher"
+            android:id="@+id/nav_favorites"
             android:title="@string/favorites" />
+        <item
+            android:fontFamily="@font/philosopher"
+            android:id="@+id/nav_logout"
+            android:title="@string/Log_Out" />
     </group>
 </menu>

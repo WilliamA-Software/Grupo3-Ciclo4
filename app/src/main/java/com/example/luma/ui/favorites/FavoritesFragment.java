@@ -1,4 +1,4 @@
-package com.example.luma.ui.slideshow;
+package com.example.luma.ui.favorites;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,21 +14,20 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.luma.databinding.FragmentFavoritesBinding;
 
-public class SlideshowFragment extends Fragment {
+public class FavoritesFragment extends Fragment {
 
-    private SlideshowViewModel slideshowViewModel;
+    private FavoritesViewModel favoritesViewModel;
     private FragmentFavoritesBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        slideshowViewModel =
-                new ViewModelProvider(this).get(SlideshowViewModel.class);
+        favoritesViewModel = new ViewModelProvider(this).get(FavoritesViewModel.class);
 
         binding = FragmentFavoritesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textSlideshow;
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        final TextView textView = binding.tvFavorites;
+        favoritesViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

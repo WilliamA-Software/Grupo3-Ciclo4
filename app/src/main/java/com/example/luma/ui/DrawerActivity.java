@@ -7,12 +7,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.widget.Toolbar;
 
 import com.example.luma.R;
 import com.example.luma.ui.login.ActivityLogin;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -35,20 +37,20 @@ public class DrawerActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         setSupportActionBar(binding.appBarMain.toolbar);
 
-        // Acciones del boton inferior de contacto a soporte
-        binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Request for support has been sent !", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+//        // Acciones del boton inferior de contacto a soporte
+//        binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Request for support has been sent !", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
 
         // Creacion del menu lateral y sus elementos
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_inicio, R.id.nav_products, R.id.nav_historial)
+                R.id.nav_home, R.id.nav_products, R.id.nav_favorites, R.id.log_out)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
@@ -68,7 +70,7 @@ public class DrawerActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item){
 
         switch (item.getItemId()){
-            case R.id.log_out:{
+            case R.id.nav_logout:{
 //          Limpiar el SharedPreferences al cerrar sesion
                 SharedPreferences storage = getSharedPreferences("STORAGE", MODE_PRIVATE);
                 SharedPreferences.Editor editor = storage.edit();
@@ -88,8 +90,5 @@ public class DrawerActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
-    }
-
-    private class SessionManager {
     }
 }

@@ -145,13 +145,13 @@
                 android:hint="@string/et_password"
                 android:textColorHint="@color/dark_gray"
                 android:paddingStart="15dp"
-                android:imeActionLabel="@string/action_sign_in_short"
                 android:imeOptions="actionDone"
                 android:inputType="textPassword"
                 android:selectAllOnFocus="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/mail" />
+<!--            android:imeActionLabel="@string/action_sign_in_short"-->
 
             <LinearLayout
                 android:id="@+id/ll_ptc"
@@ -171,6 +171,13 @@
                     android:buttonTint="@color/light_gray"
                     android:checked="false"
                     android:defaultFocusHighlightEnabled="true" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/philosopher"
+                    android:text="@string/agree"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"/>
                 <TextView
                     android:id="@+id/tv_ptc"
                     android:layout_width="wrap_content"
@@ -223,7 +230,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:fontFamily="@font/philosopher"
-                    android:text="@string/login"
+                    android:text="@string/lklogin"
                     android:textSize="20sp"
                     android:textColor="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
