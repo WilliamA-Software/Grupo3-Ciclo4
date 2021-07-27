@@ -30,6 +30,7 @@
             android:layout_width="0dp"
             android:layout_weight="15"
             android:layout_height="wrap_content"
+            android:tint="@color/black"
             android:src="@drawable/ic_favorite"
             android:background="@null"
             />
@@ -45,6 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/tv_name_product"
+                android:textColor="@color/dark3_gray"
                 android:textSize="12sp"
                 android:gravity="center"
                 android:maxLines="2">
@@ -55,6 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/tv_value_product"
+                android:textColor="@color/dark3_gray"
                 android:gravity="center"
                 android:textSize="12sp">
             </TextView>
