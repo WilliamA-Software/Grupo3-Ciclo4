@@ -15,6 +15,7 @@
         <activity android:name="com.example.luma.ui.DrawerActivity" />
         <activity android:name="com.example.luma.ui.login.TermsConditions" />
         <activity android:name="com.example.luma.ui.signup.SignupActivity" />
+        <activity android:name="com.example.luma.ui.products.ProductDetail" />
         <activity android:name="com.example.luma.ui.login.ActivityLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

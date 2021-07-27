@@ -1,27 +1,21 @@
 package com.example.luma.ui;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.widget.Toolbar;
-
 import com.example.luma.R;
 import com.example.luma.ui.login.ActivityLogin;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
-
-import androidx.appcompat.app.ActionBar;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.luma.databinding.ActivityDrawerBinding;
 
 public class DrawerActivity extends AppCompatActivity {
@@ -51,7 +45,7 @@ public class DrawerActivity extends AppCompatActivity {
         NavigationView navigationView = binding.navView;
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_products, R.id.nav_favorites, R.id.log_out)
-                .setDrawerLayout(drawer)
+                .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
@@ -65,25 +59,25 @@ public class DrawerActivity extends AppCompatActivity {
         return true;
     }
 
-//  Define las tareas a realizar al dar clic en los botones del Menu superior
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-
-        switch (item.getItemId()){
-            case R.id.nav_logout:{
-//          Limpiar el SharedPreferences al cerrar sesion
-                SharedPreferences storage = getSharedPreferences("STORAGE", MODE_PRIVATE);
-                SharedPreferences.Editor editor = storage.edit();
-                editor.clear();
-                editor.apply();
-                Intent activity = new Intent(DrawerActivity.this, ActivityLogin.class);
-                startActivity(activity);
-                finish();
-                return true;
-            }
-        }
-        return super.onOptionsItemSelected(item);
-    }
+////  Define las tareas a realizar al dar clic en los botones del Menu superior
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item){
+//
+//        switch (item.getItemId()){
+//            case R.id.nav_logout:{
+////          Limpiar el SharedPreferences al cerrar sesion
+//                SharedPreferences storage = getSharedPreferences("STORAGE", MODE_PRIVATE);
+//                SharedPreferences.Editor editor = storage.edit();
+//                editor.clear();
+//                editor.apply();
+//                Intent activity = new Intent(DrawerActivity.this, ActivityLogin.class);
+//                startActivity(activity);
+//                finish();
+//                return true;
+//            }
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
 
     @Override
     public boolean onSupportNavigateUp() {

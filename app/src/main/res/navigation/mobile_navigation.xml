@@ -25,7 +25,7 @@
 
     <activity
         android:id="@+id/nav_logout"
-        android:name="com.example.luma.ui.products.ActivityProducts"
+        android:name="com.example.luma.ui.products.ProductDetail"
         android:label="@string/tv_luma"
         tools:layout="@layout/activity_product_detail"/>
 </navigation>

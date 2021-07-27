@@ -128,7 +128,7 @@ public class ActivityLogin extends AppCompatActivity {
                             if (task.isSuccessful()&& !task.getResult().isEmpty()) {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(mySelf);
                                 builder.setCancelable(false);
-                                builder.setTitle(R.string.tv_login);
+                                builder.setTitle(R.string.login);
                                 builder.setMessage(R.string.txt_success_login);
                                 builder.setPositiveButton(R.string.txt_accept, new DialogInterface.OnClickListener() {
                                     @Override
@@ -142,7 +142,7 @@ public class ActivityLogin extends AppCompatActivity {
                             } else {
                                 Log.e("LOGIN","ERROR, FALLÓ DE SESION");
                                 AlertDialog.Builder builder = new AlertDialog.Builder(mySelf);
-                                builder.setTitle(R.string.tv_login);
+                                builder.setTitle(R.string.login);
                                 builder.setMessage(R.string.txt_error_login);
                                 AlertDialog dialog = builder.create();
                                 dialog.show();

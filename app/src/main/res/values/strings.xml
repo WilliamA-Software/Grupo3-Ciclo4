@@ -49,21 +49,20 @@
     <string name="Log_Out">Log Out</string>
     <string name="txt_cantidad">Cantidad</string>
     <string name="txt_imagen">Imagen</string>
-    <string name="agree">I agree to </string>
+    <string name="agree">I agree to</string>
 
 
     <!--String Products-->
-    <string name="et_code_product">Código del Prodcuto</string>
-    <string name="et_name_product">Nombre del producto</string>
-    <string name="et_description_product">Descripcion del producto</string>
-    <string name="et_price_product">Precio del producto</string>
-    <string name="et_quantity_product">Cantidad</string>
-    <string name="et_image_product">Imagen</string>
+    <string name="et_code_product">Product Code</string>
+    <string name="et_name_product">Product Name</string>
+    <string name="et_description_product">Product Description</string>
+    <string name="et_price_product">Product Price</string>
+    <string name="et_quantity_product">Quantity</string>
+    <string name="et_image_product">Image URL</string>
 
-    <string name="BotonRegistrar">Registrar Producto</string>
-    <string name="BotonBuscar">Buscar Producto</string>
-    <string name="BotonEliminar">Eliminar Producto</string>
-    <string name="BotonModificar">Modificar Producto</string>
+    <string name="register">Register</string>
+    <string name="delete">Delete</string>
+    <string name="modify">Modify</string>
 
     <!-- TERMS AND CONDITIONS -->
     <string name="tv_terms">Terms and Conditions</string>
@@ -491,8 +490,6 @@ Manizales y los procedimientos se llevarán a cabo en el idioma Castellano.\n"
         "Esta Política de Privacidad está sujeta a revisión ocasional, y si hacemos cualquier cambio sustancial en la forma en que utilizamos sus Datos Personales, le notificaremos mediante el envío de un correo electrónico a la última dirección de correo dirección que nos proporcionó y / o colocando avisos prominentes de los cambios en nuestro sitio. Cualquier cambio a esta Política de Privacidad serán eficaces cuando ocurra el primero de los treinta (30) días naturales siguientes a nuestro envío de una notificación por correo electrónico a usted o treinta (30) días naturales siguientes a nuestra publicación de la notificación de los cambios en nuestro sitio. Estos cambios se harán efectivos inmediatamente para los nuevos usuarios de nuestro servicio. Por favor, tenga en cuenta que en todo momento usted es responsable de actualizar sus datos personales que nos proporcione su dirección de e-mail más actual. En el caso de que el último e-mail que usted nos ha proporcionado no es válido, o por cualquier razón no es capaz de entregar a usted el aviso descrito anteriormente, nuestro envío del correo electrónico con dicha notificación constituirá de todos modos notificación efectiva de los cambios descritos en la convocatoria. En cualquier caso, los cambios en esta política de privacidad pueden afectar nuestro uso de los datos personales que usted nos proporcionó antes de nuestra notificación a usted de los cambios. Si usted no desea permitir cambios en nuestro uso de sus datos personales, debe notificarnos antes de la fecha efectiva de los cambios que desea desactivar su cuenta con nosotros. El uso continuado de nuestros servicios, a raíz de comunicar dichos cambios indicará que usted reconoce dichos cambios y el acuerdo en obligarse por los términos y condiciones de dichos cambios.\n\n"
 
     </string>
-    <string name="btn_send">Send</string>
-    <string name="Log_Out">Log Out</string>
 
     <!-- Frame Product Individual -->
     <string name="tv_name_product">Product Name</string>
