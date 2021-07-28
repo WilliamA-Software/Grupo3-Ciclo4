@@ -1,16 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!--<shape xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    android:shape="rectangle">-->
-
-<!--    <solid android:color="@color/dark3_gray"/>-->
-
-<!--    <padding android:bottom="7dp"-->
-<!--        android:right="7dp"/>-->
-
-<!--    <stroke android:color="@color/light_gray"-->
-<!--        android:width="2dp"/>-->
-<!--    <corners android:radius="12dp"/>-->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <layer-list>
@@ -33,4 +22,3 @@
         </layer-list>
         </item>
 </selector>
-<!--</shape>-->

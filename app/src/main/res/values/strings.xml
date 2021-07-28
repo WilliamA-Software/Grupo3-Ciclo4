@@ -15,11 +15,14 @@
 
     <!-- Strings related to login -->
     <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Log in</string>
+    <string name="login">Log in</string>
+    <string name="lklogin"><u>Log in</u></string>
     <string name="welcome">"Welcome"</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="login_failed">"Login failed"</string>
-    <string name="tv_forgot_password"><u>Forgot your password?</u></string>
+    <string name="tv_forgot_password">Forgot your password?</string>
+    <string name="lkforgot"><u>Forgot your password?</u></string>
+
     <string name="tv_not_account">Create a new account </string>
 
     <!-- Alert Dialog (LOG IN) -->
@@ -35,26 +38,31 @@
     <string name="invalid_lastname">Invalid lastname</string>
     <string name="invalid_mail">Invalid e-mail format</string>
     <string name="et_lastname">Last Name</string>
-    <string name="accept_ptc">I agree to policy, terms and conditions</string>
+    <string name="accept_ptc"><u>policy, terms and conditions</u></string>
     <string name="already_account">Have an account already?</string>
-    <string name="tv_login">Login</string>
     <string name="et_email">E-mail</string>
     <string name="et_password">Password</string>
-    <string name="login">Login</string>
-    <string name="signup"><u>Sign up</u></string>
+    <string name="lksignup"><u>Sign up</u></string>
+    <string name="signup">Sign up</string>
+    <string name="btn_send">Send</string>
+    <string name="txt_name">Nombre del producto</string>
+    <string name="Log_Out">Log Out</string>
+    <string name="txt_cantidad">Cantidad</string>
+    <string name="txt_imagen">Imagen</string>
+    <string name="agree">I agree to</string>
+
 
     <!--String Products-->
-    <string name="et_code_product">Código del Prodcuto</string>
-    <string name="et_name_product">Nombre del producto</string>
-    <string name="et_description_product">Descripcion del producto</string>
-    <string name="et_price_product">Precio del producto</string>
-    <string name="et_quantity_product">Cantidad</string>
-    <string name="et_image_product">Imagen</string>
+    <string name="et_code_product">Product Code</string>
+    <string name="et_name_product">Product Name</string>
+    <string name="et_description_product">Product Description</string>
+    <string name="et_price_product">Product Price</string>
+    <string name="et_quantity_product">Quantity</string>
+    <string name="et_image_product">Image URL</string>
 
-    <string name="BotonRegistrar">Registrar Producto</string>
-    <string name="BotonBuscar">Buscar Producto</string>
-    <string name="BotonEliminar">Eliminar Producto</string>
-    <string name="BotonModificar">Modificar Producto</string>
+    <string name="register">Register</string>
+    <string name="delete">Delete</string>
+    <string name="modify">Modify</string>
 
     <!-- TERMS AND CONDITIONS -->
     <string name="tv_terms">Terms and Conditions</string>
@@ -482,12 +490,18 @@ Manizales y los procedimientos se llevarán a cabo en el idioma Castellano.\n"
         "Esta Política de Privacidad está sujeta a revisión ocasional, y si hacemos cualquier cambio sustancial en la forma en que utilizamos sus Datos Personales, le notificaremos mediante el envío de un correo electrónico a la última dirección de correo dirección que nos proporcionó y / o colocando avisos prominentes de los cambios en nuestro sitio. Cualquier cambio a esta Política de Privacidad serán eficaces cuando ocurra el primero de los treinta (30) días naturales siguientes a nuestro envío de una notificación por correo electrónico a usted o treinta (30) días naturales siguientes a nuestra publicación de la notificación de los cambios en nuestro sitio. Estos cambios se harán efectivos inmediatamente para los nuevos usuarios de nuestro servicio. Por favor, tenga en cuenta que en todo momento usted es responsable de actualizar sus datos personales que nos proporcione su dirección de e-mail más actual. En el caso de que el último e-mail que usted nos ha proporcionado no es válido, o por cualquier razón no es capaz de entregar a usted el aviso descrito anteriormente, nuestro envío del correo electrónico con dicha notificación constituirá de todos modos notificación efectiva de los cambios descritos en la convocatoria. En cualquier caso, los cambios en esta política de privacidad pueden afectar nuestro uso de los datos personales que usted nos proporcionó antes de nuestra notificación a usted de los cambios. Si usted no desea permitir cambios en nuestro uso de sus datos personales, debe notificarnos antes de la fecha efectiva de los cambios que desea desactivar su cuenta con nosotros. El uso continuado de nuestros servicios, a raíz de comunicar dichos cambios indicará que usted reconoce dichos cambios y el acuerdo en obligarse por los términos y condiciones de dichos cambios.\n\n"
 
     </string>
-    <string name="btn_send">Send</string>
-    <string name="Log_Out">Log Out</string>
 
     <!-- Frame Product Individual -->
     <string name="tv_name_product">Product Name</string>
     <string name="tv_value_product">Value</string>
     <string name="iv_image_product">Product Image</string>
+    <string name="bt_shopping">Shopping Cart</string>
+    <string name="search">Search</string>
+    <string name="color">Color: </string>
+    <string name="size">Size: </string>
+    <string name="quantity">Quantity:</string>
+    <string name="bt_add_cart">Add to my cart</string>
+    <string name="tv_see_sizes"><u>See size table</u></string>
+    <string name="product_location">Product location</string>
 
 </resources>

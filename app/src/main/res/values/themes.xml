@@ -18,6 +18,9 @@
         <item name="android:datePickerDialogTheme">@style/AlertDialogCustom</item>
         <item name="android:alertDialogTheme">@style/AlertDialogCustom</item>
         <item name="colorAccent">@color/dark3_gray</item>
+    // Default font
+        <item name="android:textViewStyle">@style/tv_philosopher</item>
+        <item name="android:buttonStyle">@style/bt_philosopher</item>
     </style>
 
     <style name="AlertDialogCustom" parent="Base.Theme.AppCompat.Light.Dialog.Alert">
@@ -25,6 +28,15 @@
         <item name="android:colorAccent">@color/dark_gray</item>
     </style>
 
-        <style name="Theme.LUMA.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-        <style name="Theme.LUMA.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.LUMA.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.LUMA.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+<!--    Default font: Philosopher-->
+    <style name="tv_philosopher" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/philosopher</item>
+    </style>
+
+    <style name="bt_philosopher" parent="android:Widget.Holo.Button">
+        <item name="android:fontFamily">@font/philosopher</item>
+    </style>
 </resources>

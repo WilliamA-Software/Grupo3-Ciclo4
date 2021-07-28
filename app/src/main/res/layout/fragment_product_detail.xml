@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.luma.ui.favorites.FavoritesFragment"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@color/light_gray"
+    android:padding="0dp">
+
+    // 1 of 3 layouts: Top Layout with search box
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="86"
+        android:background="@color/light_gray">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            // Search box for products
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginVertical="8dp"
+                android:layout_marginEnd="12dp"
+                android:inputType="text"
+                android:textSize="20sp"
+                android:background="@drawable/et_rounded"
+                android:backgroundTint="@color/white"
+                android:hint="@string/search"
+                android:textColorHint="@color/dark3_gray"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:selectAllOnFocus="true"
+                android:textColor="@color/dark3_gray"
+                android:drawableTint="@color/black"
+                android:drawableStart="@android:drawable/ic_menu_search"
+                android:drawablePadding="5dp" />
+
+            // Horizontal layout containing 3 vertical layouts
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            // Left gray vertical space
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="9"
+                android:layout_height="match_parent"/>
+
+            // Main Pictures Content and Data
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="82"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:gravity="center_horizontal"
+                android:background="@color/white">
+                // Main Picture
+                <ImageView
+                    android:id="@+id/img_main_product"
+                    android:src="@drawable/ic_launcher_foreground"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:scaleType="centerInside"
+                    android:background="@color/gray"
+                    android:contentDescription="@string/iv_image_product"/>
+                // 3 small pictures line
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp">
+                    // Small left picture
+                    <ImageView
+                        android:id="@+id/img_small_left"
+                        android:src="@drawable/ic_launcher_foreground"
+                        android:layout_width="0dp"
+                        android:layout_weight="30"
+                        android:layout_height="90dp"
+                        android:scaleType="centerInside"
+                        android:background="@color/gray"
+                        android:contentDescription="@string/iv_image_product"/>
+                    // Small center picture
+                    <ImageView
+                        android:id="@+id/img_small_center"
+                        android:layout_marginStart="10dp"
+                        android:src="@drawable/ic_launcher_foreground"
+                        android:layout_width="0dp"
+                        android:layout_weight="30"
+                        android:layout_height="90dp"
+                        android:scaleType="centerInside"
+                        android:background="@color/gray"
+                        android:contentDescription="@string/iv_image_product"/>
+                    // Small right picture
+                    <ImageView
+                        android:id="@+id/img_small_right"
+                        android:layout_marginStart="10dp"
+                        android:src="@drawable/ic_launcher_foreground"
+                        android:layout_width="0dp"
+                        android:layout_weight="30"
+                        android:layout_height="90dp"
+                        android:scaleType="centerInside"
+                        android:background="@color/gray"
+                        android:contentDescription="@string/iv_image_product"/>
+                </LinearLayout>
+                //Product name and description
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+                    // CODE for product
+                    <TextView
+                        android:id="@+id/tv_product_code"
+                        android:layout_width="0dp"
+                        android:layout_weight="20"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/dark3_gray"
+                        android:fontFamily="@font/philosopher"
+                        android:textSize="18sp"
+                        android:text="CODE "/>
+                    // Product name
+                    <TextView
+                        android:id="@+id/tv_product_name"
+                        android:layout_width="0dp"
+                        android:layout_weight="80"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/dark3_gray"
+                        android:fontFamily="@font/philosopher"
+                        android:textSize="18sp"
+                        android:text=" Product name"/>
+                    // Favorite button
+                    <ImageButton
+                        android:id="@+id/bt_favorite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_favorite"
+                        android:background="@color/white" />
+                </LinearLayout>
+                // Product price
+                <TextView
+                    android:id="@+id/tv_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/philosopher"
+                    android:textSize="20sp"
+                    android:text="$ xxx.xxx"/>
+                // Color options
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp">
+                    <TextView
+                        android:id="@+id/tv_color"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="@color/dark3_gray"
+                        android:fontFamily="@font/philosopher"
+                        android:textSize="17sp"
+                        android:text="@string/color"/>
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="#0020ED"/>
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/design_default_color_secondary"/>
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="#CDB0DC"/>
+                    </RadioGroup>
+                </LinearLayout>
+                // Size options
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp" >
+                    <TextView
+                        android:id="@+id/tv_size"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="@color/dark3_gray"
+                        android:textSize="17sp"
+                        android:text="@string/size"/>
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <RadioButton
+                            android:id="@+id/radioS"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="S"
+                            android:textColor="@color/dark3_gray"
+                            android:backgroundTint="@color/dark_gray" />
+                        <RadioButton
+                            android:id="@+id/radioM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="M"
+                            android:textColor="@color/dark3_gray"
+                            android:backgroundTint="@color/dark_gray"
+                            android:gravity="center" />
+                        <RadioButton
+                            android:id="@+id/radioL"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="L"
+                            android:textColor="@color/dark3_gray"
+                            android:backgroundTint="@color/dark_gray"
+                            android:gravity="center" />
+                        <RadioButton
+                            android:id="@+id/radioXL"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="XL"
+                            android:textColor="@color/dark3_gray"
+                            android:backgroundTint="@color/dark_gray"
+                            android:gravity="center" />
+                    </RadioGroup>
+                </LinearLayout>
+                // Quantity
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingStart="20dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp">
+                    <TextView
+                        android:id="@+id/tv_quantity"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="@color/dark3_gray"
+                        android:textSize="17sp"
+                        android:text="@string/quantity"/>
+                    <EditText
+                        android:id="@+id/et_quantity"
+                        android:layout_marginLeft="5dp"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:background="@drawable/et_rounded"
+                        android:gravity="center"
+                        android:text="1"
+                        android:textColor="@color/dark3_gray"
+                        android:fontFamily="@font/philosopher"
+                        android:textSize="18sp"
+                        android:textColorHint="@color/dark3_gray" />
+                </LinearLayout>
+                // Product location text
+                <TextView
+                    android:id="@+id/tv_product_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/dark3_gray"
+                    android:textSize="17sp"
+                    android:text="@string/product_location"/>
+                // Google map with location
+                <ImageView
+                    android:id="@+id/img_map"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:layout_gravity="center_horizontal"
+                    android:scaleType="fitXY"
+                    android:background="@color/dark3_gray"
+                    android:padding="1dp"
+                    android:src="@drawable/dummy_map"
+                    android:contentDescription="@string/iv_image_product"/>
+            </LinearLayout>
+
+            // Right gray vertical space
+            <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="9"
+            android:layout_height="match_parent"/>
+        </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    // 2 of 3 layouts: Horizontal 3 vertical bottom layouts with button and text
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9"
+        android:layout_marginBottom="8dp">
+        // Left gray vertical space
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="9"
+            android:layout_height="match_parent"/>
+        // "Add Cart" button and text to view table sizes"
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="82"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/white" >
+            <Button
+                android:id="@+id/bt_add_cart"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="70"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:backgroundTint="@color/black"
+                android:text="@string/bt_add_cart"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:layout_gravity="center"
+                android:padding="1dp"/>
+            <TextView
+                android:id="@+id/tv_value"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="30"
+                android:layout_marginTop="2dp"
+                android:text="@string/tv_see_sizes"
+                android:textColor="@color/dark3_gray"
+                android:gravity="center"
+                android:textSize="12sp">
+            </TextView>
+        </LinearLayout>
+        // Right gray vertical space
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="9"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+    // 3 of 3 layouts: Bottom app bar with 3 icon buttons
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:background="@color/white" >
+        // Whatsapp button
+        <ImageButton
+            android:id="@+id/bt_whatsapp"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:tint="@color/black"
+            android:src="@drawable/icon_whatsapp_32"
+            android:background="@null" />
+        // Favorite bottom button
+        <ImageButton
+            android:id="@+id/bt_favorite_bottom"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:tint="@color/black"
+            android:src="@drawable/ic_favorite_black"
+            android:background="@null"/>
+        // Email contact button
+        <ImageButton
+            android:id="@+id/bt_mail"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="end"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:background="@null"
+            android:tint="@color/black"
+            app:srcCompat="@android:drawable/ic_dialog_email" />
+    </RelativeLayout>
+</LinearLayout>
