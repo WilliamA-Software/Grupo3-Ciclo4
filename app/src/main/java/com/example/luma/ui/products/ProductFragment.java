@@ -71,10 +71,11 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
 
         List<String> types = new ArrayList<String>();
         types.add("Seleccione");
-        types.add("Camisas");
-        types.add("Camisetas");
-        types.add("Pantalones");
-        types.add("Zapatos");
+        types.add("Blusas");
+        types.add("Chaquetas");
+        types.add("Vestidos y Faldas");
+        types.add("Pantalones y Shorts");
+        types.add("Ropa Interior y Vestidos de Baño");
 
 
         btn_insert.setOnClickListener(new View.OnClickListener() {
@@ -112,9 +113,6 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
         et_type.setOnItemSelectedListener(this);
         return root;// Creating adapter for spinner
     }
-
-
-
 
     //Method to create product
     public void Create(View view){
@@ -159,7 +157,6 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
             Toast.makeText(getActivity(), "Debes llenar todos los campos", Toast.LENGTH_SHORT).show();
         }
     }
-
 
     //Method to read product
     public void Read(View view){
@@ -214,7 +211,6 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
         }
 
     }
-
 
     //Method to update a product
     public void Update(View view){
@@ -304,19 +300,16 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
     public static int getItemPosition(Spinner spinner, String type) {
         //Creamos la variable posicion y lo inicializamos en 0
         int position = 0;
-        //Recorre el spinner en busca del ítem que coincida con el parametro `String fruta`
-        //que lo pasaremos posteriormente
+        //Recorre el spinner en busca del ítem que coincida con el parametro
         for (int i = 0; i < spinner.getCount(); i++) {
             //Almacena la posición del ítem que coincida con la búsqueda
             if (spinner.getItemAtPosition(i).toString().equalsIgnoreCase(type)) {
                 position = i;
             }
         }
-        //Devuelve un valor entero (si encontro una coincidencia devuelve la
-        // posición 0 o N, de lo contrario devuelve 0 = posición inicial)
+        //Devuelve un valor entero IF encontro una coincidencia, ELSE devuelve 0 = posición inicial)
         return position;
     }
-
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
