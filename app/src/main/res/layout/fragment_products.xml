@@ -16,7 +16,8 @@
         android:ems="10"
         android:hint="@string/et_code_product"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"/>
 
     <EditText
         android:id="@+id/et_name_product"
@@ -28,7 +29,8 @@
         android:hint="@string/et_name_product"
         android:inputType="text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"/>
 
     <EditText
         android:id="@+id/et_description_product"
@@ -39,7 +41,8 @@
         android:ems="10"
         android:hint="@string/et_description_product"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_codigo" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_codigo"
+        android:visibility="gone"/>
 
     <EditText
         android:id="@+id/et_price_product"
@@ -51,7 +54,8 @@
         android:hint="@string/et_price_product"
         android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_descripcion" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_descripcion"
+        android:visibility="gone"/>
 
     <EditText
         android:id="@+id/et_quantity_product"
@@ -63,7 +67,8 @@
         android:hint="@string/et_quantity_product"
         android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_descripcion" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_descripcion"
+        android:visibility="gone"/>
 
     <EditText
         android:id="@+id/et_image_product"
@@ -74,14 +79,16 @@
         android:ems="10"
         android:hint="@string/et_image_product"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_descripcion" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_descripcion"
+        android:visibility="gone"/>
 
     <Spinner
         android:id="@+id/et_type_product"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="12dp"/>
+        android:layout_marginTop="12dp"
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/btn_insert"
@@ -91,7 +98,8 @@
         android:layout_marginTop="28dp"
         android:text="@string/BotonRegistrar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_precio" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_precio"
+        android:visibility="gone" />
 
     <Button
         android:id="@+id/btn_search"
@@ -101,7 +109,8 @@
         android:layout_marginTop="8dp"
         android:text="@string/BotonBuscar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        android:visibility="gone" />
 
     <Button
         android:id="@+id/btn_update"
@@ -111,7 +120,8 @@
         android:layout_marginTop="8dp"
         android:text="@string/BotonModificar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/button2"
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/btn_delete"
@@ -121,5 +131,24 @@
         android:layout_marginTop="8dp"
         android:text="@string/BotonEliminar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintTop_toBottomOf="@+id/button3"
+        android:visibility="gone"/>
+
+
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/sv_product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcv_product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <ProgressBar
+        android:id="@+id/pb_product"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:progressTint="@color/dark3_gray"/>
 </LinearLayout>

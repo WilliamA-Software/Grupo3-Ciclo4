@@ -46,7 +46,13 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
+    //Recycler view
+    implementation "androidx.recyclerview:recyclerview:1.2.1"
+    // For control over item selection of both touch and mouse driven selection
+    implementation "androidx.recyclerview:recyclerview-selection:1.1.0"
 
+    //Picasso
+    implementation 'com.squareup.picasso:picasso:2.5.0'
 
     //firebase
     implementation platform('com.google.firebase:firebase-bom:28.3.0')
