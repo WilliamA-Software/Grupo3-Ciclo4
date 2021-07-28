@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:background="@color/white"
-    android:layout_margin="10dp"
-    android:padding="5dp">
+    android:layout_height="wrap_content">
 
-    <ImageView
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="5dp"
+        tools:layout_editor_absoluteX="10dp">
+
+        <ImageView
         android:id="@+id/img_product"
         android:src="@drawable/ic_launcher_foreground"
         android:layout_width="match_parent"
@@ -22,18 +30,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center"
-        >
+        android:gravity="center">
 
         <ImageButton
             android:id="@+id/imgbtn_favorite"
             android:layout_width="0dp"
             android:layout_weight="15"
             android:layout_height="wrap_content"
-            android:tint="@color/black"
             android:src="@drawable/ic_favorite"
-            android:background="@null"
-            />
+            android:background="@null"/>
 
         <LinearLayout
             android:layout_width="0dp"
@@ -46,7 +51,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/tv_name_product"
-                android:textColor="@color/dark3_gray"
                 android:textSize="12sp"
                 android:gravity="center"
                 android:maxLines="2">
@@ -57,7 +61,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/tv_value_product"
-                android:textColor="@color/dark3_gray"
                 android:gravity="center"
                 android:textSize="12sp">
             </TextView>
@@ -72,6 +75,18 @@
             android:src="@drawable/ic_shopping"
             android:background="@null"/>
 
+        </LinearLayout>
+
     </LinearLayout>
 
-</LinearLayout>
+    <ProgressBar
+        android:id="@+id/pb_loading_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:progressTint="@color/dark3_gray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout" />
+</androidx.constraintlayout.widget.ConstraintLayout>

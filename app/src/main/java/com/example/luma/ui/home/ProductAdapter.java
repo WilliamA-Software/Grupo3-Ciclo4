@@ -1,10 +1,8 @@
-package com.example.luma.ui.products;
+package com.example.luma.ui.home;
 
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -21,7 +19,6 @@ import com.squareup.picasso.Picasso;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
 
@@ -57,12 +54,14 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         TextView name,price;
         ImageView image;
         ProgressBar loading;
+        ImageButton button;
 
         public ProductViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.tv_name);
             price = itemView.findViewById(R.id.tv_value);
             image = itemView.findViewById(R.id.img_product);
+            button = itemView.findViewById(R.id.imgbtn_favorite);
             loading = itemView.findViewById(R.id.pb_loading_image);
         }
 
@@ -80,6 +79,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                 }
             });
         }
+
+
     }/*
     public interface ItemClickListener{
         public void onItemClick(Product product);
