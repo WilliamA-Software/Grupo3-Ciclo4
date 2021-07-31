@@ -14,9 +14,6 @@
             android:id="@+id/nav_favorites"
             android:title="@string/favorites" />
         <item
-            android:id="@+id/nav_prod_detail"
-            android:title="Prod.Detail" />
-        <item
             android:id="@+id/nav_logout"
             android:title="@string/Log_Out" />
     </group>

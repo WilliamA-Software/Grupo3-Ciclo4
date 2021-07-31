@@ -68,7 +68,7 @@
                     android:src="@drawable/ic_launcher_foreground"
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
-                    android:scaleType="centerInside"
+                    android:scaleType="fitXY"
                     android:background="@color/gray"
                     android:contentDescription="@string/iv_image_product"/>
                 // 3 small pictures line

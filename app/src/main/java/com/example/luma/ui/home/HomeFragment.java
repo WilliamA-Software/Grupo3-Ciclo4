@@ -1,5 +1,6 @@
 package com.example.luma.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,39 +19,30 @@ import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.luma.R;
 import com.example.luma.data.model.Product;
 import com.example.luma.databinding.FragmentHomeBinding;
+import com.example.luma.ui.favorites.FavoritesViewModel;
+import com.example.luma.ui.products.ProductDetail;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 
 public class HomeFragment extends Fragment implements SearchView.OnQueryTextListener{
 
     private FragmentHomeBinding binding;
-    private EditText et_code,
-            et_name,
-            et_description,
-            et_price,
-            et_quantity,
-            et_image;
-
-    private String typeAux,
-            setType;
-
-    private Button btn_insert,
-            btn_search,
-            btn_update,
-            btn_delete;
-
+    private ProductAdapter productAdapter;
     private ProgressBar load;
-    private Spinner et_type;
     private SearchView sv_product;
     private ArrayList<Product> products;
     private RecyclerView recyclerView;
@@ -58,6 +50,7 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
@@ -70,17 +63,22 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
         //Array list products
         products = new ArrayList<>();
 
-        //recyclerView
+        //RecyclerView
         recyclerView = binding.rcvProduct;
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2,GridLayoutManager.VERTICAL,false));
 
-        //list products
+        //List products
         getProducts();
 
         //Search product
         sv_product.setOnQueryTextListener(this);
-
         return root;
+    }
+
+    @Override
+    public void onViewCreated(@NotNull View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
     }
 
     @Override
@@ -110,11 +108,14 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
                 }
                 load.setVisibility(View.GONE);
 
-                ProductAdapter adapter = new ProductAdapter(products);
-                recyclerView.setAdapter(adapter);
+                productAdapter= new ProductAdapter(getView(), products);
+                recyclerView.setAdapter(productAdapter);
+
+
             }
         });
     }
+
 
     @Override
     public boolean onQueryTextSubmit(String query) {
@@ -139,8 +140,8 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
                     productSearch.addAll(products);
                 }
 
-                ProductAdapter adapter = new ProductAdapter(productSearch);
-                recyclerView.setAdapter(adapter);
+                productAdapter = new ProductAdapter(getView(),productSearch);
+                recyclerView.setAdapter(productAdapter);
             }
         });
 

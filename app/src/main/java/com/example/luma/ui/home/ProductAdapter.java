@@ -1,5 +1,8 @@
 package com.example.luma.ui.home;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,12 +10,16 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.luma.R;
 import com.example.luma.data.model.Product;
+import com.example.luma.ui.products.ProductDetail;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -22,12 +29,15 @@ import java.util.ArrayList;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
 
-    ArrayList<Product> products;
-    LayoutInflater inflater;
+    private ArrayList<Product> products;
+    private LayoutInflater inflater;
+    private View view;
+    public static Product productDetail;
     //private ItemClickListener clickListener;
 
-    public ProductAdapter(ArrayList<Product> products){
+    public ProductAdapter(View view, ArrayList<Product> products){
         this.products=products;
+        this.view = view;
         //this.clickListener = clickListener;
     }
 
@@ -51,24 +61,24 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     public class ProductViewHolder extends RecyclerView.ViewHolder{
 
-        TextView name,price;
-        ImageView image;
+        TextView name, price;
         ProgressBar loading;
-        ImageButton button;
+        ImageButton image_main, imgBtnFavorite, imgBtnShopping;
 
         public ProductViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.tv_name);
             price = itemView.findViewById(R.id.tv_value);
-            image = itemView.findViewById(R.id.img_product);
-            button = itemView.findViewById(R.id.imgbtn_favorite);
+            image_main = itemView.findViewById(R.id.img_product);
+            imgBtnFavorite = itemView.findViewById(R.id.imgbtn_favorite);
+            imgBtnShopping = itemView.findViewById(R.id.imgbtn_shopping);
             loading = itemView.findViewById(R.id.pb_loading_image);
         }
 
         public void setData(Product product) {
             name.setText(product.getNameProduct());
             price.setText(product.getPriceProduct());
-            Picasso.with(image.getContext()).load(product.getImageProduct()).into(image, new Callback() {
+            Picasso.with(image_main.getContext()).load(product.getImageProduct()).into(image_main, new Callback() {
                 @Override
                 public void onSuccess() {
                     loading.setVisibility(View.GONE);
@@ -76,11 +86,18 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
                 @Override
                 public void onError() {
+
+                }
+            });
+            image_main.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //Setea el productDetail para que pueda ser accedido desde los detalles
+                    productDetail=product;
+                    Navigation.findNavController(view).navigate(R.id.nav_prod_detail);
                 }
             });
         }
-
-
     }/*
     public interface ItemClickListener{
         public void onItemClick(Product product);

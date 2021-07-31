@@ -78,15 +78,13 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
         btn_update = binding.btnUpdate;
         btn_delete = binding.btnDelete;
 
-
-
         List<String> types = new ArrayList<String>();
         types.add("Seleccione");
         types.add("Camisas");
         types.add("Camisetas");
         types.add("Pantalones");
         types.add("Zapatos");
-
+        types.add("Vestidos");
 
         btn_insert.setOnClickListener(new View.OnClickListener() {
             @Override
