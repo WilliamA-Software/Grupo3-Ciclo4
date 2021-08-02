@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -23,8 +24,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.luma.R;
 import com.example.luma.data.model.Product;
 import com.example.luma.databinding.FragmentProductsBinding;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -39,7 +45,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductFragment extends Fragment implements AdapterView.OnItemSelectedListener{
+public class ProductFragment extends Fragment implements AdapterView.OnItemSelectedListener, OnMapReadyCallback {
 
     private FragmentProductsBinding binding;
 
@@ -62,7 +68,8 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
 
     //Map
     private ImageButton imgbtn_location;
-    private GoogleMap mMap1;
+    private GoogleMap mMap3;
+    private LinearLayout ll_map3;
     private boolean active_map;
 
     private Spinner et_type;
@@ -93,6 +100,7 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
 
         //ImageButtons
         imgbtn_location = binding.imgbtnLocation;
+        ll_map3 = binding.llMap3;
 
         //Visibility map
         active_map = false;
@@ -110,8 +118,14 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
             public void onClick(View v) {
                 if(!active_map){
                     //mMap1.visibility= visible;
+                    ll_map3.setVisibility(View.VISIBLE);
+                    active_map = true;
+
                 }
                 else {
+                    ll_map3.setVisibility(View.GONE);
+                    active_map = false;
+
 
                 }
             }
@@ -150,6 +164,12 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
         // attaching data adapter to spinner
         et_type.setAdapter(dataAdapter);
         et_type.setOnItemSelectedListener(this);
+
+        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map3);
+
+        if (mapFragment != null) {
+            mapFragment.getMapAsync(this);
+        }
 
         return root;// Creating adapter for spinner
     }
@@ -393,5 +413,39 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    @Override
+    public void onMapReady(@NonNull @NotNull GoogleMap googleMap) {
+        mMap3 = googleMap;
+
+        // Add a marker in Sydney and move the camera
+        LatLng marker = new LatLng(5.062312, -75.493129);
+        mMap3.addMarker(new MarkerOptions().position(marker).title("Marcador del producto"));
+        //mMap.moveCamera(CameraUpdateFactory.newLatLng(marker));
+
+        // Construct a CameraPosition focusing on Mountain View and animate the camera to that position.
+        CameraPosition cameraPosition = new CameraPosition.Builder()
+                .target(marker)      // Sets the center of the map to Mountain View
+                .zoom(16)                   // Sets the zoom
+                .bearing(90)                // Sets the orientation of the camera to east
+                .tilt(0)                   // Sets the tilt of the camera to 30 degrees
+                .build();                   // Creates a CameraPosition from the builder
+        mMap3.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
+        mMap3.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(@NonNull @NotNull LatLng latLng) {
+                mMap3.clear();
+                
+                double latitude = latLng.latitude;
+                double longitude = latLng.longitude;
+
+                et_latitude.setText(String.valueOf(latitude));
+                et_longitude.setText(String.valueOf(longitude));
+                
+                mMap3.addMarker(new MarkerOptions().position(latLng).title(et_name.getText().toString()));
+            }
+        });
     }
 }
