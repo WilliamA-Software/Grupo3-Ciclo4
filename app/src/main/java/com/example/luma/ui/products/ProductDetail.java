@@ -99,8 +99,8 @@ public class ProductDetail extends Fragment implements OnMapReadyCallback {
         mMap2 = googleMap;
 
         // Aqui tomo los datos de latitude y longitude de firebase
-        double latitude = 2.935133;
-        double longitude = -75.280801;
+        double latitude = Double.parseDouble(product.getLatitudeProduct());
+        double longitude = Double.parseDouble(product.getLongitudeProduct());
 
         // Creo la variable marcador de tipo latitude y longitude
         LatLng marker;
@@ -122,6 +122,7 @@ public class ProductDetail extends Fragment implements OnMapReadyCallback {
                 .bearing(90)                // Sets the orientation of the camera to east
                 .tilt(0)                   // Sets the tilt of the camera to 30 degrees
                 .build();                   // Creates a CameraPosition from the builder
+
         mMap2.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
     }

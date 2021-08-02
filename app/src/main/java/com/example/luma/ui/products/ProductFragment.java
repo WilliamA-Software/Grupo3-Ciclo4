@@ -48,7 +48,8 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
             et_description,
             et_price,
             et_quantity,
-
+            et_latitude,
+            et_longitude,
             et_image;
 
     private String typeAux,
@@ -59,7 +60,9 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
             btn_update,
             btn_delete;
 
+    //Map
     private ImageButton imgbtn_location;
+    private GoogleMap mMap1;
     private boolean active_map;
 
     private Spinner et_type;
@@ -78,8 +81,9 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
         et_price = binding.etPriceProduct;
         et_quantity = binding.etQuantityProduct;
         et_image = binding.etImageProduct;
+        et_latitude = binding.etLatitude;
+        et_longitude = binding.etLongitude;
         et_type = binding.etTypeProduct;
-
 
         //Buttons
         btn_insert = binding.btnInsert;
@@ -158,6 +162,8 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
         description = et_description.getText().toString();
         price = et_price.getText().toString();
         quantity = et_quantity.getText().toString();
+        latitude = et_latitude.getText().toString();
+        longitude = et_longitude.getText().toString();
         image = et_image.getText().toString();
 
         type = typeAux;
@@ -168,7 +174,8 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
                     price,
                     quantity,
                     image,
-
+                    latitude,
+                    longitude,
                     type
             );
             db.collection("product").document().set(product).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -180,6 +187,8 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
                     et_description.setText("");
                     et_price.setText("");
                     et_quantity.setText("");
+                    et_latitude.setText("");
+                    et_longitude.setText("");
                     et_image.setText("");
 
                     typeAux="";
@@ -216,7 +225,8 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
                         et_price.setText(document.get("priceProduct").toString());
                         et_quantity.setText(document.get("quantityProduct").toString());
                         et_image.setText(document.get("imageProduct").toString());
-
+                        et_latitude.setText(document.get("latitudeProduct").toString());
+                        et_longitude.setText(document.get("longitudeProduct").toString());
                         et_type.setSelection(getItemPosition(et_type, document.get("typeProduct").toString()));
                         // Read Successful
                         Toast.makeText(getActivity(), "Articulo encontrado", Toast.LENGTH_SHORT).show();
@@ -238,7 +248,8 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
                             et_price.setText(document.get("priceProduct").toString());
                             et_quantity.setText(document.get("quantityProduct").toString());
                             et_image.setText(document.get("imageProduct").toString());
-
+                            et_latitude.setText(document.get("latitudeProduct").toString());
+                            et_longitude.setText(document.get("longitudeProduct").toString());
                             et_type.setSelection(getItemPosition(et_type, document.get("typeProduct").toString()));
                             // Read Successful
                             Toast.makeText(getActivity(), "Articulo encontrado", Toast.LENGTH_SHORT).show();
@@ -263,6 +274,8 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
         description = et_description.getText().toString();
         price = et_price.getText().toString();
         quantity = et_quantity.getText().toString();
+        latitude = et_latitude.getText().toString();
+        longitude = et_longitude.getText().toString();
         image = et_image.getText().toString();
 
         type = typeAux;
@@ -274,7 +287,8 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
                     price,
                     quantity,
                     image,
-
+                    latitude,
+                    longitude,
                     type
             );
             db.collection("product").document(code).set(product).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -287,6 +301,8 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
                     et_description.setText("");
                     et_price.setText("");
                     et_quantity.setText("");
+                    et_latitude.setText("");
+                    et_longitude.setText("");
                     et_image.setText("");
 
                     et_type.setSelection(getItemPosition(et_type, "Seleccione"));
@@ -319,6 +335,8 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
                     et_description.setText("");
                     et_price.setText("");
                     et_quantity.setText("");
+                    et_latitude.setText("");
+                    et_longitude.setText("");
                     et_image.setText("");
 
                     et_type.setSelection(getItemPosition(et_type, "Seleccione"));
