@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.luma.ui.favorites.FavoritesFragment"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@color/light_gray"
+    android:padding="0dp">
+
+    // 1 of 3 layouts: Static header from Shopping Cart
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="25"
+        android:padding="10dp">
+        // Texto: txt_subtotal
+        <TextView
+            android:id="@+id/txt_subtotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_alignParentTop="true"
+            android:text="@string/subtotal"
+            android:textColor="@color/dark3_gray"
+            android:textSize="18sp" />
+        // Variable: var_cart_total
+        <TextView
+            android:id="@+id/var_car_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/txt_subtotal"
+            android:text="$890.000"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+        // Texto: txt_prod_quantity
+        <TextView
+            android:id="@+id/txt_prod_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_subtotal"
+            android:text="@string/quantity"
+            android:textColor="@color/dark3_gray"
+            android:textSize="18sp" />
+        // Variable: var_prod_quantity
+        <TextView
+            android:id="@+id/var_prod_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_subtotal"
+            android:layout_toEndOf="@+id/txt_prod_quantity"
+            android:layout_marginStart="10dp"
+            android:text="8"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+        // Texto: txt_coupon
+        <TextView
+            android:id="@+id/txt_coupon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_prod_quantity"
+            android:text="@string/coupon"
+            android:textColor="@color/dark3_gray"
+            android:textSize="18sp" />
+        // Variable: et_coupon
+        <EditText
+            android:id="@+id/et_coupon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="15dp"
+            android:paddingStart="15dp"
+            android:layout_below="@+id/txt_prod_quantity"
+            android:layout_toEndOf="@+id/txt_coupon"
+            android:layout_marginStart="10dp"
+            android:hint="Blackfriday"
+            android:textColorHint="@color/black"
+            android:background="@drawable/et_rounded"
+            android:backgroundTint="@color/white"/>
+        // Texto: txt_discount
+        <TextView
+            android:id="@+id/txt_discount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_coupon"
+            android:layout_marginTop="2dp"
+            android:text="@string/discount"
+            android:textColor="@color/dark3_gray"
+            android:textSize="18sp" />
+        // Variable: var_discount
+        <TextView
+            android:id="@+id/var_discount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_coupon"
+            android:layout_toEndOf="@+id/txt_discount"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="10dp"
+            android:text="$72.000"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+        // Texto: txt_shipping
+        <TextView
+            android:id="@+id/txt_shipping"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_discount"
+            android:text="@string/shipping"
+            android:textColor="@color/dark3_gray"
+            android:textSize="18sp" />
+        // Variable: var_shipping
+        <TextView
+            android:id="@+id/var_shipping"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_discount"
+            android:layout_toEndOf="@id/txt_shipping"
+            android:layout_marginStart="10dp"
+            android:text="$10.000"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+        // Texto: txt_order_total
+        <TextView
+            android:id="@+id/txt_order_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_shipping"
+            android:text="@string/order_total"
+            android:textColor="@color/dark3_gray"
+            android:textSize="20sp" />
+        // Variable: var_total2pay
+        <TextView
+            android:id="@+id/var_total2pay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_shipping"
+            android:layout_toEndOf="@+id/txt_order_total"
+            android:layout_marginStart="10dp"
+            android:text="$60.000"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+        // Button to Checkout: bt_checkout
+        <Button
+            android:id="@+id/bt_checkout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/bt_luma1"
+            android:backgroundTint="@color/black"
+            android:text="@string/checkout"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:padding="10dp"/>
+    </RelativeLayout>
+
+    // 2 of 3 layouts: RecyclerView with cart products
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcv_product"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="75"/>
+<!--    <ProgressBar-->
+<!--        android:id="@+id/pb_product"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:progressTint="@color/black"/>-->
+
+    // 3 of 3 layouts: Bottom app bar with 3 icon buttons
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:background="@color/white" >
+        // Whatsapp button
+        <ImageButton
+            android:id="@+id/bt_whatsapp"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:tint="@color/black"
+            android:src="@drawable/icon_whatsapp_32"
+            android:background="@null" />
+        // Favorite bottom button
+        <ImageButton
+            android:id="@+id/bt_favorite_bottom"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:tint="@color/black"
+            android:src="@drawable/ic_favorite_black"
+            android:background="@null"/>
+        // Email contact button
+        <ImageButton
+            android:id="@+id/bt_mail"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="end"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="20dp"
+            android:background="@null"
+            android:tint="@color/black"
+            app:srcCompat="@android:drawable/ic_dialog_email" />
+    </RelativeLayout>
+</LinearLayout>

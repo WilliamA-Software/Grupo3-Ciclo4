@@ -53,10 +53,10 @@
 
 
     <!--String Products-->
-    <string name="et_code_product">Code: </string>
+    <string name="et_code_product">Code:</string>
     <string name="et_name_product">Product Name</string>
     <string name="et_description_product">Product Description</string>
-    <string name="et_price_product">Cost: </string>
+    <string name="et_price_product">Cost:</string>
     <string name="et_quantity_product">Quantity</string>
     <string name="et_image_product">Image URL</string>
 
@@ -497,13 +497,19 @@ Manizales y los procedimientos se llevarán a cabo en el idioma Castellano.\n"
     <string name="iv_image_product">Product Image</string>
     <string name="bt_shopping">Shopping Cart</string>
     <string name="search">Search</string>
-    <string name="color">Color: </string>
-    <string name="size">Size: </string>
+    <string name="color">Color:</string>
+    <string name="size">Size:</string>
     <string name="quantity">Quantity:</string>
     <string name="bt_add_cart">Add to my cart</string>
     <string name="tv_see_sizes"><u>See size table</u></string>
     <string name="product_location">Product location</string>
     <string name="edit_size_color"><u>Edit size or color</u></string>
-    <string name="total">Total: </string>
+    <string name="total">Total:</string>
+    <string name="coupon">Coupon:</string>
+    <string name="discount">Discount:</string>
+    <string name="shipping">Shipping:</string>
+    <string name="subtotal">Subtotal:</string>
+    <string name="order_total">Order total:</string>
+    <string name="checkout">Checkout</string>
 
 </resources>
