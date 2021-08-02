@@ -55,13 +55,14 @@
             android:text="@string/et_code_product"
             android:textColor="@color/dark3_gray"
             android:textSize="18sp" />
-        // Codigo del producto a cambiar
+        // Variable: Codigo del producto a cambiar
         <TextView
             android:id="@+id/tv_product_code"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_product_name"
             android:layout_toEndOf="@+id/code"
+            android:layout_marginStart="10dp"
             android:text="XXXX"
             android:textColor="@color/dark3_gray"
             android:textSize="18sp" />
@@ -75,13 +76,14 @@
             android:text="@string/color"
             android:textColor="@color/dark3_gray"
             android:textSize="18sp" />
-        // Color a cambiar
+        // Variable: Color a cambiar
         <TextView
             android:id="@+id/tv_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/code"
             android:layout_toEndOf="@+id/color"
+            android:layout_marginStart="10dp"
             android:text="Azul 120"
             android:textColor="@color/dark3_gray"
             android:textSize="18sp" />
@@ -95,13 +97,14 @@
             android:text="@string/size"
             android:textColor="@color/dark3_gray"
             android:textSize="18sp" />
-        // Talla a cambiar
+        // Variable: Talla a cambiar
         <TextView
             android:id="@+id/tv_size"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_color"
             android:layout_toEndOf="@id/size"
+            android:layout_marginStart="10dp"
             android:text="L"
             android:textColor="@color/dark3_gray"
             android:textSize="18sp" />
@@ -115,7 +118,7 @@
             android:text="@string/edit_size_color"
             android:textColor="@android:color/holo_blue_dark"
             android:textSize="17sp" />
-        // Link para cambiar talla y color
+        // Texto: tv_quantity
         <TextView
             android:id="@+id/tv_quantity"
             android:layout_width="wrap_content"
@@ -126,7 +129,7 @@
             android:text="@string/quantity"
             android:textColor="@color/dark3_gray"
             android:textSize="18sp" />
-        // Cambiar la cantidad de productos
+        // Variable: Cambiar la cantidad de productos
         <EditText
             android:id="@+id/et_quantity"
             android:layout_width="wrap_content"
@@ -151,7 +154,7 @@
             android:text="@string/et_price_product"
             android:textColor="@color/dark3_gray"
             android:textSize="18sp" />
-        // valor del producto unitario
+        // Variable: valor unitario
         <TextView
             android:id="@+id/tv_price"
             android:layout_width="wrap_content"
@@ -159,20 +162,22 @@
             android:layout_below="@+id/tv_quantity"
             android:layout_toEndOf="@+id/cost"
             android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
             android:text="$60.000"
             android:textColor="@color/dark3_gray"
             android:textSize="18sp" />
-        // valor total segun la cantidad de productos
+        // valor total - Texto
         <TextView
             android:id="@+id/total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/img_product"
             android:layout_toStartOf="@+id/tv_subtotal"
+            android:layout_marginEnd="10dp"
             android:text="@string/total"
             android:textColor="@color/black"
             android:textSize="20sp" />
-        // valor total segun la cantidad de productos
+        // Variable: Total segun la cantidad del producto
         <TextView
             android:id="@+id/tv_subtotal"
             android:layout_width="wrap_content"
