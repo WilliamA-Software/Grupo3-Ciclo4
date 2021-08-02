@@ -5,76 +5,150 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_margin="12dp"
     tools:context="com.example.luma.ui.products.ProductFragment" >
 
-    <EditText
-        android:id="@+id/et_code_product"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:paddingStart="15dp"
-        android:layout_margin="12dp"
-        android:background="@drawable/et_rounded"
-        android:hint="@string/et_code_product"
-        android:inputType="textShortMessage" />
-
-    <EditText
-        android:id="@+id/et_name_product"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:paddingStart="15dp"
-        android:layout_margin="12dp"
-        android:background="@drawable/et_rounded"
-        android:hint="@string/et_name_product"
-        android:inputType="text"/>
-
-    <EditText
-        android:id="@+id/et_description_product"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:paddingStart="15dp"
-        android:layout_margin="12dp"
-        android:background="@drawable/et_rounded"
-        android:hint="@string/et_description_product"
-        android:inputType="text"/>
-
-    <EditText
-        android:id="@+id/et_price_product"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:paddingStart="15dp"
-        android:layout_margin="12dp"
-        android:background="@drawable/et_rounded"
-        android:hint="@string/et_price_product"
-        android:inputType="numberDecimal" />
-
-    <EditText
-        android:id="@+id/et_quantity_product"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:paddingStart="15dp"
-        android:layout_margin="12dp"
-        android:background="@drawable/et_rounded"
-        android:hint="@string/et_quantity_product"
-        android:inputType="number" />
-
-    <EditText
-        android:id="@+id/et_image_product"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:paddingStart="15dp"
-        android:layout_margin="12dp"
-        android:background="@drawable/et_rounded"
-        android:ems="10"
-        android:hint="@string/et_image_product"
-        android:inputType="textWebEditText" />
-
-    <Spinner
-        android:id="@+id/et_type_product"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="@color/black" />
+        android:id="@+id/scrollView"
+        android:layout_alignParentStart="true"
+        tools:ignore="MissingConstraints"
+        android:verticalScrollbarPosition="right"
+        android:scrollbarStyle="outsideInset">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <EditText
+                android:id="@+id/et_code_product"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingStart="15dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/et_rounded"
+                android:hint="@string/et_code_product"
+                android:inputType="textShortMessage" />
+
+            <EditText
+                android:id="@+id/et_name_product"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingStart="15dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/et_rounded"
+                android:hint="@string/et_name_product"
+                android:inputType="text"/>
+
+            <EditText
+                android:id="@+id/et_description_product"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingStart="15dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/et_rounded"
+                android:hint="@string/et_description_product"
+                android:inputType="text"/>
+
+            <EditText
+                android:id="@+id/et_price_product"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingStart="15dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/et_rounded"
+                android:hint="@string/et_price_product"
+                android:inputType="numberDecimal" />
+
+            <EditText
+                android:id="@+id/et_quantity_product"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingStart="15dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/et_rounded"
+                android:hint="@string/et_quantity_product"
+                android:inputType="number" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/et_latitude"
+                    android:layout_width="0dp"
+                    android:layout_weight="80"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="6dp"
+                    android:paddingStart="15dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/et_rounded"
+                    android:ems="10"
+                    android:hint="@string/et_latitude"
+                    android:inputType="textWebEditText"
+                    />
+
+                <EditText
+                    android:id="@+id/et_longitude"
+                    android:layout_width="0dp"
+                    android:layout_weight="80"
+                    android:layout_height="40dp"
+                    android:paddingStart="15dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/et_rounded"
+                    android:ems="10"
+                    android:hint="@string/et_longitude"
+                    android:inputType="textWebEditText" />
+
+                <ImageButton
+                    android:id="@+id/imgbtn_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_weight="10"
+                    android:layout_marginLeft="6dp"
+                    android:background="@drawable/et_rounded"
+                    android:src="@android:drawable/ic_menu_mapmode">
+
+                </ImageButton>
+
+            </LinearLayout>
+
+            // Google map with location
+            <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:map="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/map1"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:visibility="gone"
+                tools:context=".MapsActivity" />
+
+            <EditText
+                android:id="@+id/et_image_product"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingStart="15dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/et_rounded"
+                android:ems="10"
+                android:hint="@string/et_image_product"
+                android:inputType="textWebEditText" />
+
+            <Spinner
+                android:id="@+id/et_type_product"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="@color/black" />
+        </LinearLayout>
+    </ScrollView>
 
     <Button
         android:id="@+id/btn_insert"

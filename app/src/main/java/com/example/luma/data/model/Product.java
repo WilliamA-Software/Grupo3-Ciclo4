@@ -59,6 +59,7 @@ public class Product {
         return DescriptionProduct;
     }
 
+
     public void setDescriptionProduct(String descriptionProduct) {
         DescriptionProduct = descriptionProduct;
     }
@@ -70,5 +71,16 @@ public class Product {
     public void setPriceProduct(String priceProduct) {
         PriceProduct = priceProduct;
     }
+    /*
+
+    public String getLongitudeProduct(){ return LongitudeProduct;}
+
+    public void setLongitudeProduct(String longitudeProduct){ LongitudeProduct = longitudeProduct;}
+
+    public String getLatitudeProduct(){ return LatitudeProduct;}
+
+    public void setLatitudeProduct(String latitudeProduct){ LatitudeProduct = latitudeProduct;}
+
+     */
 
 }

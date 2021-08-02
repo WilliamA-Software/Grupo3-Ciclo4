@@ -20,8 +20,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.luma.R;
 import com.example.luma.data.model.Product;
 import com.example.luma.databinding.FragmentProductsBinding;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -45,6 +48,7 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
             et_description,
             et_price,
             et_quantity,
+
             et_image;
 
     private String typeAux,
@@ -54,6 +58,9 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
             btn_search,
             btn_update,
             btn_delete;
+
+    private ImageButton imgbtn_location;
+    private boolean active_map;
 
     private Spinner et_type;
 
@@ -72,11 +79,19 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
         et_quantity = binding.etQuantityProduct;
         et_image = binding.etImageProduct;
         et_type = binding.etTypeProduct;
+
+
         //Buttons
         btn_insert = binding.btnInsert;
         btn_search = binding.btnSearch;
         btn_update = binding.btnUpdate;
         btn_delete = binding.btnDelete;
+
+        //ImageButtons
+        imgbtn_location = binding.imgbtnLocation;
+
+        //Visibility map
+        active_map = false;
 
         List<String> types = new ArrayList<String>();
         types.add("Seleccione");
@@ -85,6 +100,18 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
         types.add("Pantalones");
         types.add("Zapatos");
         types.add("Vestidos");
+
+        imgbtn_location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!active_map){
+                    //mMap1.visibility= visible;
+                }
+                else {
+
+                }
+            }
+        });
 
         btn_insert.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,12 +153,13 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
     //Method to create product
     public void Create(View view){
         //local variables
-        String name, description, price, quantity, image, type;
+        String name, description, price, quantity, image, type, latitude, longitude;
         name = et_name.getText().toString();
         description = et_description.getText().toString();
         price = et_price.getText().toString();
         quantity = et_quantity.getText().toString();
         image = et_image.getText().toString();
+
         type = typeAux;
         if(!name.isEmpty() && !description.isEmpty() && !price.isEmpty() && checkSpinner()){
             Product product = new Product(
@@ -140,6 +168,7 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
                     price,
                     quantity,
                     image,
+
                     type
             );
             db.collection("product").document().set(product).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -152,6 +181,7 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
                     et_price.setText("");
                     et_quantity.setText("");
                     et_image.setText("");
+
                     typeAux="";
                     et_type.setSelection(getItemPosition(et_type, "Seleccione"));
                 }
@@ -186,6 +216,7 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
                         et_price.setText(document.get("priceProduct").toString());
                         et_quantity.setText(document.get("quantityProduct").toString());
                         et_image.setText(document.get("imageProduct").toString());
+
                         et_type.setSelection(getItemPosition(et_type, document.get("typeProduct").toString()));
                         // Read Successful
                         Toast.makeText(getActivity(), "Articulo encontrado", Toast.LENGTH_SHORT).show();
@@ -207,6 +238,7 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
                             et_price.setText(document.get("priceProduct").toString());
                             et_quantity.setText(document.get("quantityProduct").toString());
                             et_image.setText(document.get("imageProduct").toString());
+
                             et_type.setSelection(getItemPosition(et_type, document.get("typeProduct").toString()));
                             // Read Successful
                             Toast.makeText(getActivity(), "Articulo encontrado", Toast.LENGTH_SHORT).show();
@@ -225,13 +257,14 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
 
     //Method to update a product
     public void Update(View view){
-        String code, name, description, price, quantity, image, type;
+        String code, name, description, price, quantity, image, longitude, latitude, type;
         code = et_code.getText().toString();
         name = et_name.getText().toString();
         description = et_description.getText().toString();
         price = et_price.getText().toString();
         quantity = et_quantity.getText().toString();
         image = et_image.getText().toString();
+
         type = typeAux;
 
         if(!name.isEmpty() && !description.isEmpty() && !price.isEmpty() && !quantity.isEmpty() && checkSpinner()){
@@ -241,6 +274,7 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
                     price,
                     quantity,
                     image,
+
                     type
             );
             db.collection("product").document(code).set(product).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -254,6 +288,7 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
                     et_price.setText("");
                     et_quantity.setText("");
                     et_image.setText("");
+
                     et_type.setSelection(getItemPosition(et_type, "Seleccione"));
                     typeAux="";
                 }
@@ -285,6 +320,7 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
                     et_price.setText("");
                     et_quantity.setText("");
                     et_image.setText("");
+
                     et_type.setSelection(getItemPosition(et_type, "Seleccione"));
                     typeAux="";
                 }
