@@ -14,6 +14,8 @@ public class Product {
             QuantityProduct,
             ImageProduct,
             TypeProduct;
+//    TODO: Add (available / Out of stock) boolean in Firebase
+//    private boolean isAvailable;
 
     public Product(String NameProduct,
                    String DescriptionProduct,

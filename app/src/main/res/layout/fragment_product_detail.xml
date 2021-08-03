@@ -322,6 +322,8 @@
                 android:layout_marginStart="12dp"
                 android:layout_marginEnd="12dp"
                 android:backgroundTint="@color/black"
+                style="@style/Widget.AppCompat.Button.Small"
+                android:enabled="true"
                 android:text="@string/bt_add_cart"
                 android:textColor="@color/white"
                 android:textSize="12sp"

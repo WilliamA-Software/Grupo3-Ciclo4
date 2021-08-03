@@ -1,15 +1,10 @@
 package com.example.luma.ui;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.Menu;
-import android.view.MenuInflater;
-import android.widget.Toolbar;
+
 import com.example.luma.R;
-import com.example.luma.ui.cart.ShoppingcartFragment;
-import com.example.luma.ui.login.ActivityLogin;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;

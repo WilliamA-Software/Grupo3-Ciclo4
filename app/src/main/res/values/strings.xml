@@ -512,5 +512,9 @@ Manizales y los procedimientos se llevarán a cabo en el idioma Castellano.\n"
     <string name="order_total">Order total:</string>
     <string name="checkout">Checkout</string>
     <string name="shopping_cart">Shopping cart</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="thanks_order">Thanks for your order</string>
+    <string name="continue_shopping"><u>Continue shopping</u></string>
 
 </resources>
