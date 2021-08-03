@@ -17,7 +17,7 @@ import com.example.luma.databinding.FragmentShoppingcartBinding;
 
 import java.util.ArrayList;
 
-public class ShoppingcartFragment extends Fragment {
+public class CartFragment extends Fragment {
 
     private FragmentShoppingcartBinding binding;
     private ProgressBar load;

@@ -1,6 +1,7 @@
 package com.example.luma.ui.home;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.luma.data.model.Product;
 import com.example.luma.databinding.FragmentHomeBinding;
+import com.example.luma.viewmodels.HomeViewModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -30,6 +32,7 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
     private ArrayList<Product> products;
     private RecyclerView recyclerView;
     public ArrayList<Product> cartProducts;
+    private HomeViewModel homeViewModel;
 
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -147,11 +150,11 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
 
     @Override
     public void addItem(Product product) {
-
+        Log.d("CART DEBUGGER ---->", "addItem: " + product.getNameProduct());
     }
 
     @Override
     public void onItemClick(Product product) {
-
+//        homeViewModel.setProduct(product);
     }
 }
