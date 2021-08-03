@@ -1,6 +1,8 @@
 package com.example.luma.ui.home;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +26,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.luma.R;
+import com.example.luma.data.model.CartStorage;
 import com.example.luma.data.model.Product;
 import com.example.luma.databinding.FragmentHomeBinding;
 import com.example.luma.ui.favorites.FavoritesViewModel;
@@ -33,9 +36,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-
 import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 
 public class HomeFragment extends Fragment implements SearchView.OnQueryTextListener{
@@ -46,6 +47,8 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
     private SearchView sv_product;
     private ArrayList<Product> products;
     private RecyclerView recyclerView;
+    public ArrayList<Product> cartProducts;
+
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -62,6 +65,7 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
 
         //Array list products
         products = new ArrayList<>();
+        cartProducts = new ArrayList<>();
 
         //RecyclerView
         recyclerView = binding.rcvProduct;
@@ -72,6 +76,11 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
 
         //Search product
         sv_product.setOnQueryTextListener(this);
+
+        // Start sharedpreference Storage
+//        CartStorage.setCartStorage(cartProducts);
+
+
         return root;
     }
 

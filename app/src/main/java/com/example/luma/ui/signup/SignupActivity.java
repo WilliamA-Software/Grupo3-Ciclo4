@@ -16,16 +16,13 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-
 import com.example.luma.R;
-import com.example.luma.data.model.Product;
 import com.example.luma.data.model.User;
 import com.example.luma.databinding.ActivitySignupBinding;
 import com.example.luma.ui.DrawerActivity;
@@ -34,8 +31,6 @@ import com.example.luma.ui.login.TermsConditions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-
 import org.jetbrains.annotations.NotNull;
 
 public class SignupActivity extends AppCompatActivity {
@@ -43,9 +38,6 @@ public class SignupActivity extends AppCompatActivity {
     private LoginViewModel loginViewModel;
     private ActivitySignupBinding binding;
     private boolean validForm;
-
-    // Persistencia con Shared Preference
-    private SharedPreferences storage;
 
     //Firebase
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -70,15 +62,6 @@ public class SignupActivity extends AppCompatActivity {
         final ProgressBar loadingProgressBar = binding.loading;
         final Activity mySelf;
         mySelf = this;
-
-        // Instancia del almacenamiento persistente
-        storage = getSharedPreferences("STORAGE", MODE_PRIVATE);
-
-        // Obtengo los datos de usuario si ya estan almacenados previamente
-        String name = storage.getString("NAME1", "NO NAME");
-        String lastname = storage.getString("LASTNAME1", "NO LASTNAME");
-        String email = storage.getString("EMAIL1", "NO MAIL");
-        String password = storage.getString("PASSWORD1", "NO PASSWORD");
 
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
@@ -150,6 +133,7 @@ public class SignupActivity extends AppCompatActivity {
         lastnameEditText.addTextChangedListener(afterTextChangedListener);
         mailEditText.addTextChangedListener(afterTextChangedListener);
         passwordEditText.addTextChangedListener(afterTextChangedListener);
+
 //    Verifica el estado del password y lanza el proceso de registro
         passwordEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -163,6 +147,7 @@ public class SignupActivity extends AppCompatActivity {
                 return false;
             }
         });
+
 //    Valida el checkBox y cambia el estado del boton si el formulario es valido tambien
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -192,13 +177,7 @@ public class SignupActivity extends AppCompatActivity {
                 email = mailEditText.getText().toString();
                 password = ActivityLogin.encrypt(passwordEditText.getText().toString());;
                 loadingProgressBar.setVisibility(View.VISIBLE);
-                // Almacenamiento local de las llaves
-                SharedPreferences.Editor editor = storage.edit();
-                editor.putString("NAME1", name);
-                editor.putString("LASTNAME1", lastname);
-                editor.putString("EMAIL1", email);
-                editor.putString("PASSWORD1", password);
-                editor.apply();
+
                 //Create user in Firestore
                 User user = new User(
                         name,

@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.widget.Toolbar;
 import com.example.luma.R;
+import com.example.luma.ui.cart.ShoppingcartFragment;
 import com.example.luma.ui.login.ActivityLogin;
 import com.google.android.material.navigation.NavigationView;
 import androidx.navigation.NavController;
@@ -44,7 +45,7 @@ public class DrawerActivity extends AppCompatActivity {
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_products, R.id.nav_favorites, R.id.log_out)
+                R.id.nav_home, R.id.nav_products, R.id.nav_favorites, R.id.nav_shopping_cart, R.id.nav_logout)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
@@ -62,18 +63,11 @@ public class DrawerActivity extends AppCompatActivity {
 ////  Define las tareas a realizar al dar clic en los botones del Menu superior
 //    @Override
 //    public boolean onOptionsItemSelected(MenuItem item){
-//
+//        View view;
 //        switch (item.getItemId()){
-//            case R.id.nav_logout:{
-////          Limpiar el SharedPreferences al cerrar sesion
-//                SharedPreferences storage = getSharedPreferences("STORAGE", MODE_PRIVATE);
-//                SharedPreferences.Editor editor = storage.edit();
-//                editor.clear();
-//                editor.apply();
-//                Intent activity = new Intent(DrawerActivity.this, ActivityLogin.class);
-//                startActivity(activity);
-//                finish();
-//                return true;
+//            case R.id.shopping_cart_menu:{
+//                Navigation.findNavController(view).navigate(R.id.nav_prod_detail);
+//                return NavigationUI.navigateUp(navController, mAppBarConfiguration);
 //            }
 //        }
 //        return super.onOptionsItemSelected(item);
