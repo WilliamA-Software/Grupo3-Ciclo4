@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -12,9 +12,9 @@
 
     // 1 of 3 layouts: Static header from Shopping Cart
     <RelativeLayout
+        android:id="@+id/static_info"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="25"
+        android:layout_height="wrap_content"
         android:padding="10dp">
         // Texto: txt_subtotal
         <TextView
@@ -161,30 +161,29 @@
 
     // 2 of 3 layouts: RecyclerView with cart products
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_products"
+        android:id="@+id/rv_cart_products"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="75"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/static_info"/>
     <ProgressBar
         android:id="@+id/pb_cart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_centerInParent="true"
         android:progressTint="@color/black"/>
 
     // 3 of 3 layouts: Bottom app bar with 3 icon buttons
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="10"
-        android:background="@color/white" >
+        android:layout_height="60dp"
+        android:background="@color/white"
+        android:layout_alignParentBottom="true" >
         // Whatsapp button
         <ImageButton
             android:id="@+id/bt_whatsapp"
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:layout_marginStart="20dp"
-            android:tint="@color/black"
             android:src="@drawable/icon_whatsapp_32"
             android:background="@null" />
         // Favorite bottom button
@@ -194,7 +193,6 @@
             android:layout_height="50dp"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
-            android:tint="@color/black"
             android:src="@drawable/ic_favorite_black"
             android:background="@null"/>
         // Email contact button
@@ -202,7 +200,6 @@
             android:id="@+id/bt_mail"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_gravity="end"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="20dp"
@@ -210,4 +207,4 @@
             android:tint="@color/black"
             app:srcCompat="@android:drawable/ic_dialog_email" />
     </RelativeLayout>
-</LinearLayout>
+</RelativeLayout>

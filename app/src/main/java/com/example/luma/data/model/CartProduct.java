@@ -12,13 +12,52 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Objects;
 
-public class CartStorage extends Fragment {
-    private static final String LIST_KEY = "list_key";
-    private SharedPreferences cartStorage;
-    private ArrayList<Product> products;
+public class CartProduct {
+    private Product product;
+    private int quantity;
 
-//    public CartStorage(ArrayList<Product> list) {
+    public CartProduct(Product product, int quantity) {
+        this.product = product;
+        this.quantity = quantity;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    @Override
+    public String toString() {
+        return "CartProduct{" +
+                "product=" + product +
+                ", quantity=" + quantity +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CartProduct that = (CartProduct) o;
+        return getQuantity() == that.getQuantity() &&
+                getProduct().equals(that.getProduct());
+    }
+
+
+    //    public CartProduct(ArrayList<Product> list) {
 //        if (cartStorage == null) {
 //            cartStorage = getSharedPreferences("CART_STORAGE", MODE_PRIVATE);
 //        } else {

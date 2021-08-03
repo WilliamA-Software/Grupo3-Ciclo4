@@ -1,13 +1,18 @@
 package com.example.luma.data.model;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
+
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Objects;
+
 public class Product {
     private String NameProduct,
             DescriptionProduct,
             PriceProduct,
             QuantityProduct,
             ImageProduct,
-            LatitudeProduct,
-            LongitudeProduct,
             TypeProduct;
 
     public Product(String NameProduct,
@@ -15,16 +20,12 @@ public class Product {
                    String PriceProduct,
                    String QuantityProduct,
                    String ImageProduct,
-                   String LatitudeProduct,
-                   String LongitudeProduct,
                    String TypeProduct){
         this.NameProduct = NameProduct;
         this.PriceProduct = PriceProduct;
         this.DescriptionProduct = DescriptionProduct;
         this.QuantityProduct = QuantityProduct;
         this.ImageProduct = ImageProduct;
-        this.LatitudeProduct = LatitudeProduct;
-        this.LongitudeProduct = LongitudeProduct;
         this.TypeProduct = TypeProduct;
     }
 
@@ -65,7 +66,6 @@ public class Product {
         return DescriptionProduct;
     }
 
-
     public void setDescriptionProduct(String descriptionProduct) {
         DescriptionProduct = descriptionProduct;
     }
@@ -78,15 +78,28 @@ public class Product {
         PriceProduct = priceProduct;
     }
 
-    // Setter and Getter of latitude and longitude
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return getNameProduct().equals(product.getNameProduct()) &&
+                getDescriptionProduct().equals(product.getDescriptionProduct()) &&
+                getPriceProduct().equals(product.getPriceProduct()) &&
+                getQuantityProduct().equals(product.getQuantityProduct()) &&
+                getImageProduct().equals(product.getImageProduct()) &&
+                getTypeProduct().equals(product.getTypeProduct());
+    }
 
-    public String getLongitudeProduct(){ return LongitudeProduct;}
+    public static DiffUtil.ItemCallback<Product> itemCallback = new DiffUtil.ItemCallback<Product>() {
+        @Override
+        public boolean areItemsTheSame(@NonNull @NotNull Product oldItem, @NonNull @NotNull Product newItem) {
+            return oldItem.getNameProduct().equals(newItem.getNameProduct());
+        }
 
-    public void setLongitudeProduct(String longitudeProduct){ LongitudeProduct = longitudeProduct;}
-
-    public String getLatitudeProduct(){ return LatitudeProduct;}
-
-    public void setLatitudeProduct(String latitudeProduct){ LatitudeProduct = latitudeProduct;}
-
-
+        @Override
+        public boolean areContentsTheSame(@NonNull @NotNull Product oldItem, @NonNull @NotNull Product newItem) {
+            return oldItem.equals(newItem);
+        }
+    };
 }

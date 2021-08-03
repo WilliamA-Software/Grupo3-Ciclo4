@@ -1,34 +1,26 @@
 package com.example.luma.ui.cart;
 
-import android.os.Binder;
 import android.os.Bundle;
-import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-import android.widget.Toast;
+
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.luma.data.model.CartProduct;
 import com.example.luma.data.model.Product;
 import com.example.luma.databinding.FragmentShoppingcartBinding;
-import com.example.luma.ui.home.ProductAdapter;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
-import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 
 public class ShoppingcartFragment extends Fragment {
 
     private FragmentShoppingcartBinding binding;
     private ProgressBar load;
-    private ArrayList<Product> products;
     private RecyclerView recyclerView;
     private CartAdapter cartAdapter;
 
@@ -39,11 +31,8 @@ public class ShoppingcartFragment extends Fragment {
         //Progress bar
         load = binding.pbCart;
 
-        //Array list products
-        products = new ArrayList<>();
-
         //RecyclerView
-        recyclerView = binding.rvProducts;
+        recyclerView = binding.rvCartProducts;
         recyclerView.setAdapter(cartAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -51,16 +40,15 @@ public class ShoppingcartFragment extends Fragment {
 //        getProducts();
 
         // List products with SharedPreferences
-        listProducts();
+//        listProducts();
 
         return root;
     }
 
-    private void listProducts() {
-
+    private void listProducts(ArrayList<Product> cartProducts) {
 
         load.setVisibility(View.GONE); // Oculta el icono de carga
-        cartAdapter = new CartAdapter(getView(), products);
+        cartAdapter = new CartAdapter(getView(), cartProducts);
         recyclerView.setAdapter(cartAdapter);
     }
 

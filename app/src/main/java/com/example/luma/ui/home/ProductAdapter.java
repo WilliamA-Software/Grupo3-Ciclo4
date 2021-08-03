@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,10 +18,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.luma.R;
-import com.example.luma.data.model.CartStorage;
 import com.example.luma.data.model.Product;
 import com.example.luma.ui.products.ProductDetail;
 import com.squareup.picasso.Callback;
@@ -32,6 +33,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
+
+//    protected ProductAdapter(){
+//        super();
+//    }
 
     private ArrayList<Product> products;
     private LayoutInflater inflater;
@@ -47,7 +52,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     }
 
     @NonNull
-    @NotNull
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.frame_product_individual,null,false);
@@ -112,8 +116,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                 }
             });
         }
-    }/*
-    public interface ItemClickListener{
-        public void onItemClick(Product product);
-    }*/
+    }
+
+    public interface HomeInterface {
+        public void addItem(Product product);
+        void onItemClick(Product product);
+    }
 }

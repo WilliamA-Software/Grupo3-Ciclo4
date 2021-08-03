@@ -18,7 +18,6 @@ import android.widget.TextView;
 
 import com.example.luma.MapsActivity;
 import com.example.luma.R;
-import com.example.luma.data.FontsOverride;
 import com.example.luma.ui.DrawerActivity;
 import com.example.luma.ui.signup.SignupActivity;
 import com.google.android.gms.tasks.OnCompleteListener;

@@ -19,14 +19,14 @@ import java.util.ArrayList;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ProductViewHolder> {
 
-    private ArrayList<Product> products;
+    private ArrayList<Product> cartProducts;
     private LayoutInflater inflater;
     private View view;
     public static Product productDetail;
 
     public CartAdapter(View view, ArrayList<Product> products){
 //    public CartAdapter(ArrayList<Product> products){
-        this.products = products;
+        this.cartProducts = products;
         this.view = view;
     }
 
@@ -41,13 +41,13 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ProductViewHol
     // Fill data into the item through holder
     @Override
     public void onBindViewHolder(@NonNull @NotNull ProductViewHolder holder, int position) {
-        holder.setData(products.get(position));
+        holder.setData(cartProducts.get(position));
     }
 
     // Returns the total count of items in the list
     @Override
     public int getItemCount() {
-        return products.size();
+        return cartProducts.size();
     }
 
     public class ProductViewHolder extends RecyclerView.ViewHolder{
@@ -101,7 +101,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ProductViewHol
             delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    products.remove(product);
+                    cartProducts.remove(product);
                 }
             });
         }

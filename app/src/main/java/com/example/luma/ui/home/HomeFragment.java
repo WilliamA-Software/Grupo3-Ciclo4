@@ -1,36 +1,18 @@
 package com.example.luma.ui.home;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.luma.R;
-import com.example.luma.data.model.CartStorage;
 import com.example.luma.data.model.Product;
 import com.example.luma.databinding.FragmentHomeBinding;
-import com.example.luma.ui.favorites.FavoritesViewModel;
-import com.example.luma.ui.products.ProductDetail;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -39,7 +21,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 
-public class HomeFragment extends Fragment implements SearchView.OnQueryTextListener{
+public class HomeFragment extends Fragment implements SearchView.OnQueryTextListener, ProductAdapter.HomeInterface{
 
     private FragmentHomeBinding binding;
     private ProductAdapter productAdapter;
@@ -78,7 +60,7 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
         sv_product.setOnQueryTextListener(this);
 
         // Start sharedpreference Storage
-//        CartStorage.setCartStorage(cartProducts);
+//        CartProduct.setCartStorage(cartProducts);
 
 
         return root;
@@ -87,7 +69,8 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
     @Override
     public void onViewCreated(@NotNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        productAdapter = new ProductAdapter(view, products);
+        recyclerView.setAdapter(productAdapter);
     }
 
     @Override
@@ -162,4 +145,13 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
         return false;
     }
 
+    @Override
+    public void addItem(Product product) {
+
+    }
+
+    @Override
+    public void onItemClick(Product product) {
+
+    }
 }
