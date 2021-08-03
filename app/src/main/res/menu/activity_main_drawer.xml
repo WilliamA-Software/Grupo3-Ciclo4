@@ -14,6 +14,9 @@
             android:id="@+id/nav_favorites"
             android:title="@string/favorites" />
         <item
+            android:id="@+id/nav_shopping_cart"
+            android:title="@string/shopping_cart" />
+        <item
             android:id="@+id/nav_logout"
             android:title="@string/Log_Out" />
     </group>

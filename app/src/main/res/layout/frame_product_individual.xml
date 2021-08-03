@@ -79,7 +79,7 @@
             android:layout_height="40dp"
             android:paddingTop="8dp"
             android:src="@drawable/ic_shopping"
-            android:background="@null"/>
+            android:background="?attr/selectableItemBackground"/>
 
         </LinearLayout>
 

@@ -33,6 +33,12 @@
         android:label="@string/tv_luma"
         tools:layout="@layout/fragment_product_detail"/>
 
+    <fragment
+        android:id="@+id/nav_shopping_cart"
+        android:name="com.example.luma.ui.cart.ShoppingcartFragment"
+        android:label="@string/tv_luma"
+        tools:layout="@layout/fragment_shoppingcart"/>
+
     <activity
         android:id="@+id/nav_logout"
         android:name="com.example.luma.ui.login.ActivityLogin"

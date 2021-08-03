@@ -4,5 +4,11 @@
     <style name="bt_luma1" parent="Widget.AppCompat.Button">
         <item name="android:background">@drawable/bt_luma1</item>
         <item name="android:textColor">@color/white</item>
+        <item name="fontFamily">@font/philosopher</item>
+    </style>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:fontFamily">@font/philosopher</item>
+        <item name="fontFamily">@font/philosopher</item>
     </style>
 </resources>

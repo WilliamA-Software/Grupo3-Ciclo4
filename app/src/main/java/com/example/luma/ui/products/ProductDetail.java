@@ -74,7 +74,7 @@ public class ProductDetail extends Fragment implements OnMapReadyCallback {
     private void setData(Product product){
 
         tv_product_name.setText(product.getNameProduct());
-        tv_product_price.setText("$  "+product.getPriceProduct());
+        tv_product_price.setText("$ " + product.getPriceProduct());
         Picasso.with(img_main_product.getContext()).load(product.getImageProduct()).into(img_main_product, new Callback() {
             @Override
             public void onSuccess() {

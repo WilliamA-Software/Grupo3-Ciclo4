@@ -25,7 +25,7 @@
             android:contentDescription="@string/iv_image_product"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginEnd="10dp" />
-        // Nombre del producto
+        // Variable: tv_product_name
         <TextView
             android:id="@+id/tv_product_name"
             android:layout_width="wrap_content"
@@ -36,7 +36,7 @@
             android:text="@string/tv_name_product"
             android:textColor="@color/black"
             android:textSize="20sp" />
-        /Icono para eliminar el producto
+        /Icono:  img_delete
         <ImageButton
             android:id="@+id/img_delete"
             android:layout_width="wrap_content"
@@ -44,7 +44,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:src="@drawable/ic_delete"
-            android:background="null" />
+            android:background="@null" />
         // Codigo del producto - texto
         <TextView
             android:id="@+id/code"
@@ -55,7 +55,7 @@
             android:text="@string/et_code_product"
             android:textColor="@color/dark3_gray"
             android:textSize="18sp" />
-        // Variable: Codigo del producto a cambiar
+        // Variable: tv_product_code
         <TextView
             android:id="@+id/tv_product_code"
             android:layout_width="wrap_content"
@@ -76,7 +76,7 @@
             android:text="@string/color"
             android:textColor="@color/dark3_gray"
             android:textSize="18sp" />
-        // Variable: Color a cambiar
+        // Variable: tv_color
         <TextView
             android:id="@+id/tv_color"
             android:layout_width="wrap_content"
@@ -97,7 +97,7 @@
             android:text="@string/size"
             android:textColor="@color/dark3_gray"
             android:textSize="18sp" />
-        // Variable: Talla a cambiar
+        // Variable: tv_size
         <TextView
             android:id="@+id/tv_size"
             android:layout_width="wrap_content"
@@ -129,7 +129,7 @@
             android:text="@string/quantity"
             android:textColor="@color/dark3_gray"
             android:textSize="18sp" />
-        // Variable: Cambiar la cantidad de productos
+        // Variable: et_quantity
         <EditText
             android:id="@+id/et_quantity"
             android:layout_width="wrap_content"
@@ -177,7 +177,7 @@
             android:text="@string/total"
             android:textColor="@color/black"
             android:textSize="20sp" />
-        // Variable: Total segun la cantidad del producto
+        // Variable: tv_subtotal
         <TextView
             android:id="@+id/tv_subtotal"
             android:layout_width="wrap_content"

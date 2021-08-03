@@ -122,7 +122,6 @@
                         android:layout_weight="20"
                         android:layout_height="wrap_content"
                         android:textColor="@color/dark3_gray"
-                        android:fontFamily="@font/philosopher"
                         android:textSize="18sp"
                         android:text="CODE "/>
                     // Product name
@@ -132,7 +131,6 @@
                         android:layout_weight="80"
                         android:layout_height="wrap_content"
                         android:textColor="@color/dark3_gray"
-                        android:fontFamily="@font/philosopher"
                         android:textSize="18sp"
                         android:text=" Product name"/>
                     // Favorite button
@@ -150,7 +148,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:textColor="@color/black"
-                    android:fontFamily="@font/philosopher"
                     android:textSize="20sp"
                     android:text="$ xxx.xxx"/>
                 // Color options
@@ -165,7 +162,6 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:textColor="@color/dark3_gray"
-                        android:fontFamily="@font/philosopher"
                         android:textSize="17sp"
                         android:text="@string/color"/>
                     <RadioGroup
@@ -263,7 +259,6 @@
                         android:gravity="center"
                         android:text="1"
                         android:textColor="@color/dark3_gray"
-                        android:fontFamily="@font/philosopher"
                         android:textSize="18sp"
                         android:textColorHint="@color/dark3_gray" />
                 </LinearLayout>
