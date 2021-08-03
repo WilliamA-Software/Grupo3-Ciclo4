@@ -37,7 +37,7 @@
                 android:layout_height="150dp"
                 android:scaleType="fitXY"
                 android:background="@color/gray"
-                android:contentDescription="@string/iv_image_product"></ImageButton>
+                android:contentDescription="@string/iv_image_product" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -63,20 +63,20 @@
                         android:id="@+id/tv_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/tv_name_product"
+                        android:text="@{product.nameProduct}"
                         android:textColor="@color/dark3_gray"
                         android:textSize="14sp"
                         android:gravity="center"
-                        android:maxLines="2"></TextView>
+                        android:maxLines="2" />
 
                     <TextView
                         android:id="@+id/tv_value"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/tv_value_product"
+                        android:text="@{(product.quantityProduct==`0`) ? `$ ` + product.priceProduct : `Out of Stock`}"
                         android:textColor="@color/dark3_gray"
                         android:gravity="center"
-                        android:textSize="14sp"></TextView>
+                        android:textSize="14sp" />
 
                 </LinearLayout>
 

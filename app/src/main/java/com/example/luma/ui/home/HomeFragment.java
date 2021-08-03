@@ -53,8 +53,8 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
         cartProducts = new ArrayList<>();
 
         //RecyclerView
-        recyclerView = binding.rcvProduct;
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2,GridLayoutManager.VERTICAL,false));
+//        recyclerView = binding.rcvProduct;
+//        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2,GridLayoutManager.VERTICAL,false));
 
         //List products
         getProducts();
@@ -73,7 +73,7 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
     public void onViewCreated(@NotNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         productAdapter = new ProductAdapter(view, products);
-        recyclerView.setAdapter(productAdapter);
+        binding.rcvProduct.setAdapter(productAdapter);
     }
 
     @Override
@@ -104,7 +104,7 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
                 load.setVisibility(View.GONE);
 
                 productAdapter= new ProductAdapter(getView(), products);
-                recyclerView.setAdapter(productAdapter);
+//                recyclerView.setAdapter(productAdapter);
 
 
             }

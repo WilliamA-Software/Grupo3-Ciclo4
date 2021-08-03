@@ -1,48 +1,35 @@
 package com.example.luma.ui.home;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentManager;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.luma.R;
 import com.example.luma.data.model.Product;
-import com.example.luma.ui.products.ProductDetail;
+import com.example.luma.databinding.FrameProductIndividualBinding;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
-
 import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
-
-//    protected ProductAdapter(){
-//        super();
-//    }
 
     private ArrayList<Product> products;
     private LayoutInflater inflater;
     private View view;
     public static Product productDetail;
     public ArrayList<Product> cartProducts = null;
+
+    public ProductAdapter(){
+        super();
+    }
 
     public ProductAdapter(View view, ArrayList<Product> products){
         this.products = products;
@@ -51,11 +38,19 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         //this.clickListener = clickListener;
     }
 
+    static class HomeViewHolder extends RecyclerView.ViewHolder {
+
+        public HomeViewHolder(@NonNull @NotNull View itemView) {
+            super(itemView);
+        }
+    }
+
     @NonNull
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.frame_product_individual,null,false);
-        return new ProductViewHolder(view);
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        FrameProductIndividualBinding binding = FrameProductIndividualBinding.inflate(layoutInflater, parent, false);
+        return new ProductViewHolder(binding);
     }
 
     @Override
@@ -73,15 +68,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         TextView name, price;
         ProgressBar loading;
         ImageButton image_main, imgBtnFavorite, imgBtnShopping;
+        FrameProductIndividualBinding binding;
 
-        public ProductViewHolder(@NonNull @NotNull View itemView) {
-            super(itemView);
-            name = itemView.findViewById(R.id.tv_name);
-            price = itemView.findViewById(R.id.tv_value);
-            image_main = itemView.findViewById(R.id.img_product);
-            imgBtnFavorite = itemView.findViewById(R.id.imgbtn_favorite);
-            imgBtnShopping = itemView.findViewById(R.id.imgbtn_shopping);
-            loading = itemView.findViewById(R.id.pb_loading_image);
+        public ProductViewHolder(FrameProductIndividualBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
         }
 
         public void setData(Product product) {
@@ -119,7 +110,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     }
 
     public interface HomeInterface {
-        public void addItem(Product product);
+        void addItem(Product product);
         void onItemClick(Product product);
     }
 }
