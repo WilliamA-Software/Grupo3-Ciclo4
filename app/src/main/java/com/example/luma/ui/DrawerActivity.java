@@ -11,6 +11,8 @@ import com.example.luma.R;
 import com.example.luma.ui.cart.ShoppingcartFragment;
 import com.example.luma.ui.login.ActivityLogin;
 import com.google.android.material.navigation.NavigationView;
+
+import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -23,6 +25,7 @@ public class DrawerActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityDrawerBinding binding;
+    private NavController navController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +51,7 @@ public class DrawerActivity extends AppCompatActivity {
                 R.id.nav_home, R.id.nav_products, R.id.nav_favorites, R.id.nav_shopping_cart, R.id.nav_logout)
                 .setOpenableLayout(drawer)
                 .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
     }
@@ -60,22 +63,15 @@ public class DrawerActivity extends AppCompatActivity {
         return true;
     }
 
-////  Define las tareas a realizar al dar clic en los botones del Menu superior
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item){
-//        View view;
-//        switch (item.getItemId()){
-//            case R.id.shopping_cart_menu:{
-//                Navigation.findNavController(view).navigate(R.id.nav_prod_detail);
-//                return NavigationUI.navigateUp(navController, mAppBarConfiguration);
-//            }
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
+//  Define las tareas a realizar al dar clic en los botones del Menu superior
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        return NavigationUI.onNavDestinationSelected(item, navController) || super.onOptionsItemSelected(item);
+    }
 
     @Override
     public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }

@@ -1,5 +1,12 @@
 package com.example.luma.data.model;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
+
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Objects;
+
 public class Product {
     private String NameProduct,
             DescriptionProduct,
@@ -71,4 +78,28 @@ public class Product {
         PriceProduct = priceProduct;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return getNameProduct().equals(product.getNameProduct()) &&
+                getDescriptionProduct().equals(product.getDescriptionProduct()) &&
+                getPriceProduct().equals(product.getPriceProduct()) &&
+                getQuantityProduct().equals(product.getQuantityProduct()) &&
+                getImageProduct().equals(product.getImageProduct()) &&
+                getTypeProduct().equals(product.getTypeProduct());
+    }
+
+    public static DiffUtil.ItemCallback<Product> itemCallback = new DiffUtil.ItemCallback<Product>() {
+        @Override
+        public boolean areItemsTheSame(@NonNull @NotNull Product oldItem, @NonNull @NotNull Product newItem) {
+            return oldItem.getNameProduct().equals(newItem.getNameProduct());
+        }
+
+        @Override
+        public boolean areContentsTheSame(@NonNull @NotNull Product oldItem, @NonNull @NotNull Product newItem) {
+            return oldItem.equals(newItem);
+        }
+    };
 }

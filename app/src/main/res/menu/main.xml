@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/shopping_cart_menu"
+        android:id="@+id/nav_shopping_cart"
         android:title="@string/bt_shopping"
         android:orderInCategory="1"
         android:icon="@drawable/ic_shopping"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
 </menu>
