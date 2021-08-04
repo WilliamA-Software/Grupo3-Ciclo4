@@ -34,10 +34,10 @@ public class CartFragment extends Fragment {
     HomeViewModel homeViewModel;
     FragmentShoppingcartBinding binding;
 
-    public CartFragment(FragmentShoppingcartBinding binding, RecyclerView recyclerView) {
-        this.binding = binding;
-        this.recyclerView = recyclerView;
-    }
+//    public CartFragment(FragmentShoppingcartBinding binding, RecyclerView recyclerView) {
+//        this.binding = binding;
+//        this.recyclerView = recyclerView;
+//    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -62,11 +62,11 @@ public class CartFragment extends Fragment {
     public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        CartAdapter cartAdapter = new CartAdapter();
+        cartAdapter = new CartAdapter();
         binding.rvCartProducts.setAdapter(cartAdapter);
 
         homeViewModel = new ViewModelProvider(requireActivity()).get(HomeViewModel.class);
-        homeViewModel.getCart().observe(getViewLifecycleOwner(), new Observer<List<CartProduct>>() {
+        homeViewModel.getCartList().observe(getViewLifecycleOwner(), new Observer<List<CartProduct>>() {
             @Override
             public void onChanged(List<CartProduct> cartProducts) {
                 cartAdapter.submitList(cartProducts);
