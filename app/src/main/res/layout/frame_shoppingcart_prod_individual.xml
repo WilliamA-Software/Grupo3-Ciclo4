@@ -153,7 +153,7 @@
                 android:textSize="18sp" />
             // Variable: et_quantity
 
-            <EditText
+            <TextView
                 android:id="@+id/et_quantity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -163,9 +163,9 @@
                 android:layout_toEndOf="@+id/tv_quantity"
                 android:layout_marginTop="5dp"
                 android:layout_marginStart="10dp"
-                android:hint="1"
-                android:textColorHint="@color/dark3_gray"
-                android:background="@drawable/et_rounded" />
+                android:textSize="18sp"
+                android:text='@{String.valueOf(cartProduct.getQuantity)}'
+                android:textColorHint="@color/dark3_gray" />
 
             // valor unitario - Texto
             <TextView
@@ -212,7 +212,7 @@
                 android:layout_alignBottom="@+id/img_product"
                 android:layout_below="@+id/tv_price"
                 android:layout_alignParentEnd="true"
-                android:text='@{"$ " + String.valueOf(Integer.valueOf(cartProduct.product.priceProduct) * Integer.valueOf(cartProduct.product.quantityProduct))}'
+                android:text='@{"$ " + String.valueOf(Integer.valueOf(cartProduct.product.priceProduct) * cartProduct.getQuantity)}'
                 android:textColor="@color/black"
                 android:textSize="20sp" />
         </RelativeLayout>
