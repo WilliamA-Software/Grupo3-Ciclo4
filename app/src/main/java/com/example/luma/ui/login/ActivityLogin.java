@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.luma.MapsActivity;
 import com.example.luma.R;
 import com.example.luma.ui.DrawerActivity;
 import com.example.luma.ui.signup.SignupActivity;
@@ -56,6 +57,12 @@ public class ActivityLogin extends AppCompatActivity {
 
         // intanciar las variables
         mySelf = this;
+
+
+        //prueba de google maps
+        //Intent intent = new Intent(this, MapsActivity.class);
+        //startActivity(intent);
+
         et_email = findViewById(R.id.et_email);
         et_password = findViewById(R.id.et_password);
         btn_login = findViewById(R.id.btn_login);
