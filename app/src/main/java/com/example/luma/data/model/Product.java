@@ -1,7 +1,15 @@
 package com.example.luma.data.model;
 
+import android.view.View;
+import android.widget.ImageView;
+
 import androidx.annotation.NonNull;
+import androidx.databinding.BindingAdapter;
 import androidx.recyclerview.widget.DiffUtil;
+
+import com.example.luma.databinding.FrameProductIndividualBinding;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -15,7 +23,8 @@ public class Product {
             ImageProduct,
             TypeProduct;
 //    TODO: Add (available / Out of stock) boolean in Firebase
-//    private boolean isAvailable;
+    private boolean isAvailable;
+    static boolean load = true;
 
     public Product(String NameProduct,
                    String DescriptionProduct,
@@ -104,4 +113,24 @@ public class Product {
             return oldItem.equals(newItem);
         }
     };
+
+    @BindingAdapter("android:productImage")
+    public static void loadImage(ImageView imageView, String imageUrl){
+        Picasso.with(imageView.getContext()).load(imageUrl).into(imageView, new Callback() {
+            @Override
+            public void onSuccess() {
+                load = false;
+            }
+
+            @Override
+            public void onError() {
+
+            }
+        });
+    }
+
+    public boolean  loadingBar() {
+        return load;
+    };
+
 }
