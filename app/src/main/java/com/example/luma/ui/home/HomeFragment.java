@@ -76,7 +76,7 @@ public class HomeFragment extends Fragment implements ProductAdapter.ProductInte
     @Override
     public void onViewCreated(@NotNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        productAdapter = new ProductAdapter();
+        productAdapter = new ProductAdapter(this);
         binding.rcvProduct.setAdapter(productAdapter);
 
         homeViewModel = new ViewModelProvider(requireActivity()).get(HomeViewModel.class);
@@ -162,11 +162,16 @@ public class HomeFragment extends Fragment implements ProductAdapter.ProductInte
 
     @Override
     public void addItem(Product product) {
-        Log.d("CART DEBUGGER ---->", "addItem: " + product.getNameProduct());
+        Log.d("CART DEBUGGER ---->", "addItem: " + product.getNameProduct() + product.getQuantityProduct());
     }
 
     @Override
     public void onItemClick(Product product) {
-//        homeViewModel.setProduct(product);
+        homeViewModel.setProduct(product);
+    }
+
+    @Override
+    public void loadBar(Product product) {
+        load.setVisibility(View.GONE);
     }
 }

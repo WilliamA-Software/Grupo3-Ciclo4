@@ -23,8 +23,7 @@ public class Product {
             ImageProduct,
             TypeProduct;
 //    TODO: Add (available / Out of stock) boolean in Firebase
-    private boolean isAvailable;
-    static boolean load = true;
+//    private boolean isAvailable;
 
     public Product(String NameProduct,
                    String DescriptionProduct,
@@ -119,7 +118,6 @@ public class Product {
         Picasso.with(imageView.getContext()).load(imageUrl).into(imageView, new Callback() {
             @Override
             public void onSuccess() {
-                load = false;
             }
 
             @Override
@@ -128,9 +126,5 @@ public class Product {
             }
         });
     }
-
-    public boolean  loadingBar() {
-        return load;
-    };
 
 }
