@@ -23,6 +23,7 @@ import com.example.luma.databinding.FragmentHomeBinding;
 import com.example.luma.viewmodels.HomeViewModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -54,13 +55,8 @@ public class HomeFragment extends Fragment implements ProductAdapter.ProductInte
         //Progress bar
         load = binding.pbProduct;
 
-        //Search View
-        sv_product = binding.svProduct;
-
-        //Array list products
-        products = new ArrayList<>();
-        cartProducts = new ArrayList<>();
-
+//        //Search View
+//        sv_product = binding.svProduct;
 
         //Search product
 //        sv_product.setOnQueryTextListener(this);
@@ -133,8 +129,16 @@ public class HomeFragment extends Fragment implements ProductAdapter.ProductInte
 
     @Override
     public void addItem(Product product) {
-        Log.d("CART DEBUGGER ---->", "addItem: " + product.getNameProduct() + product.getQuantityProduct());
         boolean isAdded = homeViewModel.addProduct2Cart(product);
+        if (isAdded) {
+            Snackbar.make(requireView(), product.getNameProduct() + " added to cart.", Snackbar.LENGTH_LONG)
+                    .setAction("Checkout", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            navController.navigate(R.id.action_nav_home_to_nav_shopping_cart);
+                        }
+                    });
+        }
     }
 
     @Override

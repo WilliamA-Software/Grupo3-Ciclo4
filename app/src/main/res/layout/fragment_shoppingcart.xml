@@ -164,7 +164,8 @@
         android:id="@+id/rv_cart_products"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/static_info"/>
+        android:layout_below="@+id/static_info"
+        tools:listitem="@layout/frame_shoppingcart_prod_individual"/>
     <ProgressBar
         android:id="@+id/pb_cart"
         android:layout_width="wrap_content"

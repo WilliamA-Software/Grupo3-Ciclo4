@@ -68,11 +68,13 @@ public class DrawerActivity extends AppCompatActivity {
 //  Define las tareas a realizar al dar clic en los botones del Menu superior
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        navController = Navigation.findNavController(this, R.id.nav_shopping_cart);
         return NavigationUI.onNavDestinationSelected(item, navController) || super.onOptionsItemSelected(item);
     }
 
     @Override
     public boolean onSupportNavigateUp() {
+        navController.navigateUp();
         navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
