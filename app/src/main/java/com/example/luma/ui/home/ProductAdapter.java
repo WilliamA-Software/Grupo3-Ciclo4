@@ -54,6 +54,5 @@ public class ProductAdapter extends ListAdapter<Product, ProductAdapter.ProductV
     public interface ProductInterface {
         void addItem(Product product);
         void onItemClick(Product product);
-        void loadBar(Product product);
     }
 }

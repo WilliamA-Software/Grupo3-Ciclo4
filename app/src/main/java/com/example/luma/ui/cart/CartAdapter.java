@@ -45,6 +45,9 @@ public class CartAdapter extends ListAdapter<CartProduct, CartAdapter.CartViewHo
     public void onBindViewHolder(@NonNull @NotNull CartViewHolder holder, int position) {
         holder.binding.setCartProduct(getItem(position));
         holder.binding.executePendingBindings();
+
+        if (holder.binding.pbLoadingImage.getVisibility() == View.VISIBLE)
+            holder.binding.pbLoadingImage.setVisibility(View.GONE);
     }
 
     public class CartViewHolder extends RecyclerView.ViewHolder {
