@@ -12,7 +12,7 @@ public class CartRepo {
 
     private MutableLiveData<List<CartProduct>> mutableCart = new MutableLiveData<>();
 
-    public LiveData<List<CartProduct>> getCart(){
+    public LiveData<List<CartProduct>> getCartList(){
         if (mutableCart.getValue() == null){
             initCart();
         }

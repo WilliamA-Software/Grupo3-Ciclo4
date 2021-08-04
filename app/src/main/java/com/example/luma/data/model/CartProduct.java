@@ -1,23 +1,10 @@
 package com.example.luma.data.model;
 
-import android.app.Fragment;
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DiffUtil;
-
-import com.example.luma.ui.home.HomeFragment;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.Objects;
 
 public class CartProduct {
     private Product product;
@@ -44,6 +31,7 @@ public class CartProduct {
         this.quantity = quantity;
     }
 
+    @NotNull
     @Override
     public String toString() {
         return "CartProduct{" +

@@ -38,9 +38,6 @@ public class HomeFragment extends Fragment implements ProductAdapter.ProductInte
     private ProductAdapter productAdapter;
     private ProgressBar load;
     private SearchView sv_product;
-    private ArrayList<Product> products;
-    private RecyclerView recyclerView;
-    public ArrayList<Product> cartProducts;
     private HomeViewModel homeViewModel;
     private NavController navController;
 

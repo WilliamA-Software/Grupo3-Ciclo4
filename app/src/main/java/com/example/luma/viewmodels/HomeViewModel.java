@@ -63,8 +63,8 @@ public class HomeViewModel extends ViewModel {
         return mutableProduct;
     }
 
-    public LiveData<List<CartProduct>> getCart(){
-        return cartRepo.getCart();
+    public LiveData<List<CartProduct>> getCartList(){
+        return cartRepo.getCartList();
     }
 
     public boolean addProduct2Cart(Product product){

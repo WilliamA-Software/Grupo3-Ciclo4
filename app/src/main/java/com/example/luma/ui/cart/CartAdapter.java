@@ -48,10 +48,6 @@ public class CartAdapter extends ListAdapter<CartProduct, CartAdapter.CartViewHo
     }
 
     public class CartViewHolder extends RecyclerView.ViewHolder {
-        TextView name, code, color, size, value, subtotal;
-        EditText quantity;
-        ImageButton image_main, delete;
-        ProgressBar loading;
 
         FrameShoppingcartProdIndividualBinding binding;
 
