@@ -7,6 +7,8 @@ public class Favorite {
             PriceProduct,
             QuantityProduct,
             ImageProduct,
+            LatitudeProduct,
+            LongitudeProduct,
             TypeProduct;
 
     public Favorite(String IdProduct,
@@ -15,6 +17,8 @@ public class Favorite {
                     String PriceProduct,
                     String QuantityProduct,
                     String ImageProduct,
+                    String LatitudeProduct,
+                    String LongitudeProduct,
                     String TypeProduct){
         this.IdProduct = IdProduct;
         this.NameProduct = NameProduct;
@@ -22,7 +26,18 @@ public class Favorite {
         this.DescriptionProduct = DescriptionProduct;
         this.QuantityProduct = QuantityProduct;
         this.ImageProduct = ImageProduct;
+        this.LatitudeProduct = LatitudeProduct;
+        this.LongitudeProduct = LongitudeProduct;
         this.TypeProduct = TypeProduct;
+    }
+
+
+    public String getLatitudeProduct() {
+        return LatitudeProduct;
+    }
+
+    public void setLatitudeProduct(String latitudeProduct) {
+        LatitudeProduct = latitudeProduct;
     }
 
     public String getIdProduct() {

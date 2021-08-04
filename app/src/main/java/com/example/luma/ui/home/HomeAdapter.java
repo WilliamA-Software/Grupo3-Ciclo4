@@ -107,6 +107,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ProductViewHol
                             product.getPriceProduct(),
                             product.getQuantityProduct(),
                             product.getImageProduct(),
+                            "",
+                            "",
                             product.getTypeProduct()
                     );
                     productDetail=product2;
@@ -123,6 +125,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ProductViewHol
                             product.getPriceProduct(),
                             product.getQuantityProduct(),
                             product.getImageProduct(),
+                            "",
+                            "",
                             product.getTypeProduct()
                     );
                     db.collection("user").document(code).collection("favorites").document(product.getIdProduct()).set(product2).addOnSuccessListener(new OnSuccessListener<Void>() {

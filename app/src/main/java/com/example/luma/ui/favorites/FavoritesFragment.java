@@ -88,6 +88,8 @@ public class FavoritesFragment extends Fragment {
                                                 document2.get("priceProduct").toString(),
                                                 document2.get("quantityProduct").toString(),
                                                 document2.get("imageProduct").toString(),
+                                                document2.get("latitudeProduct").toString(),
+                                                document2.get("longitudeProduct").toString(),
                                                 document2.get("typeProduct").toString()
                                         );
                                         favorites.add(favorite);
