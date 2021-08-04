@@ -2,6 +2,7 @@ package com.example.luma.ui.home;
 
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -14,8 +15,11 @@ import com.example.luma.databinding.FrameProductIndividualBinding;
 
 public class ProductAdapter extends ListAdapter<Product, ProductAdapter.ProductViewHolder> {
 
-    public ProductAdapter() {
+    ProductInterface productInterface;
+
+    public ProductAdapter(ProductInterface productInterface) {
         super(Product.itemCallback);
+        this.productInterface = productInterface;
     }
 
     @NonNull
@@ -23,6 +27,7 @@ public class ProductAdapter extends ListAdapter<Product, ProductAdapter.ProductV
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         FrameProductIndividualBinding binding = FrameProductIndividualBinding.inflate(layoutInflater, parent, false);
+        binding.setProductInterface(productInterface);
         return new ProductViewHolder(binding);
     }
 
@@ -30,7 +35,8 @@ public class ProductAdapter extends ListAdapter<Product, ProductAdapter.ProductV
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
         Product product = getItem(position);
         holder.binding.setProduct(product);
-
+        if (holder.binding.pbLoadingImage.getVisibility() == View.VISIBLE)
+            holder.binding.pbLoadingImage.setVisibility(View.GONE);
     }
 
     static class ProductViewHolder extends RecyclerView.ViewHolder {
@@ -46,5 +52,6 @@ public class ProductAdapter extends ListAdapter<Product, ProductAdapter.ProductV
     public interface ProductInterface {
         void addItem(Product product);
         void onItemClick(Product product);
+        void loadBar(Product product);
     }
 }

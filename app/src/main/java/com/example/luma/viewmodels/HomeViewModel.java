@@ -50,4 +50,7 @@ public class HomeViewModel extends ViewModel {
         }
         return mutableProductList;
     }
+
+    public void setProduct(Product product) {
+    }
 }
