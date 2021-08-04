@@ -19,7 +19,7 @@ import java.util.List;
 
 public class HomeViewModel extends ViewModel {
 
-    private MutableLiveData<String> mText;
+    private MutableLiveData<Product> mutableProduct = new MutableLiveData<>();
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private ArrayList<Product> products;
     private MutableLiveData<List<Product>> mutableProductList;
@@ -52,5 +52,10 @@ public class HomeViewModel extends ViewModel {
     }
 
     public void setProduct(Product product) {
+        mutableProduct.setValue(product);
+    }
+
+    public LiveData<Product> getProduct(){
+        return mutableProduct;
     }
 }
