@@ -39,8 +39,8 @@ public class ProductDetail extends Fragment {
         tv_product_name = binding.tvProductName;
         tv_product_price = binding.tvPrice;
         //Trae los datos del producto
-        product = ProductAdapter.productDetail;
-        ProductAdapter.productDetail=null;
+//        product = ProductAdapter.productDetail;
+//        ProductAdapter.productDetail=null;
         setData(product);
         return root;
     }

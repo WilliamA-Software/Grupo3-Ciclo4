@@ -10,6 +10,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.luma.data.model.Product;
@@ -22,8 +24,10 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
+import java.util.List;
 
-public class HomeFragment extends Fragment implements SearchView.OnQueryTextListener, ProductAdapter.HomeInterface{
+//public class HomeFragment extends Fragment implements SearchView.OnQueryTextListener, ProductAdapter.HomeInterface{
+public class HomeFragment extends Fragment implements ProductAdapter.ProductInterface{
 
     private FragmentHomeBinding binding;
     private ProductAdapter productAdapter;
@@ -57,10 +61,10 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
 //        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2,GridLayoutManager.VERTICAL,false));
 
         //List products
-        getProducts();
+//        getProducts();
 
         //Search product
-        sv_product.setOnQueryTextListener(this);
+//        sv_product.setOnQueryTextListener(this);
 
         // Start sharedpreference Storage
 //        CartProduct.setCartStorage(cartProducts);
@@ -72,8 +76,16 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
     @Override
     public void onViewCreated(@NotNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        productAdapter = new ProductAdapter(view, products);
+        productAdapter = new ProductAdapter();
         binding.rcvProduct.setAdapter(productAdapter);
+
+        homeViewModel = new ViewModelProvider(requireActivity()).get(HomeViewModel.class);
+        homeViewModel.getProducts().observe(getViewLifecycleOwner(), new Observer<List<Product>>() {
+            @Override
+            public void onChanged(List<Product> products) {
+                productAdapter.submitList(products);
+            }
+        });
     }
 
     @Override
@@ -82,71 +94,71 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
         binding = null;
     }
 
-    private void getProducts() {
-        db.collection("product").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()&& !task.getResult().isEmpty()) {
-                    for (QueryDocumentSnapshot document : task.getResult()) {
-                        Product product = new Product(
-                                document.get("nameProduct").toString(),
-                                document.get("descriptionProduct").toString(),
-                                document.get("priceProduct").toString(),
-                                document.get("quantityProduct").toString(),
-                                document.get("imageProduct").toString(),
-                                document.get("typeProduct").toString()
-                        );
-                        products.add(product);
-                    }
-                } else {
-                    Toast.makeText(getActivity(), "Error articulo no encontrado", Toast.LENGTH_SHORT).show();
-                }
-                load.setVisibility(View.GONE);
+//    private void getProducts() {
+//        db.collection("product").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//            @Override
+//            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                if (task.isSuccessful()&& !task.getResult().isEmpty()) {
+//                    for (QueryDocumentSnapshot document : task.getResult()) {
+//                        Product product = new Product(
+//                                document.get("nameProduct").toString(),
+//                                document.get("descriptionProduct").toString(),
+//                                document.get("priceProduct").toString(),
+//                                document.get("quantityProduct").toString(),
+//                                document.get("imageProduct").toString(),
+//                                document.get("typeProduct").toString()
+//                        );
+//                        products.add(product);
+//                    }
+//                } else {
+//                    Toast.makeText(getActivity(), "Error articulo no encontrado", Toast.LENGTH_SHORT).show();
+//                }
+//                load.setVisibility(View.GONE);
+//
+//                productAdapter= new ProductAdapter(getView(), products);
+////                recyclerView.setAdapter(productAdapter);
+//
+//
+//            }
+//        });
+//    }
 
-                productAdapter= new ProductAdapter(getView(), products);
+
+//    @Override
+//    public boolean onQueryTextSubmit(String query) {
+//        ArrayList<Product> productSearch = new ArrayList<>();
+//        db.collection("product").orderBy("nameProduct").startAt(query).endAt(query+'\uf8ff').get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//            @Override
+//            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                if (task.isSuccessful()&& !task.getResult().isEmpty()) {
+//                    for (QueryDocumentSnapshot document : task.getResult()) {
+//                        Product product = new Product(
+//                                document.get("nameProduct").toString(),
+//                                document.get("descriptionProduct").toString(),
+//                                document.get("priceProduct").toString(),
+//                                document.get("quantityProduct").toString(),
+//                                document.get("imageProduct").toString(),
+//                                document.get("typeProduct").toString()
+//                        );
+//                        productSearch.add(product);
+//                    }
+//                } else {
+//                    Toast.makeText(getActivity(), "Error articulo no encontrado", Toast.LENGTH_SHORT).show();
+//                    productSearch.addAll(products);
+//                }
+//
+//                productAdapter = new ProductAdapter(getView(),productSearch);
 //                recyclerView.setAdapter(productAdapter);
-
-
-            }
-        });
-    }
-
-
-    @Override
-    public boolean onQueryTextSubmit(String query) {
-        ArrayList<Product> productSearch = new ArrayList<>();
-        db.collection("product").orderBy("nameProduct").startAt(query).endAt(query+'\uf8ff').get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()&& !task.getResult().isEmpty()) {
-                    for (QueryDocumentSnapshot document : task.getResult()) {
-                        Product product = new Product(
-                                document.get("nameProduct").toString(),
-                                document.get("descriptionProduct").toString(),
-                                document.get("priceProduct").toString(),
-                                document.get("quantityProduct").toString(),
-                                document.get("imageProduct").toString(),
-                                document.get("typeProduct").toString()
-                        );
-                        productSearch.add(product);
-                    }
-                } else {
-                    Toast.makeText(getActivity(), "Error articulo no encontrado", Toast.LENGTH_SHORT).show();
-                    productSearch.addAll(products);
-                }
-
-                productAdapter = new ProductAdapter(getView(),productSearch);
-                recyclerView.setAdapter(productAdapter);
-            }
-        });
-
-        return false;
-    }
-
-    @Override
-    public boolean onQueryTextChange(String newText) {
-        return false;
-    }
+//            }
+//        });
+//
+//        return false;
+//    }
+//
+//    @Override
+//    public boolean onQueryTextChange(String newText) {
+//        return false;
+//    }
 
     @Override
     public void addItem(Product product) {
