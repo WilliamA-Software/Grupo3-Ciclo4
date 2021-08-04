@@ -134,6 +134,7 @@ public class HomeFragment extends Fragment implements ProductAdapter.ProductInte
     @Override
     public void addItem(Product product) {
         Log.d("CART DEBUGGER ---->", "addItem: " + product.getNameProduct() + product.getQuantityProduct());
+        boolean isAdded = homeViewModel.addProduct2Cart(product);
     }
 
     @Override

@@ -7,7 +7,10 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.luma.data.model.CartProduct;
 import com.example.luma.data.model.Product;
+import com.example.luma.repositories.CartRepo;
+import com.example.luma.ui.cart.CartFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -23,6 +26,7 @@ public class HomeViewModel extends ViewModel {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private ArrayList<Product> products;
     private MutableLiveData<List<Product>> mutableProductList;
+    CartRepo cartRepo = new CartRepo();
 
     public LiveData<List<Product>> getProducts() {
         if (mutableProductList == null) {
@@ -57,5 +61,13 @@ public class HomeViewModel extends ViewModel {
 
     public LiveData<Product> getProduct(){
         return mutableProduct;
+    }
+
+    public LiveData<List<CartProduct>> getCart(){
+        return cartRepo.getCart();
+    }
+
+    public boolean addProduct2Cart(Product product){
+        return cartRepo.addItem2Cart(product);
     }
 }

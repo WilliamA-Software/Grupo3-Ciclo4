@@ -16,6 +16,7 @@ import com.example.luma.data.model.Product;
 import com.example.luma.databinding.FragmentShoppingcartBinding;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class CartFragment extends Fragment {
 
@@ -36,12 +37,6 @@ public class CartFragment extends Fragment {
         recyclerView.setAdapter(cartAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        //List products with firebase
-//        getProducts();
-
-        // List products with SharedPreferences
-//        listProducts();
-
         return root;
     }
 
@@ -52,32 +47,4 @@ public class CartFragment extends Fragment {
         recyclerView.setAdapter(cartAdapter);
     }
 
-//    private void getProducts() {
-//        db.collection("product").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                if (task.isSuccessful()&& !task.getResult().isEmpty()) {
-//                    for (QueryDocumentSnapshot document : task.getResult()) {
-//                        Product product = new Product(
-//                                document.get("nameProduct").toString(),
-//                                document.get("descriptionProduct").toString(),
-//                                document.get("priceProduct").toString(),
-//                                document.get("quantityProduct").toString(),
-//                                document.get("imageProduct").toString(),
-//                                document.get("typeProduct").toString()
-//                        );
-//                        products.add(product);
-//                    }
-//                } else {
-//                    Toast.makeText(getActivity(), "Error articulo no encontrado", Toast.LENGTH_SHORT).show();
-//                }
-//                load.setVisibility(View.GONE);
-//
-//                productAdapter= new ProductAdapter(getView(), products);
-//                recyclerView.setAdapter(productAdapter);
-//
-//
-//            }
-//        });
-//    }
 }
