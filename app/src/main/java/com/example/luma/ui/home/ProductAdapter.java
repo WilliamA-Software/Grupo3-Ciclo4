@@ -35,6 +35,8 @@ public class ProductAdapter extends ListAdapter<Product, ProductAdapter.ProductV
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
         Product product = getItem(position);
         holder.binding.setProduct(product);
+        holder.binding.executePendingBindings();
+
         if (holder.binding.pbLoadingImage.getVisibility() == View.VISIBLE)
             holder.binding.pbLoadingImage.setVisibility(View.GONE);
     }

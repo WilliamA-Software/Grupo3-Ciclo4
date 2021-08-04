@@ -5,11 +5,16 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DiffUtil;
 
 import com.example.luma.ui.home.HomeFragment;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
+import org.jetbrains.annotations.NotNull;
+
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -56,6 +61,17 @@ public class CartProduct {
                 getProduct().equals(that.getProduct());
     }
 
+    public static DiffUtil.ItemCallback<CartProduct> itemCallback = new DiffUtil.ItemCallback<CartProduct>() {
+        @Override
+        public boolean areItemsTheSame(@NonNull @NotNull CartProduct oldItem, @NonNull @NotNull CartProduct newItem) {
+            return oldItem.getProduct().equals(newItem.getProduct());
+        }
+
+        @Override
+        public boolean areContentsTheSame(@NonNull @NotNull CartProduct oldItem, @NonNull @NotNull CartProduct newItem) {
+            return oldItem.equals(newItem);
+        }
+    };
 
     //    public CartProduct(ArrayList<Product> list) {
 //        if (cartStorage == null) {
