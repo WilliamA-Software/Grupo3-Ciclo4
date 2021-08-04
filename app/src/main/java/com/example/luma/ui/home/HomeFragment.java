@@ -99,6 +99,8 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
                                 document.get("priceProduct").toString(),
                                 document.get("quantityProduct").toString(),
                                 document.get("imageProduct").toString(),
+                                document.get("latitudeProduct").toString(),
+                                document.get("longitudeProduct").toString(),
                                 document.get("typeProduct").toString()
                         );
                         products.add(product);
@@ -131,6 +133,8 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
                                 document.get("priceProduct").toString(),
                                 document.get("quantityProduct").toString(),
                                 document.get("imageProduct").toString(),
+                                document.get("latitudeProduct").toString(),
+                                document.get("longitudeProduct").toString(),
                                 document.get("typeProduct").toString()
                         );
                         productSearch.add(product);

@@ -59,6 +59,8 @@
     <string name="et_price_product">Product Price</string>
     <string name="et_quantity_product">Quantity</string>
     <string name="et_image_product">Image URL</string>
+    <string name="et_latitude">Latitude</string>
+    <string name="et_longitude">Longitude</string>
 
     <string name="register">Register</string>
     <string name="delete">Delete</string>
@@ -503,5 +505,6 @@ Manizales y los procedimientos se llevarán a cabo en el idioma Castellano.\n"
     <string name="bt_add_cart">Add to my cart</string>
     <string name="tv_see_sizes"><u>See size table</u></string>
     <string name="product_location">Product location</string>
+    <string name="title_activity_maps">Map</string>
 
 </resources>
