@@ -1,33 +1,21 @@
 package com.example.luma.ui.home;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.luma.R;
+import com.example.luma.data.model.Favorite;
 import com.example.luma.data.model.Product;
 import com.example.luma.databinding.FragmentHomeBinding;
-import com.example.luma.ui.favorites.FavoritesViewModel;
-import com.example.luma.ui.products.ProductDetail;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -41,10 +29,10 @@ import java.util.ArrayList;
 public class HomeFragment extends Fragment implements SearchView.OnQueryTextListener{
 
     private FragmentHomeBinding binding;
-    private ProductAdapter productAdapter;
+    private HomeAdapter homeAdapter;
     private ProgressBar load;
     private SearchView sv_product;
-    private ArrayList<Product> products;
+    private ArrayList<Favorite> products;
     private RecyclerView recyclerView;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -93,7 +81,8 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()&& !task.getResult().isEmpty()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        Product product = new Product(
+                        Favorite product = new Favorite(
+                                document.getId(),
                                 document.get("nameProduct").toString(),
                                 document.get("descriptionProduct").toString(),
                                 document.get("priceProduct").toString(),
@@ -108,10 +97,8 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
                 }
                 load.setVisibility(View.GONE);
 
-                productAdapter= new ProductAdapter(getView(), products);
-                recyclerView.setAdapter(productAdapter);
-
-
+                homeAdapter = new HomeAdapter(getView(), products);
+                recyclerView.setAdapter(homeAdapter);
             }
         });
     }
@@ -119,13 +106,14 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
 
     @Override
     public boolean onQueryTextSubmit(String query) {
-        ArrayList<Product> productSearch = new ArrayList<>();
+        ArrayList<Favorite> productSearch = new ArrayList<>();
         db.collection("product").orderBy("nameProduct").startAt(query).endAt(query+'\uf8ff').get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()&& !task.getResult().isEmpty()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        Product product = new Product(
+                        Favorite product = new Favorite(
+                                document.getId(),
                                 document.get("nameProduct").toString(),
                                 document.get("descriptionProduct").toString(),
                                 document.get("priceProduct").toString(),
@@ -140,8 +128,8 @@ public class HomeFragment extends Fragment implements SearchView.OnQueryTextList
                     productSearch.addAll(products);
                 }
 
-                productAdapter = new ProductAdapter(getView(),productSearch);
-                recyclerView.setAdapter(productAdapter);
+                homeAdapter = new HomeAdapter(getView(),productSearch);
+                recyclerView.setAdapter(homeAdapter);
             }
         });
 

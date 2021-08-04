@@ -23,6 +23,7 @@ import com.example.luma.R;
 import com.example.luma.ui.DrawerActivity;
 import com.example.luma.ui.signup.SignupActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -71,7 +72,18 @@ public class ActivityLogin extends AppCompatActivity {
         // para los datos guardados
         String email = storage.getString("EMAIL", "");
         String password = storage.getString("PASSWORD", "");
+        String code = storage.getString("USERCODE", "");
 
+        db.collection("user").document(code).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                Intent drawerActivity = new Intent(mySelf, DrawerActivity.class);
+                startActivity(drawerActivity);
+                finish();
+            }
+        });
+
+/*
         if(email.equals("admin") || password.equals("123")){
             Intent drawerActivity = new Intent(mySelf, DrawerActivity.class);
             startActivity(drawerActivity);
@@ -83,7 +95,7 @@ public class ActivityLogin extends AppCompatActivity {
             editor.putString("PASSWORD", "123");
             editor.apply();
         }
-
+*/
         // --------- CLICK LOGIN ------------
         btn_login.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceAsColor")
@@ -126,19 +138,27 @@ public class ActivityLogin extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
                             if (task.isSuccessful()&& !task.getResult().isEmpty()) {
-                                AlertDialog.Builder builder = new AlertDialog.Builder(mySelf);
-                                builder.setCancelable(false);
-                                builder.setTitle(R.string.login);
-                                builder.setMessage(R.string.txt_success_login);
-                                builder.setPositiveButton(R.string.txt_accept, new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        Intent drawerActivity = new Intent(mySelf, DrawerActivity.class);
-                                        startActivity(drawerActivity);
-                                    }
-                                });
-                                AlertDialog dialog = builder.create();
-                                dialog.show();
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    SharedPreferences.Editor editor = storage.edit();
+                                    editor.putString("EMAIL", document.get("emailUser").toString());
+                                    editor.putString("PASSWORD", document.get("passwordUser").toString());
+                                    editor.putString("USERCODE", document.getId());
+                                    editor.apply();
+                                    Log.e("PASSWORD del storage",document.getId());
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(mySelf);
+                                    builder.setCancelable(false);
+                                    builder.setTitle(R.string.login);
+                                    builder.setMessage(R.string.txt_success_login);
+                                    builder.setPositiveButton(R.string.txt_accept, new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            Intent drawerActivity = new Intent(mySelf, DrawerActivity.class);
+                                            startActivity(drawerActivity);
+                                        }
+                                    });
+                                    AlertDialog dialog = builder.create();
+                                    dialog.show();
+                                }
                             } else {
                                 Log.e("LOGIN","ERROR, FALLÓ DE SESION");
                                 AlertDialog.Builder builder = new AlertDialog.Builder(mySelf);

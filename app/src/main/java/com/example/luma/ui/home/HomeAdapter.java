@@ -1,44 +1,52 @@
 package com.example.luma.ui.home;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
+import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentManager;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.luma.R;
+import com.example.luma.data.model.Favorite;
 import com.example.luma.data.model.Product;
-import com.example.luma.ui.products.ProductDetail;
+import com.example.luma.databinding.FragmentFavoritesBinding;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
-public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
+public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ProductViewHolder> {
 
-    private ArrayList<Product> products;
+    private ArrayList<Favorite> products;
     private LayoutInflater inflater;
     private View view;
     public static Product productDetail;
-    //private ItemClickListener clickListener;
 
-    public ProductAdapter(View view, ArrayList<Product> products){
+    //Firestore
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+    // Declarar SharePreferences
+    private SharedPreferences storage;
+
+    public HomeAdapter(View view, ArrayList<Favorite> products){
         this.products=products;
         this.view = view;
-        //this.clickListener = clickListener;
+        storage = view.getContext().getSharedPreferences("STORAGE", view.getContext().MODE_PRIVATE);
     }
 
     @NonNull
@@ -75,7 +83,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             loading = itemView.findViewById(R.id.pb_loading_image);
         }
 
-        public void setData(Product product) {
+        public void setData(Favorite product) {
             name.setText(product.getNameProduct());
             price.setText(product.getPriceProduct());
             Picasso.with(image_main.getContext()).load(product.getImageProduct()).into(image_main, new Callback() {
@@ -93,13 +101,43 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                 @Override
                 public void onClick(View v) {
                     //Setea el productDetail para que pueda ser accedido desde los detalles
-                    productDetail=product;
+                    Product product2 = new Product(
+                            product.getNameProduct(),
+                            product.getDescriptionProduct(),
+                            product.getPriceProduct(),
+                            product.getQuantityProduct(),
+                            product.getImageProduct(),
+                            product.getTypeProduct()
+                    );
+                    productDetail=product2;
                     Navigation.findNavController(view).navigate(R.id.nav_prod_detail);
                 }
             });
+            imgBtnFavorite.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String code = storage.getString("USERCODE", "");
+                    Product product2 = new Product(
+                            product.getNameProduct(),
+                            product.getDescriptionProduct(),
+                            product.getPriceProduct(),
+                            product.getQuantityProduct(),
+                            product.getImageProduct(),
+                            product.getTypeProduct()
+                    );
+                    db.collection("user").document(code).collection("favorites").document(product.getIdProduct()).set(product2).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Toast.makeText(v.getContext(), "Artucilo agregado a favoritos", Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(v.getContext(), "Error articulo no agregado", Toast.LENGTH_SHORT).show();
+                                }
+                    });
+                }
+            });
         }
-    }/*
-    public interface ItemClickListener{
-        public void onItemClick(Product product);
-    }*/
+    }
 }

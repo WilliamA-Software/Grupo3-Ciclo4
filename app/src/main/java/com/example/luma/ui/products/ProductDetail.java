@@ -1,8 +1,6 @@
 package com.example.luma.ui.products;
 
-import android.media.Image;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,15 +8,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.luma.data.model.Product;
 import com.example.luma.databinding.FragmentProductDetailBinding;
-import com.example.luma.ui.home.ProductAdapter;
-import com.google.firebase.firestore.FirebaseFirestore;
+import com.example.luma.ui.home.HomeAdapter;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -39,8 +35,8 @@ public class ProductDetail extends Fragment {
         tv_product_name = binding.tvProductName;
         tv_product_price = binding.tvPrice;
         //Trae los datos del producto
-        product = ProductAdapter.productDetail;
-        ProductAdapter.productDetail=null;
+        product = HomeAdapter.productDetail;
+        HomeAdapter.productDetail=null;
         setData(product);
         return root;
     }
