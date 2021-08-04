@@ -143,9 +143,4 @@ public class HomeFragment extends Fragment implements ProductAdapter.ProductInte
         homeViewModel.setProduct(product);
         navController.navigate(R.id.action_nav_home_to_nav_prod_detail);
     }
-
-    @Override
-    public void loadBar(Product product) {
-        load.setVisibility(View.GONE);
-    }
 }

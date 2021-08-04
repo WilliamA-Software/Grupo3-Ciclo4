@@ -43,19 +43,14 @@ public class CartFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         binding = FragmentShoppingcartBinding.inflate(inflater, container, false);
-//        View root = binding.getRoot();
-//
-////        //Progress bar
-////        load = binding.pbCart;
-//
-        //RecyclerView
+
         recyclerView = binding.rvCartProducts;
         recyclerView.setAdapter(cartAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-//
-//        return root;
-        return binding.getRoot();
 
+        binding.pbCart.setVisibility(View.GONE);
+
+        return binding.getRoot();
     }
 
     @Override
@@ -73,9 +68,4 @@ public class CartFragment extends Fragment {
             }
         });
     }
-
-    private void listProducts(ArrayList<Product> cartProducts) {
-        load.setVisibility(View.GONE); // Oculta el icono de carga
-    }
-
 }
