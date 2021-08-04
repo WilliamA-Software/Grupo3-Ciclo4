@@ -12,8 +12,12 @@ import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.luma.R;
 import com.example.luma.data.model.Product;
 import com.example.luma.databinding.FragmentHomeBinding;
 import com.example.luma.viewmodels.HomeViewModel;
@@ -37,6 +41,7 @@ public class HomeFragment extends Fragment implements ProductAdapter.ProductInte
     private RecyclerView recyclerView;
     public ArrayList<Product> cartProducts;
     private HomeViewModel homeViewModel;
+    private NavController navController;
 
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -56,19 +61,12 @@ public class HomeFragment extends Fragment implements ProductAdapter.ProductInte
         products = new ArrayList<>();
         cartProducts = new ArrayList<>();
 
-        //RecyclerView
-//        recyclerView = binding.rcvProduct;
-//        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2,GridLayoutManager.VERTICAL,false));
-
-        //List products
-//        getProducts();
 
         //Search product
 //        sv_product.setOnQueryTextListener(this);
 
         // Start sharedpreference Storage
 //        CartProduct.setCartStorage(cartProducts);
-
 
         return root;
     }
@@ -78,7 +76,6 @@ public class HomeFragment extends Fragment implements ProductAdapter.ProductInte
         super.onViewCreated(view, savedInstanceState);
         productAdapter = new ProductAdapter(this);
         binding.rcvProduct.setAdapter(productAdapter);
-
         homeViewModel = new ViewModelProvider(requireActivity()).get(HomeViewModel.class);
         homeViewModel.getProducts().observe(getViewLifecycleOwner(), new Observer<List<Product>>() {
             @Override
@@ -86,6 +83,9 @@ public class HomeFragment extends Fragment implements ProductAdapter.ProductInte
                 productAdapter.submitList(products);
             }
         });
+
+        navController = Navigation.findNavController(view);
+
     }
 
     @Override
@@ -93,35 +93,6 @@ public class HomeFragment extends Fragment implements ProductAdapter.ProductInte
         super.onDestroyView();
         binding = null;
     }
-
-//    private void getProducts() {
-//        db.collection("product").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                if (task.isSuccessful()&& !task.getResult().isEmpty()) {
-//                    for (QueryDocumentSnapshot document : task.getResult()) {
-//                        Product product = new Product(
-//                                document.get("nameProduct").toString(),
-//                                document.get("descriptionProduct").toString(),
-//                                document.get("priceProduct").toString(),
-//                                document.get("quantityProduct").toString(),
-//                                document.get("imageProduct").toString(),
-//                                document.get("typeProduct").toString()
-//                        );
-//                        products.add(product);
-//                    }
-//                } else {
-//                    Toast.makeText(getActivity(), "Error articulo no encontrado", Toast.LENGTH_SHORT).show();
-//                }
-//                load.setVisibility(View.GONE);
-//
-//                productAdapter= new ProductAdapter(getView(), products);
-////                recyclerView.setAdapter(productAdapter);
-//
-//
-//            }
-//        });
-//    }
 
 
 //    @Override
@@ -168,6 +139,7 @@ public class HomeFragment extends Fragment implements ProductAdapter.ProductInte
     @Override
     public void onItemClick(Product product) {
         homeViewModel.setProduct(product);
+        navController.navigate(R.id.action_nav_home_to_nav_prod_detail);
     }
 
     @Override

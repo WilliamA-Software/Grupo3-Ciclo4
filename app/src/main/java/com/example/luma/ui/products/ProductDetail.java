@@ -1,5 +1,6 @@
 package com.example.luma.ui.products;
 
+import android.annotation.SuppressLint;
 import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,19 +14,25 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.luma.data.model.Product;
 import com.example.luma.databinding.FragmentProductDetailBinding;
 import com.example.luma.ui.home.ProductAdapter;
+import com.example.luma.viewmodels.HomeViewModel;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
+import org.jetbrains.annotations.NotNull;
+
 public class ProductDetail extends Fragment {
 
     private FragmentProductDetailBinding binding;
-    private ImageView img_main_product;
+    HomeViewModel homeViewModel;
+    private ImageView img_main_product, img_small_left, img_small_center, img_small_right;
     private TextView tv_product_name, tv_product_price;
     private EditText et_search, et_quantity;
     private Button bt_color1, bt_color2, bt_color3, bt_sizeS, bt_sizeM, bt_sizeL, bt_sizeXL,
@@ -35,27 +42,60 @@ public class ProductDetail extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentProductDetailBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        img_main_product = binding.imgMainProduct;
-        tv_product_name = binding.tvProductName;
-        tv_product_price = binding.tvPrice;
-        //Trae los datos del producto
-//        product = ProductAdapter.productDetail;
-//        ProductAdapter.productDetail=null;
-        setData(product);
+//        img_main_product = binding.imgMainProduct;
+//        img_small_left = binding.imgMainProduct;
+//        img_small_center = binding.imgMainProduct;
+//        img_small_right = binding.imgMainProduct;
+//        tv_product_name = binding.tvProductName;
+//        tv_product_price = binding.tvPrice;
+//        setData(product);
         return root;
     }
-    private void setData(Product product){
+//    @SuppressLint("SetTextI18n")
+//    private void setData(Product product){
+//
+//        tv_product_name.setText(product.getNameProduct());
+//        tv_product_price.setText("$ " + product.getPriceProduct());
+//        Picasso.with(img_main_product.getContext()).load(product.getImageProduct()).into(img_main_product, new Callback() {
+//            @Override
+//            public void onSuccess() {
+//            }
+//            @Override
+//            public void onError() {
+//            }
+//        });
+//        Picasso.with(img_small_left.getContext()).load(product.getImageProduct()).into(img_main_product, new Callback() {
+//            @Override
+//            public void onSuccess() {
+//            }
+//            @Override
+//            public void onError() {
+//            }
+//        });
+//        Picasso.with(img_small_center.getContext()).load(product.getImageProduct()).into(img_main_product, new Callback() {
+//            @Override
+//            public void onSuccess() {
+//            }
+//            @Override
+//            public void onError() {
+//            }
+//        });
+//        Picasso.with(img_small_right.getContext()).load(product.getImageProduct()).into(img_main_product, new Callback() {
+//            @Override
+//            public void onSuccess() {
+//            }
+//            @Override
+//            public void onError() {
+//            }
+//        });
+//    }
 
-        tv_product_name.setText(product.getNameProduct());
-        tv_product_price.setText("$ " + product.getPriceProduct());
-        Picasso.with(img_main_product.getContext()).load(product.getImageProduct()).into(img_main_product, new Callback() {
-            @Override
-            public void onSuccess() {
-            }
-            @Override
-            public void onError() {
-            }
-        });
+    @Override
+    public void onViewCreated(@NonNull @NotNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        homeViewModel = new ViewModelProvider(requireActivity()).get(HomeViewModel.class);
+        binding.setHomeViewModel(homeViewModel);
     }
 
     @Override
