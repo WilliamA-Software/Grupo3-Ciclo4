@@ -1,6 +1,7 @@
 package com.example.luma.ui.cart;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,18 +27,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class CartFragment extends Fragment {
+public class CartFragment extends Fragment implements CartAdapter.CartInterface {
 
     private ProgressBar load;
     private RecyclerView recyclerView;
     private CartAdapter cartAdapter;
     HomeViewModel homeViewModel;
     FragmentShoppingcartBinding binding;
+    CartAdapter.CartInterface cart = this;
 
-//    public CartFragment(FragmentShoppingcartBinding binding, RecyclerView recyclerView) {
-//        this.binding = binding;
-//        this.recyclerView = recyclerView;
-//    }
+    public CartFragment() {
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -57,7 +57,7 @@ public class CartFragment extends Fragment {
     public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        cartAdapter = new CartAdapter();
+        final CartAdapter cartAdapter = new CartAdapter(cart);
         binding.rvCartProducts.setAdapter(cartAdapter);
 
         homeViewModel = new ViewModelProvider(requireActivity()).get(HomeViewModel.class);
@@ -67,5 +67,25 @@ public class CartFragment extends Fragment {
                 cartAdapter.submitList(cartProducts);
             }
         });
+//define los valores del Sub-Total y el Total del carrito de compras y los actualiza en tiempo real
+        homeViewModel.getTotalPrice().observe(getViewLifecycleOwner(), new Observer<Integer>() {
+            @Override
+            public void onChanged(Integer aInt) {
+                binding.varTotal2pay.setText("$ " + aInt.toString());
+                binding.varCarTotal.setText("$ " + aInt.toString());
+            }
+        });
+
+    }
+
+    @Override
+    public void deleteProduct(CartProduct cartProduct) {
+        Log.d("DElETE", "DELETE: " + cartProduct.getProduct().getNameProduct());
+        homeViewModel.removeProductFromCart(cartProduct);
+    }
+
+    @Override
+    public void changeQuantity(CartProduct cartProduct, int quantity) {
+        homeViewModel.changeQuantity(cartProduct, quantity);
     }
 }

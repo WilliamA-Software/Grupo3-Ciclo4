@@ -1,8 +1,11 @@
 package com.example.luma.ui.cart;
 
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -17,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.luma.R;
 import com.example.luma.data.model.CartProduct;
 import com.example.luma.data.model.Product;
+import com.example.luma.databinding.FragmentProductDetailBinding;
 import com.example.luma.databinding.FragmentShoppingcartBinding;
 import com.example.luma.databinding.FrameProductIndividualBinding;
 import com.example.luma.databinding.FrameShoppingcartProdIndividualBinding;
@@ -27,8 +31,10 @@ import java.util.ArrayList;
 
 public class CartAdapter extends ListAdapter<CartProduct, CartAdapter.CartViewHolder> {
 
-    public CartAdapter() {
+    private CartInterface cartInterface;
+    public CartAdapter(CartInterface cartInterface) {
         super(CartProduct.itemCallback);
+        this.cartInterface = cartInterface;
     }
 
     @NonNull
@@ -53,11 +59,34 @@ public class CartAdapter extends ListAdapter<CartProduct, CartAdapter.CartViewHo
     public class CartViewHolder extends RecyclerView.ViewHolder {
 
         FrameShoppingcartProdIndividualBinding binding;
+        FragmentProductDetailBinding fragmentProductDetailBinding;
 
         public CartViewHolder(@NonNull FrameShoppingcartProdIndividualBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
 
+            binding.imgDelete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    cartInterface.deleteProduct(getItem(getAdapterPosition()));
+                }
+            });
+            binding.etQuantity.setOnEditorActionListener(new TextView.OnEditorActionListener(){
+                @Override
+                public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                    if (actionId == EditorInfo.IME_ACTION_DONE) {
+                        cartInterface.changeQuantity(getItem(getAdapterPosition()), Integer.parseInt(String.valueOf(binding.etQuantity.getText())));
+                    }
+                    return false;
+                }
+            });
         }
     }
+
+    public interface CartInterface {
+        void deleteProduct(CartProduct cartProduct);
+        void changeQuantity(CartProduct cartProduct, int quantity);
+    }
+
+
 }

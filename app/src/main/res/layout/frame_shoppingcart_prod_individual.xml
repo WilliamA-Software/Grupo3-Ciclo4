@@ -153,7 +153,7 @@
                 android:textSize="18sp" />
             // Variable: et_quantity
 
-            <TextView
+            <EditText
                 android:id="@+id/et_quantity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -164,6 +164,8 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginStart="10dp"
                 android:textSize="18sp"
+                android:background="@drawable/et_rounded"
+                android:inputType="number"
                 android:text='@{String.valueOf(cartProduct.getQuantity)}'
                 android:textColorHint="@color/dark3_gray" />
 
