@@ -128,13 +128,15 @@ public class HomeFragment extends Fragment implements ProductAdapter.ProductInte
     public void addItem(Product product) {
         boolean isAdded = homeViewModel.addProduct2Cart(product);
         if (isAdded) {
-            Snackbar.make(requireView(), product.getNameProduct() + " added to cart.", Snackbar.LENGTH_LONG)
-                    .setAction("Checkout", new View.OnClickListener() {
+            Snackbar snackbar = Snackbar.make(requireView(), product.getNameProduct() + " " + getString(R.string.added2cart), Snackbar.LENGTH_LONG);
+            snackbar.setActionTextColor(getResources().getColor(R.color.white));
+            snackbar.setAction("Checkout", new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             navController.navigate(R.id.action_nav_home_to_nav_shopping_cart);
                         }
-                    });
+                    }).show();
+
         }
     }
 
