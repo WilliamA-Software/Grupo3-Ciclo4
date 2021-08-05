@@ -101,8 +101,8 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.Favo
                       favorite.getPriceProduct(),
                       favorite.getQuantityProduct(),
                       favorite.getImageProduct(),
-                            "",
-                            "",
+                      favorite.getLatitudeProduct(),
+                      favorite.getLongitudeProduct(),
                       favorite.getTypeProduct()
                     );
                     HomeAdapter.productDetail = product;
@@ -119,8 +119,8 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.Favo
                             favorite.getPriceProduct(),
                             favorite.getQuantityProduct(),
                             favorite.getImageProduct(),
-                            "",
-                            "",
+                            favorite.getLatitudeProduct(),
+                            favorite.getLongitudeProduct(),
                             favorite.getTypeProduct()
                     );
                     db.collection("user").document(code).collection("favorites").document(favorite.getIdProduct()).delete().addOnSuccessListener(new OnSuccessListener<Void>() {

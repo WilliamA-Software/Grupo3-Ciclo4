@@ -3,6 +3,7 @@ package com.example.luma.ui.products;
 import android.app.Activity;
 import android.media.Image;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -95,6 +96,8 @@ public class ProductDetail extends Fragment implements OnMapReadyCallback {
         mMap2 = googleMap;
 
         // Aqui tomo los datos de latitude y longitude de firebase
+        Log.e("asdasdasdddddddddddddddddddddddddddd", product.getLatitudeProduct());
+        Log.e("asdasdasdddddddddddddddddddddddddddd", product.getLongitudeProduct());
         double latitude = Double.parseDouble(product.getLatitudeProduct());
         double longitude = Double.parseDouble(product.getLongitudeProduct());
 

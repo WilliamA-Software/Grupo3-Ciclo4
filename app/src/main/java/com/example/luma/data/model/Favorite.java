@@ -36,6 +36,14 @@ public class Favorite {
         return LatitudeProduct;
     }
 
+    public String getLongitudeProduct() {
+        return LongitudeProduct;
+    }
+
+    public void setLongitudeProduct(String longitudeProduct) {
+        LongitudeProduct = longitudeProduct;
+    }
+
     public void setLatitudeProduct(String latitudeProduct) {
         LatitudeProduct = latitudeProduct;
     }
