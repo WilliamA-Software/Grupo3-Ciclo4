@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txt_subtotal"
-            android:text="@string/quantity"
+            android:text="@string/references"
             android:textColor="@color/dark3_gray"
             android:textSize="18sp" />
         // Variable: var_prod_quantity
@@ -150,9 +150,9 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="12dp"
-            android:background="@drawable/bt_luma1"
-            android:backgroundTint="@color/black"
+            android:background="@drawable/bt_luma_black"
             android:text="@string/checkout"
+            android:enabled="false"
             android:textColor="@color/white"
             android:textStyle="bold"
             android:textSize="18sp"
@@ -160,12 +160,16 @@
     </RelativeLayout>
 
     // 2 of 3 layouts: RecyclerView with cart products
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_cart_products"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/bottom_appbar"
+        android:layout_above="@+id/bottom_appbar"
         android:layout_below="@+id/static_info"
-        tools:listitem="@layout/frame_shoppingcart_prod_individual"/>
+        android:layout_marginBottom="1dp"
+        tools:listitem="@layout/frame_shoppingcart_prod_individual" />
     <ProgressBar
         android:id="@+id/pb_cart"
         android:layout_width="wrap_content"
@@ -175,8 +179,9 @@
 
     // 3 of 3 layouts: Bottom app bar with 3 icon buttons
     <RelativeLayout
+        android:id="@+id/bottom_appbar"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:background="@color/white"
         android:layout_alignParentBottom="true" >
         // Whatsapp button

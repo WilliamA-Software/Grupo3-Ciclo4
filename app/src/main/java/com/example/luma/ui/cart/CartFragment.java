@@ -59,15 +59,18 @@ public class CartFragment extends Fragment implements CartAdapter.CartInterface 
 
         final CartAdapter cartAdapter = new CartAdapter(cart);
         binding.rvCartProducts.setAdapter(cartAdapter);
-
         homeViewModel = new ViewModelProvider(requireActivity()).get(HomeViewModel.class);
+//Observa una lista de articulos agregados al carrito de compras
         homeViewModel.getCartList().observe(getViewLifecycleOwner(), new Observer<List<CartProduct>>() {
             @Override
             public void onChanged(List<CartProduct> cartProducts) {
                 cartAdapter.submitList(cartProducts);
+                if (cartProducts.size() > 0)
+                    binding.btCheckout.setEnabled(true);
+                binding.varProdQuantity.setText(String.valueOf(cartProducts.size()));
             }
         });
-//define los valores del Sub-Total y el Total del carrito de compras y los actualiza en tiempo real
+//Observa los valores del Sub-Total y el Total del carrito de compras y los actualiza en tiempo real
         homeViewModel.getTotalPrice().observe(getViewLifecycleOwner(), new Observer<Integer>() {
             @Override
             public void onChanged(Integer aInt) {
@@ -80,8 +83,18 @@ public class CartFragment extends Fragment implements CartAdapter.CartInterface 
 
     @Override
     public void deleteProduct(CartProduct cartProduct) {
-        Log.d("DElETE", "DELETE: " + cartProduct.getProduct().getNameProduct());
+        final CartAdapter cartAdapter = new CartAdapter(cart);
+
+        binding.rvCartProducts.setAdapter(cartAdapter);
         homeViewModel.removeProductFromCart(cartProduct);
+        homeViewModel.getCartList().observe(getViewLifecycleOwner(), new Observer<List<CartProduct>>() {
+            @Override
+            public void onChanged(List<CartProduct> cartProducts) {
+                cartAdapter.submitList(cartProducts);
+                if (cartProducts.size() == 0)
+                    binding.btCheckout.setEnabled(false);
+            }
+        });
     }
 
     @Override
