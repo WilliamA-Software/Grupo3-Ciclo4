@@ -57,12 +57,6 @@ public class ActivityLogin extends AppCompatActivity {
 
         // intanciar las variables
         mySelf = this;
-
-
-        //prueba de google maps
-        //Intent intent = new Intent(this, MapsActivity.class);
-        //startActivity(intent);
-
         et_email = findViewById(R.id.et_email);
         et_password = findViewById(R.id.et_password);
         btn_login = findViewById(R.id.btn_login);
@@ -74,35 +68,10 @@ public class ActivityLogin extends AppCompatActivity {
 
         // referenciar el preference
         storage = getSharedPreferences("STORAGE", MODE_PRIVATE);
-
-        // creo las variables las cuales tienen el string con el get
-        // para los datos guardados
         String email = storage.getString("EMAIL", "");
         String password = storage.getString("PASSWORD", "");
         String code = storage.getString("USERCODE", "");
 
-        db.collection("user").document(code).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                Intent drawerActivity = new Intent(mySelf, DrawerActivity.class);
-                startActivity(drawerActivity);
-                finish();
-            }
-        });
-
-/*
-        if(email.equals("admin") || password.equals("123")){
-            Intent drawerActivity = new Intent(mySelf, DrawerActivity.class);
-            startActivity(drawerActivity);
-            finish();
-        } else {
-            // Almacenamiento local del primer usuario administrador de pruebas
-            SharedPreferences.Editor editor = storage.edit();
-            editor.putString("EMAIL", "admin");
-            editor.putString("PASSWORD", "123");
-            editor.apply();
-        }
-*/
         // --------- CLICK LOGIN ------------
         btn_login.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceAsColor")
@@ -202,7 +171,6 @@ public class ActivityLogin extends AppCompatActivity {
     }
 
     //password encrypt
-
     public static String encrypt(String pass){
         try {
             MessageDigest digest = java.security.MessageDigest.getInstance("SHA-512");
