@@ -17,11 +17,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
+import com.example.luma.R;
 import com.example.luma.data.model.Product;
 import com.example.luma.databinding.FragmentProductDetailBinding;
+import com.example.luma.generated.callback.OnClickListener;
 import com.example.luma.ui.home.ProductAdapter;
 import com.example.luma.viewmodels.HomeViewModel;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
@@ -32,70 +37,34 @@ public class ProductDetail extends Fragment {
 
     private FragmentProductDetailBinding binding;
     HomeViewModel homeViewModel;
-    private ImageView img_main_product, img_small_left, img_small_center, img_small_right;
-    private TextView tv_product_name, tv_product_price;
-    private EditText et_search, et_quantity;
-    private Button bt_color1, bt_color2, bt_color3, bt_sizeS, bt_sizeM, bt_sizeL, bt_sizeXL,
-            bt_favorite, bt_favorite_bottom, bt_add_cart, bt_whatsapp, bt_email;
-    private Product product;
+    private NavController navController;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentProductDetailBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-//        img_main_product = binding.imgMainProduct;
-//        img_small_left = binding.imgMainProduct;
-//        img_small_center = binding.imgMainProduct;
-//        img_small_right = binding.imgMainProduct;
-//        tv_product_name = binding.tvProductName;
-//        tv_product_price = binding.tvPrice;
-//        setData(product);
         return root;
     }
-//    @SuppressLint("SetTextI18n")
-//    private void setData(Product product){
-//
-//        tv_product_name.setText(product.getNameProduct());
-//        tv_product_price.setText("$ " + product.getPriceProduct());
-//        Picasso.with(img_main_product.getContext()).load(product.getImageProduct()).into(img_main_product, new Callback() {
-//            @Override
-//            public void onSuccess() {
-//            }
-//            @Override
-//            public void onError() {
-//            }
-//        });
-//        Picasso.with(img_small_left.getContext()).load(product.getImageProduct()).into(img_main_product, new Callback() {
-//            @Override
-//            public void onSuccess() {
-//            }
-//            @Override
-//            public void onError() {
-//            }
-//        });
-//        Picasso.with(img_small_center.getContext()).load(product.getImageProduct()).into(img_main_product, new Callback() {
-//            @Override
-//            public void onSuccess() {
-//            }
-//            @Override
-//            public void onError() {
-//            }
-//        });
-//        Picasso.with(img_small_right.getContext()).load(product.getImageProduct()).into(img_main_product, new Callback() {
-//            @Override
-//            public void onSuccess() {
-//            }
-//            @Override
-//            public void onError() {
-//            }
-//        });
-//    }
 
     @Override
     public void onViewCreated(@NonNull @NotNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        NavController navController = Navigation.findNavController(view);
         homeViewModel = new ViewModelProvider(requireActivity()).get(HomeViewModel.class);
         binding.setHomeViewModel(homeViewModel);
+        binding.btAddCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                homeViewModel.addProduct2Cart(binding.getHomeViewModel().getProduct().getValue());
+                Snackbar snackbar = Snackbar.make(requireView(), homeViewModel.getProduct().getValue().getNameProduct() + " " + getString(R.string.added2cart), Snackbar.LENGTH_LONG);
+                snackbar.setActionTextColor(getResources().getColor(R.color.white));
+                snackbar.setAction("Checkout", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        navController.navigate(R.id.action_nav_prod_detail_to_nav_shopping_cart);
+                    }
+                }).show();
+            }
+        });
     }
 
     @Override

@@ -6,5 +6,11 @@
         android:title="@string/bt_shopping"
         android:orderInCategory="1"
         android:icon="@drawable/ic_shopping"
-        app:showAsAction="always" />
+        app:showAsAction="always"
+        app:actionLayout="@layout/cart_action_item"/>
+    // IMPORTANT !!!!
+    // android:actionLayout="@layout/cart_action_item"/>
+    // in above that line should change "android" for "app"
+    // to use this in menu instead of main_activity
+
 </menu>

@@ -87,7 +87,6 @@ public class HomeFragment extends Fragment implements ProductAdapter.ProductInte
         binding = null;
     }
 
-
 //    @Override
 //    public boolean onQueryTextSubmit(String query) {
 //        ArrayList<Product> productSearch = new ArrayList<>();
@@ -136,7 +135,6 @@ public class HomeFragment extends Fragment implements ProductAdapter.ProductInte
                             navController.navigate(R.id.action_nav_home_to_nav_shopping_cart);
                         }
                     }).show();
-
         }
     }
 
