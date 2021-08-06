@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.Menu;
+import android.view.View;
+import android.widget.TextView;
 
 import com.example.luma.R;
 import com.example.luma.data.model.CartProduct;
@@ -30,6 +32,7 @@ public class DrawerActivity extends AppCompatActivity {
     private ActivityDrawerBinding binding;
     private NavController navController;
     HomeViewModel homeViewModel;
+    private int carQuantity = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +57,8 @@ public class DrawerActivity extends AppCompatActivity {
         homeViewModel.getCartList().observe(this, new Observer<List<CartProduct>>() {
             @Override
             public void onChanged(List<CartProduct> cartProducts) {
-                Log.d("CARRITO", "onChanged: " + cartProducts.toString());
-
+                carQuantity = cartProducts.size();
+                invalidateOptionsMenu(); // this is important to refresh de menu again
             }
         });
     }
@@ -63,6 +66,18 @@ public class DrawerActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
+        // This lines are to create dynamic badge with cart quantity
+        MenuItem menuItem = menu.findItem(R.id.nav_shopping_cart);
+        View actionView = menuItem.getActionView(); // this is why we use "app" instead of "android" in menu
+        TextView cartBadge = actionView.findViewById(R.id.tv_cart_badge);
+        cartBadge.setText(String.valueOf(carQuantity));
+        cartBadge.setVisibility(carQuantity == 0 ? View.GONE : View.VISIBLE);
+        actionView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onOptionsItemSelected(menuItem); // this is to make it clickeable
+            }
+        });
         return true;
     }
 

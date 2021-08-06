@@ -80,4 +80,8 @@ public class HomeViewModel extends ViewModel {
         return cartRepo.getTotalPrice();
     };
 
+    public void resetCart(){
+        cartRepo.initCart();
+    }
+
 }
