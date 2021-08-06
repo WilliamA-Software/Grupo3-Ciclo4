@@ -89,6 +89,7 @@
                     android:layout_height="40dp"
                     android:paddingTop="8dp"
                     android:src="@drawable/ic_shopping"
+                    android:clickable='@{Integer.valueOf(product.quantityProduct)>0 ? true : false}'
                     android:onClick="@{() -> productInterface.addItem(product)}"
                     android:background="?attr/selectableItemBackground" />
 

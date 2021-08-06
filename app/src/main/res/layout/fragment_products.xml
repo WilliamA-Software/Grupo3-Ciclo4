@@ -7,112 +7,121 @@
     android:orientation="vertical"
     tools:context="com.example.luma.ui.products.ProductFragment" >
 
-    <EditText
-        android:id="@+id/et_code_product"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:paddingStart="15dp"
-        android:layout_margin="12dp"
-        android:background="@drawable/et_rounded"
-        android:hint="@string/et_code_product"
-        android:inputType="textShortMessage" />
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <EditText
+                android:id="@+id/et_code_product"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingStart="15dp"
+                android:layout_margin="12dp"
+                android:background="@drawable/et_rounded"
+                android:hint="@string/et_code_product"
+                android:inputType="textShortMessage" />
 
-    <EditText
-        android:id="@+id/et_name_product"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:paddingStart="15dp"
-        android:layout_margin="12dp"
-        android:background="@drawable/et_rounded"
-        android:hint="@string/et_name_product"
-        android:inputType="text"/>
+            <EditText
+                android:id="@+id/et_name_product"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingStart="15dp"
+                android:layout_margin="12dp"
+                android:background="@drawable/et_rounded"
+                android:hint="@string/et_name_product"
+                android:inputType="text"/>
 
-    <EditText
-        android:id="@+id/et_description_product"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:paddingStart="15dp"
-        android:layout_margin="12dp"
-        android:background="@drawable/et_rounded"
-        android:hint="@string/et_description_product"
-        android:inputType="text"/>
+            <EditText
+                android:id="@+id/et_description_product"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingStart="15dp"
+                android:layout_margin="12dp"
+                android:background="@drawable/et_rounded"
+                android:hint="@string/et_description_product"
+                android:inputType="text"/>
 
-    <EditText
-        android:id="@+id/et_price_product"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:paddingStart="15dp"
-        android:layout_margin="12dp"
-        android:background="@drawable/et_rounded"
-        android:hint="@string/et_price_product"
-        android:inputType="numberDecimal" />
+            <EditText
+                android:id="@+id/et_price_product"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingStart="15dp"
+                android:layout_margin="12dp"
+                android:background="@drawable/et_rounded"
+                android:hint="@string/et_price_product"
+                android:inputType="numberDecimal" />
 
-    <EditText
-        android:id="@+id/et_quantity_product"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:paddingStart="15dp"
-        android:layout_margin="12dp"
-        android:background="@drawable/et_rounded"
-        android:hint="@string/et_quantity_product"
-        android:inputType="number" />
+            <EditText
+                android:id="@+id/et_quantity_product"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingStart="15dp"
+                android:layout_margin="12dp"
+                android:background="@drawable/et_rounded"
+                android:hint="@string/et_quantity_product"
+                android:inputType="number" />
 
-    <EditText
-        android:id="@+id/et_image_product"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:paddingStart="15dp"
-        android:layout_margin="12dp"
-        android:background="@drawable/et_rounded"
-        android:ems="10"
-        android:hint="@string/et_image_product"
-        android:inputType="textWebEditText" />
+            <EditText
+                android:id="@+id/et_image_product"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingStart="15dp"
+                android:layout_margin="12dp"
+                android:background="@drawable/et_rounded"
+                android:ems="10"
+                android:hint="@string/et_image_product"
+                android:inputType="textWebEditText" />
 
-    <Spinner
-        android:id="@+id/et_type_product"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="@color/black" />
+            <Spinner
+                android:id="@+id/et_type_product"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="@color/black" />
 
-    <Button
-        android:id="@+id/btn_insert"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="28dp"
-        android:text="@string/register"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_precio" />
+            <Button
+                android:id="@+id/btn_insert"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="28dp"
+                android:text="@string/register"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_precio" />
 
-    <Button
-        android:id="@+id/btn_search"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="8dp"
-        android:text="@string/search"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+            <Button
+                android:id="@+id/btn_search"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:text="@string/search"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button" />
 
-    <Button
-        android:id="@+id/btn_update"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="8dp"
-        android:text="@string/modify"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+            <Button
+                android:id="@+id/btn_update"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:text="@string/modify"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button2" />
 
-    <Button
-        android:id="@+id/btn_delete"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="8dp"
-        android:text="@string/delete"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+            <Button
+                android:id="@+id/btn_delete"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:text="@string/delete"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button3" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
