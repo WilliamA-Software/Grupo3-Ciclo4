@@ -7,6 +7,12 @@
         <variable
             name="homeViewModel"
             type="com.example.luma.viewmodels.HomeViewModel" />
+        <variable
+            name="product"
+            type="com.example.luma.data.model.Product" />
+        <variable
+            name="productInterface"
+            type="com.example.luma.ui.home.ProductAdapter.ProductInterface" />
     </data>
 
     <LinearLayout
@@ -139,7 +145,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/ic_favorite"
-                                android:background="@color/white" />
+                                android:background="?attr/selectableItemBackground" />
                         </LinearLayout>
                         // Product price
 
