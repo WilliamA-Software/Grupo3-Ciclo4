@@ -1,5 +1,8 @@
 package com.example.luma.viewmodels;
 
+import android.content.SharedPreferences;
+import android.view.View;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -9,6 +12,8 @@ import com.example.luma.data.model.CartProduct;
 import com.example.luma.data.model.Product;
 import com.example.luma.repositories.CartRepo;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -23,6 +28,8 @@ public class HomeViewModel extends ViewModel {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private ArrayList<Product> products;
     private MutableLiveData<List<Product>> mutableProductList;
+    private SharedPreferences storage;
+    private Boolean add = false;
     CartRepo cartRepo = new CartRepo();
 
     public LiveData<List<Product>> getProducts() {
@@ -35,6 +42,7 @@ public class HomeViewModel extends ViewModel {
                     if (task.isSuccessful() && !task.getResult().isEmpty()) {
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             Product product = new Product(
+                                    document.getId(),
                                     document.get("nameProduct").toString(),
                                     document.get("descriptionProduct").toString(),
                                     document.get("priceProduct").toString(),
@@ -68,6 +76,32 @@ public class HomeViewModel extends ViewModel {
 
     public boolean addProduct2Cart(Product product){
         return cartRepo.addItem2Cart(product);
+    }
+
+    public boolean addProduct2Fav(String code, Product product) {
+
+        Product product2 = new Product(
+                product.getIdProduct(),
+                product.getNameProduct(),
+                product.getDescriptionProduct(),
+                product.getPriceProduct(),
+                product.getQuantityProduct(),
+                product.getImageProduct(),
+                product.getLatitudeProduct(),
+                product.getLongitudeProduct(),
+                product.getTypeProduct()
+        );
+        db.collection("user").document(code).collection("favorites").document(product.getIdProduct()).set(product2).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                add = true;
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                add = false;            }
+        });
+        return add;
     }
 
     public void removeProductFromCart(CartProduct cartProduct) {

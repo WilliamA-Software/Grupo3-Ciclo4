@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.luma.ui.favorites.FavoritesFragment"
+    tools:context="com.example.luma.views.FavoritesFragment"
     android:orientation="vertical"
     android:gravity="center_horizontal"
     android:background="@color/light_gray"
