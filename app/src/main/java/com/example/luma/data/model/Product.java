@@ -17,6 +17,7 @@ import java.util.Objects;
 
 public class Product {
     private String NameProduct,
+            idProduct,
             DescriptionProduct,
             PriceProduct,
             QuantityProduct,
@@ -27,7 +28,8 @@ public class Product {
 //    TODO: Add (available / Out of stock) boolean in Firebase
 //    private boolean isAvailable;
 
-    public Product(String NameProduct,
+    public Product(String idProduct,
+                   String NameProduct,
                    String DescriptionProduct,
                    String PriceProduct,
                    String QuantityProduct,
@@ -35,6 +37,7 @@ public class Product {
                    String LatitudeProduct,
                    String LongitudeProduct,
                    String TypeProduct){
+        this.idProduct = idProduct;
         this.NameProduct = NameProduct;
         this.PriceProduct = PriceProduct;
         this.DescriptionProduct = DescriptionProduct;
@@ -43,6 +46,14 @@ public class Product {
         this.LatitudeProduct = LatitudeProduct;
         this.LongitudeProduct = LongitudeProduct;
         this.TypeProduct = TypeProduct;
+    }
+
+    public String getIdProduct() {
+        return idProduct;
+    }
+
+    public void setIdProduct(String idProduct) {
+        this.idProduct = idProduct;
     }
 
     public String getLatitudeProduct() {

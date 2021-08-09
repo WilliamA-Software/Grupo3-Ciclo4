@@ -1,12 +1,12 @@
 package com.example.luma.ui.home;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
@@ -14,21 +14,16 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.luma.R;
 import com.example.luma.data.model.Product;
 import com.example.luma.databinding.FragmentHomeBinding;
 import com.example.luma.viewmodels.HomeViewModel;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
+
 import org.jetbrains.annotations.NotNull;
-import java.util.ArrayList;
+
 import java.util.List;
 
 //public class HomeFragment extends Fragment implements SearchView.OnQueryTextListener, ProductAdapter.HomeInterface{
@@ -40,7 +35,7 @@ public class HomeFragment extends Fragment implements ProductAdapter.ProductInte
     private SearchView sv_product;
     private HomeViewModel homeViewModel;
     private NavController navController;
-
+    private SharedPreferences storage;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -76,7 +71,7 @@ public class HomeFragment extends Fragment implements ProductAdapter.ProductInte
                 productAdapter.submitList(products);
             }
         });
-
+        storage = view.getContext().getSharedPreferences("STORAGE", view.getContext().MODE_PRIVATE);
         navController = Navigation.findNavController(view);
 
     }
@@ -135,6 +130,17 @@ public class HomeFragment extends Fragment implements ProductAdapter.ProductInte
                             navController.navigate(R.id.action_nav_home_to_nav_shopping_cart);
                         }
                     }).show();
+        }
+    }
+
+    @Override
+    public void addFav(Product product) {
+        String code = storage.getString("USERCODE", "");
+        boolean isAdded = homeViewModel.addProduct2Fav(code, product);
+        if (isAdded) {
+            Snackbar snackbar = Snackbar.make(requireView(), product.getNameProduct() + " " + getString(R.string.added2fav), Snackbar.LENGTH_LONG);
+            snackbar.setActionTextColor(getResources().getColor(R.color.white));
+            snackbar.show();
         }
     }
 

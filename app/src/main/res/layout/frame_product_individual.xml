@@ -10,6 +10,9 @@
         <variable
             name="productInterface"
             type="com.example.luma.ui.home.ProductAdapter.ProductInterface" />
+<!--        <variable-->
+<!--            name="favoritesInterface"-->
+<!--            type="com.example.luma.adapters.FavoritesAdapter.FavoritesInterface" />-->
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -53,7 +56,9 @@
                     android:layout_height="30dp"
                     android:paddingTop="8dp"
                     android:src="@drawable/ic_favorite"
-                    android:background="@null" />
+                    android:onClick="@{() -> productInterface.addFav(product)}"
+                    android:background="?attr/selectableItemBackground" />
+<!--                android:onClick="@{() -> FavoritesInterface.addFav(product)}"-->
 
                 <LinearLayout
                     android:layout_width="0dp"

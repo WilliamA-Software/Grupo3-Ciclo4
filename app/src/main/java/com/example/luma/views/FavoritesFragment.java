@@ -1,27 +1,22 @@
-package com.example.luma.ui.favorites;
+package com.example.luma.views;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.luma.data.model.Favorite;
+import com.example.luma.adapters.FavoritesAdapter;
 import com.example.luma.data.model.Product;
 import com.example.luma.databinding.FragmentFavoritesBinding;
-import com.example.luma.ui.home.HomeAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -29,16 +24,19 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 
 public class FavoritesFragment extends Fragment {
 
     private FragmentFavoritesBinding binding;
+
     private RecyclerView recyclerView;
     private ProgressBar load;
-    private ArrayList<Product> products;
-    private ArrayList<Favorite> favorites;
+    private ArrayList<Product> favorites;
     private FavoritesAdapter favoritesAdapter;
+    private NavController navController;
 
     //Firestore
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -46,9 +44,7 @@ public class FavoritesFragment extends Fragment {
     // Declarar SharePreferences
     private SharedPreferences storage;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentFavoritesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
@@ -63,9 +59,19 @@ public class FavoritesFragment extends Fragment {
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2,GridLayoutManager.VERTICAL,false));
         storage = getActivity().getSharedPreferences("STORAGE", getContext().MODE_PRIVATE);
 
+        return root;
+    }
+
+    @Override
+    public void onViewCreated(@NotNull View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        favoritesAdapter = new FavoritesAdapter(getView(), favorites);
+        binding.rcvFavorites.setAdapter(favoritesAdapter);
+
         getFavorites();
 
-        return root;
+        navController = Navigation.findNavController(view);
+
     }
 
     private void getFavorites() {
@@ -81,7 +87,7 @@ public class FavoritesFragment extends Fragment {
                                 if (task.isSuccessful()) {
                                     DocumentSnapshot document2 = task.getResult();
                                     if (document.exists()) {
-                                        Favorite favorite = new Favorite(
+                                        Product favorite = new Product(
                                                 document2.getId(),
                                                 document2.get("nameProduct").toString(),
                                                 document2.get("descriptionProduct").toString(),

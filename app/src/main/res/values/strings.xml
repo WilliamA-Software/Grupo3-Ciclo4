@@ -520,5 +520,6 @@ Manizales y los procedimientos se llevarán a cabo en el idioma Castellano.\n"
     <string name="references">References:</string>
     <string name="et_latitude">Latitude</string>
     <string name="et_longitude">Longitude</string>
+    <string name="added2fav">added to favorites</string>
 
 </resources>

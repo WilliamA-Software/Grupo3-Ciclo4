@@ -30,7 +30,7 @@
 
     <fragment
         android:id="@+id/nav_favorites"
-        android:name="com.example.luma.ui.favorites.FavoritesFragment"
+        android:name="com.example.luma.views.FavoritesFragment"
         android:label="@string/tv_luma"
         tools:layout="@layout/fragment_favorites" />
 

@@ -176,7 +176,7 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
     //Method to create product
     public void Create(View view){
         //local variables
-        String name, description, price, quantity, image, type, latitude, longitude;
+        String id = "0", name, description, price, quantity, image, type, latitude, longitude;
         name = et_name.getText().toString();
         description = et_description.getText().toString();
         price = et_price.getText().toString();
@@ -187,6 +187,7 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
         type = typeAux;
         if(!name.isEmpty() && !description.isEmpty() && !price.isEmpty() && checkSpinner()){
             Product product = new Product(
+                    id,
                     name,
                     description,
                     price,
@@ -297,6 +298,7 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
 
         if(!name.isEmpty() && !description.isEmpty() && !price.isEmpty() && !quantity.isEmpty() && checkSpinner()){
             Product product = new Product(
+                    code,
                     name,
                     description,
                     price,
