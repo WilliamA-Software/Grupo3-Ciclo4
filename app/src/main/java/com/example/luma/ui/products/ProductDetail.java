@@ -1,6 +1,7 @@
 package com.example.luma.ui.products;
 
 import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
@@ -45,6 +46,7 @@ public class ProductDetail extends Fragment implements OnMapReadyCallback {
     private FragmentProductDetailBinding binding;
     HomeViewModel homeViewModel;
     private NavController navController;
+    private SharedPreferences storage;
 
     //google maps
     private GoogleMap mMap2;
@@ -54,7 +56,6 @@ public class ProductDetail extends Fragment implements OnMapReadyCallback {
         View root = binding.getRoot();
 
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map2);
-
         if (mapFragment != null) {
             mapFragment.getMapAsync(this);
         }
@@ -79,6 +80,15 @@ public class ProductDetail extends Fragment implements OnMapReadyCallback {
                         navController.navigate(R.id.action_nav_prod_detail_to_nav_shopping_cart);
                     }
                 }).show();
+            }
+        });
+        // TODO Arreglar que lea el storage desde esta clase para que pueda pasar el CODE del usuario
+        storage = view.getContext().getSharedPreferences("USERCODE", getParentFragment().getContext().MODE_PRIVATE);
+        binding.btFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String code = storage.getString("USERCODE", "");
+                homeViewModel.addProduct2Fav(code, binding.getHomeViewModel().getProduct().getValue());
             }
         });
     }
