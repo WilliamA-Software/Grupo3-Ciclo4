@@ -26,6 +26,13 @@ import com.example.luma.databinding.FragmentProductDetailBinding;
 import com.example.luma.generated.callback.OnClickListener;
 import com.example.luma.ui.home.ProductAdapter;
 import com.example.luma.viewmodels.HomeViewModel;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Callback;
@@ -33,15 +40,24 @@ import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
-public class ProductDetail extends Fragment {
+public class ProductDetail extends Fragment implements OnMapReadyCallback {
 
     private FragmentProductDetailBinding binding;
     HomeViewModel homeViewModel;
     private NavController navController;
 
+    //google maps
+    private GoogleMap mMap2;
+
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentProductDetailBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map2);
+
+        if (mapFragment != null) {
+            mapFragment.getMapAsync(this);
+        }
         return root;
     }
 
@@ -71,5 +87,33 @@ public class ProductDetail extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    @Override
+    public void onMapReady(@NonNull @NotNull GoogleMap googleMap) {
+        mMap2 = googleMap;
+
+        // Aqui tomo los datos de latitude y longitude de firebase
+        double latitude = Double.parseDouble(homeViewModel.getProduct().getValue().getLatitudeProduct());
+        double longitude = Double.parseDouble(homeViewModel.getProduct().getValue().getLongitudeProduct());
+
+        // Creo la variable marcador de tipo latitude y longitude
+        LatLng marker;
+
+        if(latitude != 0 && longitude != 0){
+            marker = new LatLng(latitude, longitude);
+            mMap2.addMarker(new MarkerOptions().position(marker).title("Marcador del producto"));
+        }else {
+            marker = new LatLng(5.062312, -75.493129);
+        }
+
+        // Construct a CameraPosition focusing on Mountain View and animate the camera to that position.
+        CameraPosition cameraPosition = new CameraPosition.Builder()
+                .target(marker)      // Sets the center of the map to Mountain View
+                .zoom(15)                   // Sets the zoom
+                .bearing(90)                // Sets the orientation of the camera to east
+                .tilt(0)                   // Sets the tilt of the camera to 30 degrees
+                .build();                   // Creates a CameraPosition from the builder
+        mMap2.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
     }
 }
