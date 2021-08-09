@@ -21,6 +21,8 @@ public class Product {
             PriceProduct,
             QuantityProduct,
             ImageProduct,
+            LatitudeProduct,
+            LongitudeProduct,
             TypeProduct;
 //    TODO: Add (available / Out of stock) boolean in Firebase
 //    private boolean isAvailable;
@@ -30,15 +32,34 @@ public class Product {
                    String PriceProduct,
                    String QuantityProduct,
                    String ImageProduct,
+                   String LatitudeProduct,
+                   String LongitudeProduct,
                    String TypeProduct){
         this.NameProduct = NameProduct;
         this.PriceProduct = PriceProduct;
         this.DescriptionProduct = DescriptionProduct;
         this.QuantityProduct = QuantityProduct;
         this.ImageProduct = ImageProduct;
+        this.LatitudeProduct = LatitudeProduct;
+        this.LongitudeProduct = LongitudeProduct;
         this.TypeProduct = TypeProduct;
     }
 
+    public String getLatitudeProduct() {
+        return LatitudeProduct;
+    }
+
+    public void setLatitudeProduct(String latitudeProduct) {
+        LatitudeProduct = latitudeProduct;
+    }
+
+    public String getLongitudeProduct() {
+        return LongitudeProduct;
+    }
+
+    public void setLongitudeProduct(String longitudeProduct) {
+        LongitudeProduct = longitudeProduct;
+    }
 
     public String getQuantityProduct() {
         return QuantityProduct;
@@ -122,9 +143,7 @@ public class Product {
 
             @Override
             public void onError() {
-
             }
         });
     }
-
 }

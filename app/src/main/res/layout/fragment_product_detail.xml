@@ -290,18 +290,16 @@
                             android:textColor="@color/dark3_gray"
                             android:textSize="17sp"
                             android:text="@string/product_location" />
-                        // Google map with location
 
-                        <ImageView
-                            android:id="@+id/img_map"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:scaleType="fitXY"
-                            android:background="@color/black"
-                            android:padding="1dp"
-                            android:src="@drawable/dummy_map"
-                            android:contentDescription="@string/iv_image_product" />
+                        // Google map with location
+                        <fragment
+                            xmlns:map="http://schemas.android.com/apk/res-auto"
+                            android:id="@+id/map2"
+                            android:name="com.google.android.gms.maps.SupportMapFragment"
+                            android:layout_width="match_parent"
+                            android:layout_height="250dp"
+                            map:uiZoomControls="true"
+                            tools:context=".MapsActivity" />
                     </LinearLayout>
 
                     // Right gray vertical space

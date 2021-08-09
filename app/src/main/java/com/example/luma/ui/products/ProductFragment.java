@@ -26,7 +26,6 @@ import com.example.luma.data.model.Product;
 import com.example.luma.databinding.FragmentProductsBinding;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
@@ -45,7 +44,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductFragment extends Fragment implements AdapterView.OnItemSelectedListener, OnMapReadyCallback {
+public class ProductFragment extends Fragment implements AdapterView.OnItemSelectedListener{
 
     private FragmentProductsBinding binding;
 
@@ -168,7 +167,7 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map3);
 
         if (mapFragment != null) {
-            mapFragment.getMapAsync(this);
+            mapFragment.getMapAsync(this::onMapReady);
         }
 
         return root;// Creating adapter for spinner
@@ -185,7 +184,6 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
         latitude = et_latitude.getText().toString();
         longitude = et_longitude.getText().toString();
         image = et_image.getText().toString();
-
         type = typeAux;
         if(!name.isEmpty() && !description.isEmpty() && !price.isEmpty() && checkSpinner()){
             Product product = new Product(
@@ -207,10 +205,9 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
                     et_description.setText("");
                     et_price.setText("");
                     et_quantity.setText("");
+                    et_image.setText("");
                     et_latitude.setText("");
                     et_longitude.setText("");
-                    et_image.setText("");
-
                     typeAux="";
                     et_type.setSelection(getItemPosition(et_type, "Seleccione"));
                 }
@@ -285,19 +282,17 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
 
     }
 
-
     //Method to update a product
     public void Update(View view){
-        String code, name, description, price, quantity, image, longitude, latitude, type;
+        String code, name, description, price, quantity, image, latitude, longitude, type;
         code = et_code.getText().toString();
         name = et_name.getText().toString();
         description = et_description.getText().toString();
         price = et_price.getText().toString();
         quantity = et_quantity.getText().toString();
+        image = et_image.getText().toString();
         latitude = et_latitude.getText().toString();
         longitude = et_longitude.getText().toString();
-        image = et_image.getText().toString();
-
         type = typeAux;
 
         if(!name.isEmpty() && !description.isEmpty() && !price.isEmpty() && !quantity.isEmpty() && checkSpinner()){
@@ -321,10 +316,9 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
                     et_description.setText("");
                     et_price.setText("");
                     et_quantity.setText("");
+                    et_image.setText("");
                     et_latitude.setText("");
                     et_longitude.setText("");
-                    et_image.setText("");
-
                     et_type.setSelection(getItemPosition(et_type, "Seleccione"));
                     typeAux="";
                 }
@@ -355,10 +349,9 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
                     et_description.setText("");
                     et_price.setText("");
                     et_quantity.setText("");
+                    et_image.setText("");
                     et_latitude.setText("");
                     et_longitude.setText("");
-                    et_image.setText("");
-
                     et_type.setSelection(getItemPosition(et_type, "Seleccione"));
                     typeAux="";
                 }
@@ -415,7 +408,6 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
         binding = null;
     }
 
-    @Override
     public void onMapReady(@NonNull @NotNull GoogleMap googleMap) {
         mMap3 = googleMap;
 
@@ -437,13 +429,13 @@ public class ProductFragment extends Fragment implements AdapterView.OnItemSelec
             @Override
             public void onMapClick(@NonNull @NotNull LatLng latLng) {
                 mMap3.clear();
-                
+
                 double latitude = latLng.latitude;
                 double longitude = latLng.longitude;
 
                 et_latitude.setText(String.valueOf(latitude));
                 et_longitude.setText(String.valueOf(longitude));
-                
+
                 mMap3.addMarker(new MarkerOptions().position(latLng).title(et_name.getText().toString()));
             }
         });

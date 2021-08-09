@@ -518,5 +518,7 @@ Manizales y los procedimientos se llevarán a cabo en el idioma Castellano.\n"
     <string name="continue_shopping"><u>Continue shopping</u></string>
     <string name="added2cart">added to cart</string>
     <string name="references">References:</string>
+    <string name="et_latitude">Latitude</string>
+    <string name="et_longitude">Longitude</string>
 
 </resources>
