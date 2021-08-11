@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.OrderFragment">
+
+    <RelativeLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerInParent="true">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:text="@string/thanks_order"
+                android:textSize="30sp"/>
+            <TextView
+                android:id="@+id/tv_continue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/continue_shopping"
+                android:textColor="#3F51B5"
+                android:textSize="20sp"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+</FrameLayout>

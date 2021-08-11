@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:padding="10dp"
+    android:focusable="true"
+    android:clipToPadding="false" >
+
+    <ImageView
+        android:layout_width="131dp"
+        android:layout_height="153dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_shopping" />
+
+    <TextView
+        android:id="@+id/tv_cart_badge"
+        style="@style/TextAppearance.MaterialComponents.Caption"
+        android:layout_width="38dp"
+        android:layout_height="40dp"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="-4dp"
+        android:layout_marginEnd="-4dp"
+        android:background="@drawable/menu_badge_shape"
+        android:gravity="center"
+        android:text="5"
+        android:textSize="25dp"
+        android:textColor="@color/white" />
+
+</FrameLayout>
