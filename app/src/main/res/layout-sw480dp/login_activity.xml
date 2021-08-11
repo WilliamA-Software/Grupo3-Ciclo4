@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.luma.ui.login.ActivityLogin"
+    android:background="@color/gray"
+    android:orientation="vertical">
+
+    // Encabezado
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="20"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv_luma"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/philosopher"
+            android:gravity="center"
+            android:text="@string/tv_luma"
+            android:textColor="@color/white"
+            android:textSize="90sp" />
+        <TextView
+            android:id="@+id/tv_mya"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/monotype_corsiva"
+            android:gravity="center_horizontal"
+            android:text="@string/tv_mya"
+            android:textColor="@color/white"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_luma" />
+
+    </LinearLayout>
+/ Login con boxd e email y password
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="30"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:text="@string/login"
+            android:layout_marginVertical="10dp">
+        </TextView>
+
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/et_rounded"
+            android:inputType="textEmailAddress"
+            android:textSize="20sp"
+            android:hint="@string/et_email"
+            android:layout_marginVertical="5dp"
+            android:selectAllOnFocus="true"
+            android:padding="15dp"
+            android:textColor="@color/dark3_gray"
+            android:drawablePadding="5dp"
+            android:autofillHints="email" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:textSize="20sp"
+            android:background="@drawable/et_rounded"
+            android:hint="@string/et_password"
+            android:layout_marginVertical="5dp"
+            android:padding="15dp"
+            android:selectAllOnFocus="true"
+            android:textColor="@color/dark_gray"
+            android:drawableStart="@android:drawable/ic_secure"
+            android:drawablePadding="5dp"
+            android:autofillHints="password" />
+
+    </LinearLayout>
+// Boton y texto de "olvido contraseña"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="15"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:textSize="18sp"
+                android:paddingHorizontal="35dp"
+                android:textColor="@color/white"
+                android:layout_marginVertical="10dp"
+                android:text="@string/login">
+            </Button>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:text="@string/lkforgot" >
+        </TextView>
+    </LinearLayout>
+// Enlace para crear una nueva cuenta
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginBottom="25dp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:gravity="center_horizontal"
+                android:text="@string/tv_not_account"
+                android:textColor="@color/dark3_gray"
+                android:layout_marginEnd="10dp">
+            </TextView>
+
+            <TextView
+                android:id="@+id/tv_signup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:gravity="center_horizontal"
+                android:text="@string/lksignup">
+            </TextView>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

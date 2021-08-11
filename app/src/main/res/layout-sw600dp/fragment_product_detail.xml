@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="homeViewModel"
+            type="com.example.luma.viewmodels.HomeViewModel" />
+        <variable
+            name="product"
+            type="com.example.luma.data.model.Product" />
+        <variable
+            name="productInterface"
+            type="com.example.luma.ui.home.ProductAdapter.ProductInterface" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.luma.views.FavoritesFragment"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:background="@color/light_gray"
+        android:padding="0dp">
+
+        // 1 of 3 layouts: Top Layout with search box
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="86"
+            android:background="@color/light_gray">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                // Horizontal layout containing 3 vertical layouts
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:orientation="horizontal">
+                    // Left gray vertical space
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="9"
+                        android:layout_height="match_parent" />
+
+                    // Main Pictures Content and Data
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="82"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        android:gravity="center_horizontal"
+                        android:background="@color/white">
+                        // Main Picture
+
+                        <ImageView
+                            android:id="@+id/img_main_product"
+                            android:layout_width="match_parent"
+                            android:layout_height="519dp"
+                            android:background="@color/gray"
+                            android:productImage="@{homeViewModel.product.imageProduct}"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ic_launcher_foreground" />
+
+                        // 3 small pictures line
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp">
+                            // Small left picture
+
+                            <ImageView
+                                android:id="@+id/img_small_left"
+                                android:layout_width="0dp"
+                                android:layout_height="350dp"
+                                android:layout_weight="30"
+                                android:background="@color/gray"
+                                android:productImage="@{homeViewModel.product.imageProduct}"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/ic_launcher_foreground" />
+                            // Small center picture
+
+                            <ImageView
+                                android:id="@+id/img_small_center"
+                                android:layout_width="0dp"
+                                android:layout_height="350dp"
+                                android:layout_marginStart="10dp"
+                                android:layout_weight="30"
+                                android:background="@color/gray"
+                                android:productImage="@{homeViewModel.product.imageProduct}"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/ic_launcher_foreground" />
+                            // Small right picture
+
+                            <ImageView
+                                android:id="@+id/img_small_right"
+                                android:layout_width="0dp"
+                                android:layout_height="350dp"
+                                android:layout_marginStart="10dp"
+                                android:layout_weight="30"
+                                android:background="@color/gray"
+                                android:productImage="@{homeViewModel.product.imageProduct}"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/ic_launcher_foreground" />
+                        </LinearLayout>
+                        //Product name and description
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical">
+                            // CODE for product
+
+                            <TextView
+                                android:id="@+id/tv_product_code"
+                                android:layout_width="0dp"
+                                android:layout_weight="40"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/dark3_gray"
+                                android:textSize="36sp"
+                                android:text="CODE " />
+                            // Product name
+
+                            <TextView
+                                android:id="@+id/tv_product_name"
+                                android:layout_width="0dp"
+                                android:layout_weight="160"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/dark3_gray"
+                                android:textSize="36sp"
+                                android:text='@{homeViewModel.product.nameProduct}' />
+                            // Favorite button
+
+                            <ImageButton
+                                android:id="@+id/bt_favorite"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_favorite"
+                                android:background="?attr/selectableItemBackground" />
+                        </LinearLayout>
+                        // Product price
+
+                        <TextView
+                            android:id="@+id/tv_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:textColor='@{Integer.valueOf(homeViewModel.product.quantityProduct)&lt;1 ? @color/red : @color/black}'
+                            android:textSize="40sp"
+                            android:text='@{Integer.valueOf(homeViewModel.product.quantityProduct)&lt;1 ? "Out of Stock" : "$ " + homeViewModel.product.priceProduct}' />
+
+                        // Color options
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:orientation="horizontal"
+                            android:paddingLeft="40dp">
+
+                            <TextView
+                                android:id="@+id/tv_color"
+                                android:layout_width="160dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:textColor="@color/dark3_gray"
+                                android:textSize="34sp"
+                                android:text="@string/color" />
+
+                            <RadioGroup
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:buttonTint="#0020ED" />
+
+                                <RadioButton
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:buttonTint="@color/design_default_color_secondary" />
+
+                                <RadioButton
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:buttonTint="#CDB0DC" />
+                            </RadioGroup>
+                        </LinearLayout>
+                        // Size options
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:orientation="horizontal"
+                            android:paddingLeft="40dp">
+
+                            <TextView
+                                android:id="@+id/tv_size"
+                                android:layout_width="160dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:textColor="@color/dark3_gray"
+                                android:textSize="34sp"
+                                android:text="@string/size" />
+
+                            <RadioGroup
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:id="@+id/radioS"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="S"
+                                    android:textColor="@color/dark3_gray"
+                                    android:backgroundTint="@color/dark_gray" />
+
+                                <RadioButton
+                                    android:id="@+id/radioM"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="M"
+                                    android:textColor="@color/dark3_gray"
+                                    android:backgroundTint="@color/dark_gray"
+                                    android:gravity="center" />
+
+                                <RadioButton
+                                    android:id="@+id/radioL"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="L"
+                                    android:textColor="@color/dark3_gray"
+                                    android:backgroundTint="@color/dark_gray"
+                                    android:gravity="center" />
+
+                                <RadioButton
+                                    android:id="@+id/radioXL"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="XL"
+                                    android:textColor="@color/dark3_gray"
+                                    android:backgroundTint="@color/dark_gray"
+                                    android:gravity="center" />
+                            </RadioGroup>
+                        </LinearLayout>
+
+                        // Quantity
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingStart="40dp"
+                            android:paddingTop="8dp"
+                            android:paddingBottom="8dp">
+
+                            <TextView
+                                android:id="@+id/tv_quantity"
+                                android:layout_width="160dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:textColor="@color/dark3_gray"
+                                android:textSize="34sp"
+                                android:text="@string/quantity" />
+
+                            <EditText
+                                android:id="@+id/et_quantity"
+                                android:layout_marginLeft="10dp"
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:background="@drawable/et_rounded"
+                                android:gravity="center"
+                                android:text="1"
+                                android:textColor="@color/dark3_gray"
+                                android:textSize="36sp"
+                                android:textColorHint="@color/dark3_gray" />
+                        </LinearLayout>
+
+                        // Product location text
+                        <TextView
+                            android:id="@+id/tv_product_location"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="20dp"
+                            android:textColor="@color/dark3_gray"
+                            android:textSize="34sp"
+                            android:text="@string/product_location" />
+
+                        // Google map with location
+
+                        <fragment
+                            android:id="@+id/map2"
+                            android:name="com.google.android.gms.maps.SupportMapFragment"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:uiZoomControls="true"
+                            tools:context=".MapsActivity" />
+                    </LinearLayout>
+
+                    // Right gray vertical space
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="9"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        // 2 of 3 layouts: Horizontal 3 vertical bottom layouts with button and text
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="20"
+            android:layout_marginBottom="8dp">
+
+            // Left gray vertical space
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="18"
+                android:layout_height="match_parent" />
+
+            // "Add Cart" button and text to view table sizes"
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="164"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@color/white">
+
+                <Button
+                    android:id="@+id/bt_add_cart"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="120"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="56dp"
+                    android:layout_marginEnd="56dp"
+                    android:enabled='@{Integer.valueOf(homeViewModel.product.quantityProduct)&lt;1 ? false : true}'
+                    android:background="@drawable/bt_luma_black"
+                    android:text="@string/bt_add_cart"
+                    android:textColor="@color/white"
+                    android:textSize="28sp"
+                    android:layout_gravity="center"
+                    android:padding="2dp" />
+
+                <TextView
+                    android:id="@+id/tv_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="80"
+                    android:text="@string/tv_see_sizes"
+                    android:textColor="@color/dark3_gray"
+                    android:gravity="center"
+                    android:textSize="28sp" />
+            </LinearLayout>
+
+            // Right gray vertical space
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="18"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        // 3 of 3 layouts: Bottom app bar with 3 icon buttons
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="12"
+            android:background="@color/white">
+            // Whatsapp button
+
+            <ImageButton
+                android:id="@+id/bt_whatsapp"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="40dp"
+                android:tint="@color/black"
+                android:src="@drawable/icon_whatsapp_32"
+                android:background="@null" />
+            // Favorite bottom button
+
+            <ImageButton
+                android:id="@+id/bt_favorite_bottom"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:tint="@color/black"
+                android:src="@drawable/ic_favorite_black"
+                android:background="@null" />
+            // Email contact button
+
+            <ImageButton
+                android:id="@+id/bt_mail"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="end"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+
+                android:layout_marginEnd="40dp"
+                android:background="@null"
+                android:tint="@color/black"
+                app:srcCompat="@android:drawable/ic_dialog_email" />
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="cartProduct"
+            type="com.example.luma.data.model.CartProduct" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_gray"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="10dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/white_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:padding="16dp">
+
+            // Imagen del prodcuto
+            <ImageButton
+                android:id="@+id/img_product"
+                android:src="@drawable/ic_launcher_foreground"
+                android:layout_width="400dp"
+                android:layout_height="400dp"
+                android:scaleType="fitXY"
+                android:background="@color/gray"
+                android:contentDescription="@string/iv_image_product"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginEnd="20dp"
+                android:productImage='@{cartProduct.product.imageProduct}'/>
+
+            // Variable: tv_product_name
+            <TextView
+                android:id="@+id/tv_product_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_toStartOf="@+id/img_delete"
+                android:layout_toEndOf="@+id/img_product"
+                android:text='@{cartProduct.product.nameProduct}'
+                android:textColor="@color/black"
+                android:textSize="40sp" />
+            /Icono: img_delete
+
+            <ImageButton
+                android:id="@+id/img_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_delete"
+                android:background="?attr/selectableItemBackground" />
+            // Codigo del producto - texto
+
+            <TextView
+                android:id="@+id/code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_product_name"
+                android:layout_toEndOf="@+id/img_product"
+                android:text="@string/et_code_product"
+                android:textColor="@color/dark3_gray"
+                android:textSize="36sp" />
+            // Variable: tv_product_code
+
+            <TextView
+                android:id="@+id/tv_product_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_product_name"
+                android:layout_toEndOf="@+id/code"
+                android:layout_marginStart="10dp"
+                android:text="V003"
+                android:textColor="@color/dark3_gray"
+                android:textSize="36sp" />
+            // Color - texto
+
+            <TextView
+                android:id="@+id/color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/code"
+                android:layout_toEndOf="@+id/img_product"
+                android:text="@string/color"
+                android:textColor="@color/dark3_gray"
+                android:textSize="36sp" />
+            // Variable: tv_color
+
+            <TextView
+                android:id="@+id/tv_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/code"
+                android:layout_toEndOf="@+id/color"
+                android:layout_marginStart="10dp"
+                android:text="Azul 240"
+                android:textColor="@color/dark3_gray"
+                android:textSize="36sp" />
+            // Talla del producto - texto
+
+            <TextView
+                android:id="@+id/size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_color"
+                android:layout_toEndOf="@+id/img_product"
+                android:text="@string/size"
+                android:textColor="@color/dark3_gray"
+                android:textSize="36sp" />
+            // Variable: tv_size
+
+            <TextView
+                android:id="@+id/tv_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_color"
+                android:layout_toEndOf="@id/size"
+                android:layout_marginStart="10dp"
+                android:text="L"
+                android:textColor="@color/dark3_gray"
+                android:textSize="36sp" />
+            // Link para cambiar talla y color
+
+            <TextView
+                android:id="@+id/tv_change"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_size"
+                android:layout_toEndOf="@+id/img_product"
+                android:text="@string/edit_size_color"
+                android:textColor="@android:color/holo_blue_dark"
+                android:textSize="34sp" />
+            // Texto: tv_quantity
+
+            <TextView
+                android:id="@+id/tv_quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_change"
+                android:layout_toEndOf="@+id/img_product"
+                android:layout_marginTop="10dp"
+                android:text="@string/quantity"
+                android:textColor="@color/dark3_gray"
+                android:textSize="36sp" />
+            // Variable: et_quantity
+
+            <EditText
+                android:id="@+id/et_quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="30dp"
+                android:paddingStart="30dp"
+                android:layout_below="@+id/tv_change"
+                android:layout_toEndOf="@+id/tv_quantity"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:textSize="36sp"
+                android:background="@drawable/et_rounded"
+                android:inputType="number"
+                android:text='@{String.valueOf(cartProduct.getQuantity)}'
+                android:textColorHint="@color/dark3_gray" />
+
+            // valor unitario - Texto
+            <TextView
+                android:id="@+id/cost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_quantity"
+                android:layout_toEndOf="@+id/img_product"
+                android:layout_marginTop="5dp"
+                android:text="@string/et_price_product"
+                android:textColor="@color/dark3_gray"
+                android:textSize="36sp" />
+
+            // Variable: valor unitario
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_quantity"
+                android:layout_toEndOf="@+id/cost"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:text='@{cartProduct.product.priceProduct}'
+                android:textColor="@color/dark3_gray"
+                android:textSize="36sp" />
+
+            // valor total - Texto
+            <TextView
+                android:id="@+id/total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/img_product"
+                android:layout_toStartOf="@+id/tv_subtotal"
+                android:layout_marginEnd="20dp"
+                android:text="@string/total"
+                android:textColor="@color/black"
+                android:textSize="40sp" />
+            // Variable: tv_subtotal
+
+            <TextView
+                android:id="@+id/tv_subtotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/img_product"
+                android:layout_below="@+id/tv_price"
+                android:layout_alignParentEnd="true"
+                android:text='@{"$ " + String.valueOf(Integer.valueOf(cartProduct.product.priceProduct) * cartProduct.getQuantity)}'
+                android:textColor="@color/black"
+                android:textSize="40sp" />
+        </RelativeLayout>
+
+        <ProgressBar
+            android:id="@+id/pb_loading_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:progressTint="@color/dark3_gray"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="160dp"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

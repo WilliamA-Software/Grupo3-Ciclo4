@@ -37,6 +37,7 @@ public class FavoritesFragment extends Fragment {
     private ArrayList<Product> favorites;
     private FavoritesAdapter favoritesAdapter;
     private NavController navController;
+    private String code;
 
     //Firestore
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -58,6 +59,8 @@ public class FavoritesFragment extends Fragment {
         recyclerView = binding.rcvFavorites;
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2,GridLayoutManager.VERTICAL,false));
         storage = getActivity().getSharedPreferences("STORAGE", getContext().MODE_PRIVATE);
+        code = storage.getString("USERCODE", "");
+
 
         return root;
     }
@@ -75,7 +78,7 @@ public class FavoritesFragment extends Fragment {
     }
 
     private void getFavorites() {
-        String code = storage.getString("USERCODE", "");
+//        String code = storage.getString("USERCODE", "");
         db.collection("user").document(code).collection("favorites").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -101,7 +104,7 @@ public class FavoritesFragment extends Fragment {
                                         favorites.add(favorite);
                                     }
                                     load.setVisibility(View.GONE);
-                                    favoritesAdapter = new FavoritesAdapter(getView(), favorites);
+//                                    favoritesAdapter = new FavoritesAdapter(getView(), favorites);
                                     recyclerView.setAdapter(favoritesAdapter);
                                 }
                             }
