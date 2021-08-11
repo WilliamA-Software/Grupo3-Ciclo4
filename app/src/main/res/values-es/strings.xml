@@ -5,266 +5,266 @@
     <string name="tv_mya">Moda y Accesorios</string>
 
     <!-- Strings to Drawer -->
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Abrir navigation drawer</string>
+    <string name="navigation_drawer_close">Cerrar navigation drawer</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
-    <string name="menu_inicio">Home</string>
-    <string name="products">Products</string>
-    <string name="favorites">Favorites</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="menu_inicio">Inicio</string>
+    <string name="products">Productos</string>
+    <string name="favorites">Favoritos</string>
 
     <!-- Strings related to login -->
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="login">Log in</string>
-    <string name="lklogin"><u>Log in</u></string>
-    <string name="welcome">"Welcome"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="login_failed">"Login failed"</string>
-    <string name="tv_forgot_password">Forgot your password?</string>
-    <string name="lkforgot"><u>Forgot your password?</u></string>
+    <string name="action_sign_in">Ingresa o regístrate</string>
+    <string name="login">Iniciar Sesion</string>
+    <string name="lklogin"><u>Iniciar Sesion</u></string>
+    <string name="welcome">"Bienvenido"</string>
+    <string name="invalid_username">No es un usuario valido</string>
+    <string name="login_failed">"Inicio fallido"</string>
+    <string name="tv_forgot_password">¿Olvidó su contraseña?</string>
+    <string name="lkforgot"><u>¿Olvidó su contraseña?</u></string>
 
-    <string name="tv_not_account">Create a new account </string>
+    <string name="tv_not_account">Crear una nueva cuenta </string>
 
     <!-- Alert Dialog (LOG IN) -->
-    <string name="txt_error_login">Error login</string>
-    <string name="txt_success_login">Successfull login</string>
-    <string name="txt_accept">Accept</string>
-    <string name="txt_cancel">Cancel</string>
+    <string name="txt_error_login">Error inicio</string>
+    <string name="txt_success_login">Inicio exitoso</string>
+    <string name="txt_accept">Aceptar</string>
+    <string name="txt_cancel">Cancelar</string>
 
     <!-- Strings to Signup -->
-    <string name="et_names">Name</string>
-    <string name="invalid_password">Password must be >6 characters</string>
-    <string name="invalid_name">Invalid name</string>
-    <string name="invalid_lastname">Invalid lastname</string>
-    <string name="invalid_mail">Invalid e-mail format</string>
-    <string name="et_lastname">Last Name</string>
-    <string name="accept_ptc"><u>policy, terms and conditions</u></string>
-    <string name="already_account">Have an account already?</string>
-    <string name="et_email">E-mail</string>
-    <string name="et_password">Password</string>
-    <string name="lksignup"><u>Sign up</u></string>
-    <string name="signup">Sign up</string>
-    <string name="btn_send">Send</string>
+    <string name="et_names">Nombre</string>
+    <string name="invalid_password">Contraseña debe tener más de 6 caracteres</string>
+    <string name="invalid_name">Nombre inválido</string>
+    <string name="invalid_lastname">Apellido inválido</string>
+    <string name="invalid_mail">Formato de correo inválido</string>
+    <string name="et_lastname">Apellido</string>
+    <string name="accept_ptc"><u>Política, términos y condiciones</u></string>
+    <string name="already_account">¿Cuenta existente?</string>
+    <string name="et_email">Correo</string>
+    <string name="et_password">Contraseña</string>
+    <string name="lksignup"><u>Regístro</u></string>
+    <string name="signup">Regístrate</string>
+    <string name="btn_send">Enviar</string>
     <string name="txt_name">Nombre del producto</string>
-    <string name="Log_Out">Log Out</string>
+    <string name="Log_Out">Cerrar sesión</string>
     <string name="txt_cantidad">Cantidad</string>
     <string name="txt_imagen">Imagen</string>
-    <string name="agree">I agree to</string>
+    <string name="agree">De acuerdo con</string>
 
 
     <!--String Products-->
-    <string name="et_code_product">Code:</string>
-    <string name="et_name_product">Product Name</string>
-    <string name="et_description_product">Product Description</string>
-    <string name="et_price_product">Cost:</string>
-    <string name="et_quantity_product">Quantity</string>
-    <string name="et_image_product">Image URL</string>
+    <string name="et_code_product">Código:</string>
+    <string name="et_name_product">Nombre del producto</string>
+    <string name="et_description_product">Descripción del producto</string>
+    <string name="et_price_product">Precio:</string>
+    <string name="et_quantity_product">Cantidad</string>
+    <string name="et_image_product">URL de imagen</string>
 
-    <string name="register">Register</string>
-    <string name="delete">Delete</string>
-    <string name="modify">Modify</string>
+    <string name="register">Registrar</string>
+    <string name="delete">Eliminar</string>
+    <string name="modify">Modificar</string>
 
     <!-- TERMS AND CONDITIONS -->
-    <string name="tv_terms">Terms and Conditions</string>
-    <string name="tv_privacy_policies">Privacy Policies</string>
-    <string name="btn_back">Back</string>
+    <string name="tv_terms">Térmios y condiciones</string>
+    <string name="tv_privacy_policies">Políticas de privacidad</string>
+    <string name="btn_back">Volver</string>
     <string name="terms_conditions">
-        "TERMS AND CONDITIONS \n \n"
-        "Last update July 2021. \n \n"
-        "Find here the privacy policies (link). \n \n"
-        "PLEASE READ THESE USER TERMS CAREFULLY BEFORE DOWNLOADING THE APPLICATION OR
-        USE OUR SERVICE. \n \n "
-        "LUMAPP, hereinafter 'THE PLATFORM', is a brand of LUMA, hereinafter 'THE COMPANY'. \n \n"
+        "TÉRMINOS Y CONDICIONES\n\n"
+        "Última actualización en julio 2021.\n\n"
+        "Encuentra aquí las políticas de privacidad(enlace).\n\n"
+        "ROGAMOS LEAS ATENTAMENTE ESTAS CONDICIONES DE USUARIO ANTES DE DESCARGAR LA APLICACIÓN O
+        UTILIZAR NUESTRO SERVICIO.\n\n"
+        "LUMAPP, en adelante 'LA PLATAFORMA', es una marca de LUMA, en adelante 'LA EMPRESA'.\n\n"
 
-        "THE COMPANY and its mobile application provide their services (further described) through"
-        "from your mobile application (LUMAPP); related services (collectively, such services"
-        "Include any updates, new features, or new apps).
-        "PLATFORM services are subject to the content of these Terms and Conditions. \n"
-        "In case these terms and conditions are not accepted, please do not use the"
-        "service or tools that we provide since these are restricted only to those who"
-        "They undertake to respect the guidelines mentioned here. \n"
-        "THE COMPANY disclaims all liability in the event that customers (hereinafter and"
-        "For the purposes of this document" USER or USERS ") use the services without consent"
-        "to the Terms and Conditions and reserves the right to take legal measures"
-        "relevant in these cases. \n"
-        "THE COMPANY has the power and autonomy to modify these Terms and Conditions of"
-        "unilaterally, at any time, and is not responsible for the damages that"
-        "Such modifications may cause uninformed USERS since it is exclusive"
-        "USERS responsibility to review the Terms and Conditions periodically"
-        "for the latest updates. \n \n"
+        "LA EMPRESA y su aplicación móvil prestan sus servicios (más adelante descritos) a través"
+        "de su aplicación móvil (LUMAPP); servicios relacionados (colectivamente, tales servicios"
+        "incluyen cualquier actualización, nuevas características o nuevas aplicaciones). Los"
+        "servicios de LA PLATAFORMA están sujetos a lo contenido en estos Términos y Condiciones.\n"
+        "En caso de que estos términos y condiciones no sean aceptados, por favor no haga uso del"
+        "servicio o herramientas que proveemos ya que estos están restringidos únicamente a quienes"
+        "se comprometen a respetar los lineamientos que acá se mencionan.\n"
+        "LA EMPRESA se exime de toda responsabilidad en el caso de que los clientes (en adelante y"
+        "para efectos de este documento “USUARIO o USUARIOS”) utilicen los servicios sin consentir"
+        "a los Términos y Condiciones y se reserva la facultad de tomar las medidas legales"
+        "pertinentes en estos casos.\n"
+        "LA EMPRESA tiene la facultad y autonomía de modificar estos Términos y Condiciones de"
+        "manera unilateral, en cualquier momento, y no se hace responsable por los perjuicios que"
+        "dichas modificaciones puedan causar a los USUARIOS desinformados ya que es exclusiva"
+        "responsabilidad de los USUARIOS revisar los Términos y Condiciones de manera periódica"
+        "para enterarse de las últimas actualizaciones.\n\n"
 
-        "1. ACCESS AND USE OF THE SERVICE. \n \n"
+        "1. ACCESO Y USO DEL SERVICIO.\n\n"
 
-        "Description of the Service: THE PLATFORM is an application that makes available to"
-        "USERS the service of sale of fashion items and accessories (hereinafter and for"
-        "Effects of this document" PRODUCTS "). USERS of THE PLATFORM may access"
-        "to the services offered through the mobile application. \n"
-        "THE COMPANY authorizes its users to consult, review and use its mobile application"
-        "For your personal and non-commercial use only. The content of this platform including,"
-        "but not limited to texts, graphics, images, logos, icons, software and any"
-        "Other content is protected under the Colombian laws of copyright, property"
-        "Industrial and other applicable laws. All content is property of the company. The use"
-        "Unauthorized content may constitute a violation of Colombian laws or"
-        "foreign on copyright, industrial property or other laws. No USER"
-        "may sell or modify the content, or use or distribute it publicly for"
-        "commercial purposes. \n \n"
+        "Descripción del Servicio: LA PLATAFORMA es una aplicación que pone a disposición de los"
+        "USUARIOS el servicio de venta de artículos de moda y accesorios (en adelante y para"
+        "efectos del presente documento “PRODUCTOS “). Los USUARIOS de LA PLATAFORMA podrán acceder"
+        "a los servicios ofrecidos a través de la aplicación móvil.\n"
+        "LA EMPRESA autoriza a sus usuarios a consultar, revisar y usar su aplicación móvil"
+        "únicamente para su uso personal y no comercial. El contenido de esta plataforma incluyendo,"
+        "pero sin limitarse a los textos, gráficos, imágenes, logotipos, íconos, software y cualquier"
+        "otro contenido, está protegido bajo las leyes colombianas de derechos de autor, propiedad"
+        "industrial y otras leyes aplicables. Todo el contenido es propiedad de la sociedad. El uso"
+        "no autorizado del contenido puede constituir una violación de las leyes colombianas o"
+        "extranjeras sobre derechos de autor, propiedad industrial u otras leyes. Ningún USUARIO"
+        "podrá vender o modificar el contenido, ni usarlo o distribuirlo públicamente para"
+        "propósitos comerciales.\n\n"
 
-        "2. REGISTRATION ON THE PLATFORM. \n \n"
-        "In order to access all the PRODUCTS offered by THE PLATFORM, the USER must"
-        "complete a registration in which a username and password will be created. The name of"
-        "username and password that the USER provides are their credentials to access the"
-        "mobile application. USERS cannot have more than one active set of credentials."
-        "Furthermore, users are prohibited from selling, trading or otherwise assigning their"
-        "credentials on THE PLATFORM to another person. If the USER chooses to register, in turn,"
-        "accept these Terms and Conditions and undertake to supply current information,"
-        "complete and true about him or her. All personal information provided by the USER"
-        "to THE PLATFORM, will be governed by the privacy policies of THE PLATFORM. \n"
-        "THE COMPANY reserves the right to suspend or cancel your account and deny its current use"
-        "or future of the mobile application (or any portion of it) in case you suspect that"
-        "the USER has provided information that is false, inaccurate, outdated or incomplete"
-        "(or that has become false, inaccurate, outdated, or incomplete). \n"
-        "The USER who completes the registration to access the services. THE COMPANY DOES NOT KNOW"
-        "It is responsible for the accuracy of the personal data provided by its USERS. The"
-        "USERS guarantee and respond, in any case, of the veracity, accuracy, validity and"
-        "Authenticity of the Personal Data entered. \n"
-        "THE COMPANY reserves the right to request any proof and / or additional data for purposes"
-        "to corroborate personal data, as well as to temporarily or permanently suspend those"
-        "USERS whose data could not be confirmed. In these cases of disqualification,"
-        "it will cancel the USER\'s personal account, without generating any right to compensation"
-        "or refund of monies credited to the account. \n \n"
+        "2. REGISTRO EN LA PLATAFORMA.\n\n"
+        "Con el fin de acceder a todos los PRODUCTOS ofrecidos por LA PLATAFORMA, el USUARIO deberá"
+        "completar un registro en el cual se creará un nombre de usuario y contraseña. El nombre de"
+        "usuario y la contraseña que el USUARIO proporciona son sus credenciales para acceder a la"
+        "aplicación móvil. Los USUARIOS no pueden tener más de un conjunto activo de credenciales."
+        "Además, a los usuarios se les prohíbe vender, negociar o ceder de otra manera sus"
+        "credenciales en LA PLATAFORMA a otra persona. Si el USUARIO escoge registrarse, a su vez,"
+        "acepta los presentes Términos y Condiciones y se compromete a suministrar información actual,"
+        "completa y verídica sobre él o ella. Toda la información personal suministrada por el USUARIO"
+        "a LA PLATAFORMA, se regirá por las políticas de privacidad de LA PLATAFORMA.\n"
+        "LA EMPRESA se reserva el derecho de suspender o cancelar su cuenta y negarle el uso presente"
+        "o futuro de la aplicación móvil (o cualquier porción de la misma) en caso de sospechar que"
+        "el USUARIO ha proporcionado información que sea falsa, inexacta, desactualizada o incompleta"
+        "(o que se ha convertido en falsa, inexacta, no actualizada o incompleta).\n"
+        "El USUARIO que complete el registro para acceder a los servicios. LA EMPRESA NO se"
+        "responsabiliza por la certeza de los datos personales provistos por sus USUARIOS. Los"
+        "USUARIOS garantizan y responden, en cualquier caso, de la veracidad, exactitud, vigencia y"
+        "autenticidad de los Datos Personales ingresados.\n"
+        "LA EMPRESA se reserva el derecho de solicitar algún comprobante y/o dato adicional a efectos"
+        "de corroborar los datos personales, así como de suspender temporal o definitivamente a aquellos"
+        "USUARIOS cuyos datos no hayan podido ser confirmados. En estos casos de inhabilitación, se"
+        "dará de baja la cuenta personal del USUARIO, sin que ello genere algún derecho a resarcimiento"
+        "o reembolso de los dineros abonados a la cuenta.\n\n"
 
-        "3. CAPACITY. \n \n"
+        "3. CAPACIDAD.\n\n"
 
-        "The services offered by THE PLATFORM through the mobile application are only"
-        "available to USERS who have legal capacity to contract. They will not be able to access"
-        "to the services people who do not have that capacity, minors or USERS"
-        "of THE PLATFORM that have been temporarily suspended or permanently disabled. \ n \ n"
+        "Los servicios ofrecidos por LA PLATAFORMA a través de la aplicación móvil sólo están"
+        "disponibles para los USUARIOS que tengan capacidad legal para contratar. No podrán acceder"
+        "a los servicios las personas que no tengan esa capacidad, los menores de edad o los USUARIOS"
+        "de LA PLATAFORMA que hayan sido suspendidos temporalmente o inhabilitados definitivamente.\n\n"
 
-        "4. ACCOUNT KEYS AND SECURITY. \n \n"
+        "4. CUENTA CLAVES Y SEGURIDAD.\n\n"
 
-        "The USER is the ONLY responsible for maintaining the confidentiality of his password, key"
-        "and account. In accordance with the foregoing, the USER is the ONLY responsible for all"
-        "activities, requests or handling of information that occur in your account. \n"
-        "The USER acknowledges and accepts that; (i). He will only be able to create an account; (ii). He will notify"
-        "immediately to THE PLATFORM of any unauthorized use of your account and / or password or"
-        "Any other breach of security, and; (iii). Make sure to log out every"
-        "once your access to the application ends. \n"
-        "THE COMPANY will not be responsible for any loss or damage that occurs to"
-        "cause of non-compliance with this section."
-        "In case THE COMPANY detects different accounts that contain matching data or"
-        "related, you can cancel, suspend or disable them, without generating any right"
-        "in favor of the user to repair or refund the monies paid. \n \n"
+        "El USUARIO es el ÚNICO responsable de mantener la confidencialidad de su contraseña, clave"
+        "y cuenta. De conformidad con lo anterior, el USUARIO es el ÚNICO responsable por todas las"
+        "actividades, solicitudes o manejo de información que ocurran en su cuenta.\n"
+        "El USUARIO reconoce y acepta que; (i). Solo podrá crear una cuenta; (ii). notificará"
+        "inmediatamente a LA PLATAFORMA de cualquier uso no autorizado de su cuenta y/o clave o"
+        "cualquier otra violación de la seguridad, y; (iii). Se asegurará de cerrar la sesión cada"
+        "vez que finalice su acceso a la aplicación.\n"
+        "LA EMPRESA no será responsable por cualquier pérdida o daño que se llegue a presentar a"
+        "causa del incumplimiento de esta sección."
+        "En caso de que LA EMPRESA detecte distintas cuentas que contengan datos coincidentes o"
+        "relacionados, podrá cancelar, suspender o inhabilitarlas, sin que esto genere ningún derecho"
+        "a favor del usuario de reparación o reembolso de los dineros abonados.\n\n"
 
-        "5. MODIFICATIONS TO THE SERVICE. \n \n"
+        "5. MODIFICACIONES AL SERVICIO.\n\n"
 
-        "Without prior notice and as long as this does not imply an impairment of acquired rights"
-        "By the USER, these Terms and Conditions may be totally or partially modified"
-        "for the following reasons: (i) Variations in the characteristics of THE PLATFORM; (ii)"
-        "Technological changes that affect the service (s); (iii) Variations of the conditions"
-        "Economic existing at the time of contracting the service, and; (iv) Evolution of the"
-        "market. The characteristics of the service may be modified in order to"
-        "adapt them to your technical evolution, when there are reasons for it. \n"
-        "THE COMPANY may make any technical improvement that allows incorporating a greater number"
-        "Of benefits to the service. Said modifications will take effect immediately, one"
-        "Once they have been published by direct notification to the USER by e-mail, to the address"
-        "electronic informed at the time of acceptance of the Terms and Conditions, which is"
-        "will send five (5) days in advance of the effective modification. In the event that the"
-        "USER does not agree with the modification of the conditions, he must inform it by"
-        "Email to unsubscribe from the provision of the service. \n"
-        "The USER may access, print, download and save the legal Terms and Conditions,"
-        "as well as the other legal texts at all times. \n"
-        "Likewise, THE COMPANY reserves the right to modify the design without prior notice,"
-        "presentation and / or configuration of the mobile application, as well as some or all of the services,"
-        "and / or add new services. \n"
-        "In any case, THE COMPANY reserves the right to deny access to the application"
-        "mobile, at any time and without the need for prior notice, to those USERS who breach"
-        "any of the Terms and Conditions that are applicable. \n \n"
+        "Sin previo aviso y siempre y cuando esto no implique una afectación de los derechos adquiridos"
+        "por el USUARIO, los presentes Términos y Condiciones podrán ser modificados total o parcialmente"
+        "por los siguientes motivos: (i) Variaciones de las características de LA PLATAFORMA; (ii)"
+        "Cambios tecnológicos que afecten el (los) servicio (s); (iii) Variaciones de las condiciones"
+        "económicas existentes en el momento de la contratación del servicio, y; (iv) Evolución del"
+        "mercado. Las características del servicio podrán verse modificadas con la finalidad de"
+        "adaptarlas a su evolución técnica, cuando existan razones para ello.\n"
+        "LA EMPRESA podrá realizar cualquier mejora técnica que permita incorporar un mayor número"
+        "de prestaciones al servicio. Dichas modificaciones surtirán sus efectos inmediatamente, una"
+        "vez que se hayan publicado mediante notificación directa al USUARIO por e-mail, a la dirección"
+        "electrónica informada al momento de la aceptación de los Términos y Condiciones, la cual se"
+        "enviará con cinco (5) días de anticipación a la efectiva modificación. En caso de que el"
+        "USUARIO no esté de acuerdo con la modificación de las condiciones, deberá informarlo por"
+        "correo electrónico para darlo de baja en la prestación del servicio.\n"
+        "El USUARIO podrá acceder, imprimir, descargar y guardar los Términos y Condiciones legales,"
+        "así como los demás textos legales en todo momento.\n"
+        "Asimismo, LA EMPRESA se reserva la posibilidad de modificar sin previo aviso el diseño,"
+        "presentación y/o configuración de la aplicación móvil, así como algunos o todos los servicios,"
+        "y/o añadir servicios nuevos.\n"
+        "En cualquier caso, LA EMPRESA se reserva el derecho de denegar el acceso a la aplicación"
+        "móvil, en cualquier momento y sin necesidad de previo aviso, a aquellos USUARIOS que incumplan"
+        "cualesquiera de los Términos y Condiciones que le sean de aplicación.\n\n"
 
-        "6. SCOPE OF THE PLATFORM SERVICES. \n \n"
-        "This Agreement does not create any partnership, mandate, franchise, or relationship agreement"
-        "Labor between THE COMPANY, and the USER. The USER acknowledges and accepts that THE COMPANY will not be"
-        "responsible for the correspondence or contracts that the USER celebrates with other USERS."
-        "THE COMPANY will make reasonable efforts to guarantee the quality of the service provided in order"
-        "to contribute with peace of mind of the USER and mitigate the risk of non-compliance against"
-        "to the USER. \n \n"
+        "6. ALCANCE DE LOS SERVICIOS DE LA PLATAFORMA.\n\n"
+        "Este Acuerdo no crea ningún contrato de sociedad, de mandato, de franquicia, o relación"
+        "laboral entre LA EMPRESA, y el USUARIO. El USUARIO reconoce y acepta que LA EMPRESA no será"
+        "responsable por la correspondencia o contratos que el USUARIO celebre con otros USUARIOS."
+        "LA EMPRESA hará esfuerzos razonables para garantizar la calidad del servicio prestado a fin"
+        "de contribuir con tranquilidad del USUARIO y mitigar el riesgo de incumplimiento frente"
+        "al USUARIO.\n\n"
 
-        "7. GENERAL PRACTICES REGARDING THE USE AND STORAGE OF INFORMATION. \n \n"
-        "The USER acknowledges and accepts that: (i) THE COMPANY may establish general practices and"
-        "limits concerning the use of the mobile application, including without limitation the"
-        "maximum period of time of storage of the information; (ii) THE COMPANY will not be"
-        "responsible for the loss or failure of information that may be presented for maintenance"
-        "or update of the mobile application; (iii) THE COMPANY reserves the right to terminate"
-        "accounts that are inactive for an extended period of time; (iv) THE COMPANY reserves itself"
-        "the right to change and / or modify these practices and limits at any time, under your"
-        "Own discretion, without any prior notice. \n \n"
+        "7. PRÁCTICAS GENERALES ACERCA DEL USO Y ALMACENAMIENTO DE INFORMACIÓN.\n\n"
+        "El USUARIO reconoce y acepta que: (i) LA EMPRESA podrá establecer prácticas generales y"
+        "límites concernientes al uso de la aplicación móvil, incluyendo sin limitación alguna el"
+        "periodo máximo de tiempo de almacenamiento de la información; (ii) LA EMPRESA no será"
+        "responsable por la pérdida o falla de la información que pueda presentarse por el mantenimiento"
+        "o actualización de  la aplicación móvil; (iii) LA EMPRESA se reserva el derecho de terminar"
+        "cuentas que estén inactivas por un periodo de tiempo extendido; (iv) LA EMPRESA se reserva"
+        "el derecho de cambiar y/o modificar estas prácticas y límites en cualquier momento, bajo su"
+        "propia discreción, sin ningún aviso previo.\n\n"
 
-        "8. ACCESS TO THE PLATFORM. \n \n"
+        "8. ACCESO A LA PLATAFORMA.\n\n"
 
-        "The USER is responsible for obtaining access to the data network necessary for the use of the"
-        "Services. Rates and rates for data and messages from the USER\'s mobile network may apply."
-        "The USER is responsible for the payment of said rates and fees, as well as the acquisition"
-        "and upgrade of compatible hardware or devices required to access and use"
-        "the mobile application, and any update. The services may be subject to dysfunctions"
-        "or delays inherent to the use of the Internet and electronic communications. \n"
-        "THE COMPANY does not guarantee the USER a certain availability of the operation of the"
-        "mobile application. However, THE COMPANY will make reasonable efforts to maintain its"
-        "platform available. \n \n"
+        "El USUARIO es responsable de obtener acceso a la red de datos necesarios para el uso de los"
+        "servicios. Podrán aplicarse tarifas y tasas de datos y mensajes de la red móvil del USUARIO."
+        "El USUARIO es responsable por el pago de dichas tarifas y tasas, así como, de la adquisición"
+        "y actualización del hardware compatible o los dispositivos necesarios para acceder y utilizar"
+        "la aplicación móvil, y cualquier actualización. Los servicios podrán ser objeto de disfunciones"
+        "o retrasos inherentes al uso de Internet y de las comunicaciones electrónicas.\n"
+        "LA EMPRESA no garantiza al USUARIO una determinada disponibilidad del funcionamiento de la"
+        "aplicación móvil. No obstante, LA EMPRESA hará esfuerzos razonables por mantener su"
+        "plataforma disponible.\n\n"
 
-        "9. TERMS OF USE. \n \n"
-        "USER Conduct: The examples mentioned followed by this paragraph refer to"
-        "Type of conduct or uses prohibited by THE COMPANY and by Law. THE COMPANY reserves the right to"
-        "Right to report to the corresponding authorities any activity that occurs in"
-        "Consideration of THE COMPANY violates these provisions. Additionally, if considered"
-        "necessary, THE COMPANY may take any of these actions: (i) The removal of the content"
-        "Violation of the service; (ii) The suspension or termination of the account. \n \n"
+        "9. CONDICIONES DE USO.\n\n"
+        "Conducta del USUARIO: Los ejemplos mencionados seguido de este párrafo hacen referencia al"
+        "tipo de conducta o usos prohibidos por LA EMPRESA y por la Ley. LA EMPRESA se reserva el"
+        "derecho de denunciar ante las autoridades correspondientes cualquier actividad que en"
+        "consideración de LA EMPRESA viole estas provisiones. Adicionalmente, en caso de considerarlo"
+        "necesario, LA EMPRESA podrá tomar cualquiera de estas acciones: (i) La remoción del contenido"
+        "violatorio del servicio; (ii) La suspensión o terminación de la cuenta.\n\n"
 
-        "The USER acknowledges and agrees NOT to use the service for: \n \n"
+        "El USUARIO reconoce y acepta NO usar el servicio para:\n\n"
 
-        "(i) Interrupt or interfere with the service, servers or networks connected to the application"
-        "mobile, or disobey any requirements, terms and conditions or policies of"
-        "privacy linked to the service. \n"
-        "(ii) Violate any national or international law or regulation. \n"
-        "(iii) Impersonate any person, or falsely represent a link with another person. \n"
-        "(iv) Request confidential information from other USERS. \ n"
-        "(v) Publish or offer to sell, assign or buy services or goods of THE PLATFORM"
-        "directly to third parties, omitting the use of the mobile application without prior authorization"
-        "by THE COMPANY. \n"
-        "(vi) Share or promote any criminal activity or information about activities"
-        "illicit. \n"
-        "(vii) Reverse engineer, decompile or use any other means to treat"
-        "to discover the source code, object code of the application structure. \n"
-        "(viii) Obtain or attempt to obtain access to any confidential information of THE COMPANY"
-        "or its USERS through any means. \n \n"
+        "(i) Interrumpir o interferir el servicio, servidores o redes conectadas a la aplicación"
+        "móvil, o desobedecer cualquier requerimiento, términos y condiciones o políticas de"
+        "privacidad vinculadas al servicio.\n"
+        "(ii) Violar cualquier Ley o regulación nacional o internacional.\n"
+        "(iii) Hacerse pasar por cualquier persona, o falsamente representar vínculo con otra persona.\n"
+        "(iv) Solicitar información confidencial de otros USUARIOS.\n"
+        "(v) Publicar u ofrecer vender, ceder o comprar servicios o bienes de LA PLATAFORMA"
+        "directamente a terceros, omitiendo el uso de la aplicación móvil sin la previa autorización"
+        "por LA EMPRESA.\n"
+        "(vi) Compartir o promover cualquier actividad criminal o información acerca de actividades"
+        "ilícitas.\n"
+        "(vii) Aplicar ingeniería inversa, descompilar o valerse de cualquier otro medio para tratar"
+        "de descubrir el código fuente, código objeto de la estructura de la aplicación.\n"
+        "(viii) Obtener o intentar obtener acceso a cualquier información confidencial de LA EMPRESA"
+        "o de sus USUARIOS a través de cualquier medio.\n\n"
 
-        "10. RATES AND PAYMENTS. \n \n"
+        "10. TARIFAS Y PAGOS.\n\n"
 
-        "PSE works as a platform for services provided to USERS, so once the USER"
-        "You have selected one, or several PRODUCTS, different rates may apply, depending on the"
-        "service or portion thereof. The USER must select the payment method and, depending on"
-        "of the same, provide the information regarding your debit or credit card. The USER"
-        "undertakes to supply true and authorized information regarding the means of payment"
-        "used. Likewise, the USER acknowledges and accepts that: (i) You must update the information"
-        "Regarding the means of payment, in case there are modifications; (ii) You will pay THE PLATFORM"
-        "the value previously detailed in accordance with the rates at the time of requesting the PRODUCTS;"
-        "(iii) Any PRODUCT requested by the USER will be charged in a reasonable time prior"
-        "at the scheduled time for delivery, without any return within the limits"
-        "established by Law 1480 of 2011. \n"
-        "THE PLATFORM does not guarantee the USER processing times of a transaction. No"
-        "However, it will make reasonable efforts to process transactions expeditiously. In any event,"
-        "THE PLATFORM exempts itself from the delay in the processing of transactions resulting from"
-        "banking hours or processes, or any type of failure in the service of others"
-        "agents that intervene or influence the processing of payments, such as networks of"
-        "processing, payment gateways, banks, franchises, Internet providers and servers,"
-        "among others, and in general of any event that exceeds its control in processing. \n"
-        "THE COMPANY reserves the right to modify, change, add, or eliminate the rates"
-        "in force, at any time, which will be notified to USERS by email."
-        "However, THE COMPANY may temporarily modify the rates for its services for"
-        "reason for promotions, these modifications being effective when the"
-        "promotion or announcement is made. \n"
-        "THE COMPANY reserves the right to take judicial and extrajudicial measures that it deems"
-        "Relevant to obtain payment of the amount due. \n"
-        "In case of having billed charges that have not corresponded, the USER must"
-        "communicate with" our Customer Service team to resolve this issue. \n "
+        "PSE obra como plataforma de servicios prestados a los USUARIOS, por lo que una vez el USUARIO"
+        "haya seleccionado un, o varios PRODUCTOS, podrán aplicar diferentes tarifas, dependiendo del"
+        "servicio o porción del mismo. El USUARIO deberá seleccionar el método de pago y, dependiendo"
+        "del mismo, suministrar la información referente a su tarjeta de débito o crédito. El USUARIO"
+        "se compromete a suministrar información verdadera y autorizada referente al medio de pago"
+        "usado. Así mismo, el USUARIO reconoce y acepta que: (i) Deberá actualizar la información"
+        "referente al medio de pago, en caso de que hayan modificaciones; (ii) Pagará a LA PLATAFORMA"
+        "el valor previamente detallado de acuerdo con las tarifas al momento de solicitar los PRODUCTOS;"
+        "(iii) Cualquier PRODUCTO solicitado por el USUARIO será cargado en un tiempo prudente previo"
+        "a la hora prevista para su entrega, sin que haya lugar a devoluciones dentro de los límites"
+        "establecidos por la Ley 1480 de 2011.\n"
+        "LA PLATAFORMA no garantiza al USUARIO tiempos de procesamiento de una transacción. No"
+        "obstante, hará esfuerzos razonables para procesar las transacciones ágilmente. En todo caso,"
+        "LA PLATAFORMA se exime del retardo en el procesamiento de transacciones resultantes de"
+        "horarios o procesos bancarios, o de cualquier tipo de fallas en el servicio de los demás"
+        "agentes que intervienen o inciden en el procesamiento de pagos, tales como redes de"
+        "procesamiento, pasarelas de pago, bancos, franquicias, proveedores de Internet y servidores,"
+        "entre otros, y en general de todo evento que exceda su control en el procesamiento.\n"
+        "LA EMPRESA se reserva el derecho de modificar, cambiar, agregar, o eliminar las tarifas"
+        "vigentes, en cualquier momento, lo cual será notificado a los USUARIOS por correo electrónico."
+        "Sin embargo, LA EMPRESA podrá modificar temporalmente las tarifas por sus servicios por"
+        "razón de promociones, siendo efectivas estas modificaciones cuando se haga pública la"
+        "promoción o se realice el anuncio.\n"
+        "LA EMPRESA se reserva el derecho de tomar medidas judiciales y extrajudiciales que estime"
+        "pertinentes para obtener el pago del monto debido.\n"
+        "En caso de haberse facturado cargos que no hubiesen correspondido, el USUARIO deberá"
+        "comunicarse con" nuestro equipo de Atención al Usuario para resolver dicha cuestión.\n"
 
 "11. POLÍTICA DE CANCELACIÓN.\n"
 "El USUARIO deberá cumplir con la hora, fecha y dirección designada para llevar a cabo el domicilio.
@@ -445,7 +445,7 @@ Manizales y los procedimientos se llevarán a cabo en el idioma Castellano.\n"
 
 "Se fija como domicilio de LA EMPRESA la ciudad de Manizales, Colombia.\n\n"
     </string>
-    <string name = "privacy_policies">
+    <string name="privacy_policies">
         "POLÍTICA DE PRIVACIDAD\n\n"
         "Encuentra aquí los términos y condiciones (enlace).\n\n"
         "LUMAPP, en adelante 'LA PLATAFORMA', es una marca de LUMA, en adelante 'LA EMPRESA'.\n\n"
@@ -492,34 +492,34 @@ Manizales y los procedimientos se llevarán a cabo en el idioma Castellano.\n"
     </string>
 
     <!-- Frame Product Individual -->
-    <string name="tv_name_product">Product Name</string>
-    <string name="tv_value_product">Value</string>
-    <string name="iv_image_product">Product Image</string>
-    <string name="bt_shopping">Shopping Cart</string>
-    <string name="search">Search</string>
-    <string name="color">Color:</string>
-    <string name="size">Size:</string>
-    <string name="quantity">Quantity:</string>
-    <string name="bt_add_cart">Add to my cart</string>
-    <string name="tv_see_sizes"><u>See size table</u></string>
-    <string name="product_location">Product location</string>
-    <string name="edit_size_color"><u>Edit size or color</u></string>
+    <string name="tv_name_product">Nombre del producto</string>
+    <string name="tv_value_product">Valor</string>
+    <string name="iv_image_product">Imagen del producto</string>
+    <string name="bt_shopping">Carro de compras</string>
+    <string name="search">Buscar</string>
+    <string name="color">Color: </string>
+    <string name="size">Talla: </string>
+    <string name="quantity">Cantidad:</string>
+    <string name="bt_add_cart">Agregar al carrito</string>
+    <string name="tv_see_sizes"><u>Ver tabla de tallas</u></string>
+    <string name="product_location">Ubicación del producto</string>
+    <string name="edit_size_color"><u>Editar talla o color</u></string>
     <string name="total">Total:</string>
-    <string name="coupon">Coupon:</string>
-    <string name="discount">Discount:</string>
-    <string name="shipping">Shipping:</string>
+    <string name="coupon">Cupón:</string>
+    <string name="discount">Descuento:</string>
+    <string name="shipping">Transporte:</string>
     <string name="subtotal">Subtotal:</string>
-    <string name="order_total">Order total:</string>
-    <string name="checkout">Checkout</string>
-    <string name="shopping_cart">Shopping cart</string>
+    <string name="order_total">Orden total:</string>
+    <string name="checkout">Verificar</string>
+    <string name="shopping_cart">Carrito de compras</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="thanks_order">Thanks for your order</string>
-    <string name="continue_shopping"><u>Continue shopping</u></string>
-    <string name="added2cart">added to cart</string>
-    <string name="references">References:</string>
-    <string name="et_latitude">Latitude</string>
-    <string name="et_longitude">Longitude</string>
-    <string name="added2fav">added to favorites</string>
+    <string name="hello_blank_fragment">Hola fragmento en blanco</string>
+    <string name="thanks_order">Gracias por tu orden</string>
+    <string name="continue_shopping"><u>Seguir comprando</u></string>
+    <string name="added2cart">Añadido al carrito</string>
+    <string name="references">Referencias:</string>
+    <string name="et_latitude">Latitud</string>
+    <string name="et_longitude">Longitud</string>
+    <string name="added2fav">Añadido a favoritos</string>
 
 </resources>
