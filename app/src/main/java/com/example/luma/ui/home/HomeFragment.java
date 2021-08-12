@@ -2,6 +2,7 @@ package com.example.luma.ui.home;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -58,9 +59,6 @@ public class HomeFragment extends Fragment implements ProductAdapter.ProductInte
         //Search product
 //        sv_product.setOnQueryTextListener(this);
 
-        // Start sharedpreference Storage
-//        CartProduct.setCartStorage(cartProducts);
-
         return root;
     }
 
@@ -78,23 +76,7 @@ public class HomeFragment extends Fragment implements ProductAdapter.ProductInte
         });
         storage = view.getContext().getSharedPreferences("STORAGE", view.getContext().MODE_PRIVATE);
         navController = Navigation.findNavController(view);
-
-//        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
-//            @Override
-//            public void onDestinationChanged(@NonNull @NotNull NavController controller, @NonNull @NotNull NavDestination destination, @Nullable @org.jetbrains.annotations.Nullable Bundle arguments) {
-//                if (destination.getId() == R.id.nav_logout) {
-//                    logout();
-//                }
-//            }
-//        });
     }
-
-//        // LOGOUT
-//    public void logout(){
-//        SharedPreferences.Editor editor = storage.edit();
-//        editor.clear();
-//        editor.apply();
-//    }
 
     @Override
     public void onDestroyView() {
