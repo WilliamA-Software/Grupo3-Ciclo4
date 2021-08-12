@@ -12,15 +12,18 @@ import android.widget.TextView;
 import com.example.luma.R;
 import com.example.luma.data.model.CartProduct;
 import com.example.luma.ui.cart.CartFragment;
+import com.example.luma.ui.home.HomeFragment;
 import com.example.luma.ui.login.ActivityLogin;
 import com.example.luma.viewmodels.HomeViewModel;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.GravityCompat;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
@@ -30,6 +33,7 @@ import com.example.luma.databinding.ActivityDrawerBinding;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.io.StringWriter;
 import java.util.List;
 
 public class DrawerActivity extends AppCompatActivity {
@@ -68,35 +72,41 @@ public class DrawerActivity extends AppCompatActivity {
             }
         });
 
-//        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-//            @Override
-//            public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
-//                int itemId = item.getItemId();
-//                int navId = R.id.nav_logout;
-//                if (itemId == navId) {
-////                    logout();
-//                    return true;
-//                }
-//                return false;
-//            }
-//        });
-
-//        navigationView.getMenu().findItem(R.id.nav_logout).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-//            @Override
-//            public boolean onMenuItemClick(MenuItem item) {
-//                logout();
-//                return true;
-//            }
-//        });
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
+                int id = item.getItemId();
+                switch (id){
+                    case R.id.nav_home:
+                        navController.navigate(R.id.nav_home);
+                        break;
+                    case R.id.nav_favorites:
+                        navController.navigate(R.id.nav_favorites);
+                        break;
+                    case R.id.nav_products:
+                        navController.navigate(R.id.nav_products);
+                        break;
+                    case R.id.nav_shopping_cart:
+                        navController.navigate(R.id.nav_shopping_cart);
+                        break;
+                    case R.id.nav_logout:
+                        logout();
+                        return true;
+                }
+                drawer.closeDrawer(GravityCompat.START);
+                return true;
+            }
+        });
     }
 
     private void logout() {
         SharedPreferences storage = getSharedPreferences("STORAGE", MODE_PRIVATE);
         SharedPreferences.Editor editor = storage.edit();
         editor.clear();
+        editor.apply();
         Intent loginIntent = new Intent(this, ActivityLogin.class);
+        loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(loginIntent);
-        finish();
     }
 
     @Override
