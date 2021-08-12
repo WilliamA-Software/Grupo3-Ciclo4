@@ -101,7 +101,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ProductViewHol
                 @Override
                 public void onClick(View v) {
                     //Setea el productDetail para que pueda ser accedido desde los detalles
-                    Product product2 = new Product(
+                    Product product2 = new Product(product.getIdProduct(),
                             product.getNameProduct(),
                             product.getDescriptionProduct(),
                             product.getPriceProduct(),
@@ -119,7 +119,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ProductViewHol
                 @Override
                 public void onClick(View v) {
                     String code = storage.getString("USERCODE", "");
-                    Product product2 = new Product(
+                    Product product2 = new Product(product.getIdProduct(),
                             product.getNameProduct(),
                             product.getDescriptionProduct(),
                             product.getPriceProduct(),

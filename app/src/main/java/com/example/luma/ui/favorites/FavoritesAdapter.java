@@ -95,7 +95,7 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.Favo
                 @Override
                 public void onClick(View v) {
                     //Setea el productDetail para que pueda ser accedido desde los detalles
-                    Product product = new Product(
+                    Product product = new Product(favorite.getIdProduct(),
                       favorite.getNameProduct(),
                       favorite.getDescriptionProduct(),
                       favorite.getPriceProduct(),
@@ -113,7 +113,7 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.Favo
                 @Override
                 public void onClick(View v) {
                     String code = storage.getString("USERCODE", "");
-                    Product product2 = new Product(
+                    Product product2 = new Product(favorite.getIdProduct(),
                             favorite.getNameProduct(),
                             favorite.getDescriptionProduct(),
                             favorite.getPriceProduct(),
