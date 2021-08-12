@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/nav_home">
-
+// Home Fragment
     <fragment
         android:id="@+id/nav_home"
         android:name="com.example.luma.ui.home.HomeFragment"
@@ -21,19 +21,19 @@
             android:id="@+id/action_nav_home_to_nav_shopping_cart"
             app:destination="@id/nav_shopping_cart" />
     </fragment>
-
+// Products admin fragment
     <fragment
         android:id="@+id/nav_products"
         android:name="com.example.luma.ui.products.ProductFragment"
         android:label="@string/tv_luma"
         tools:layout="@layout/fragment_products" />
-
+// Favorites fragment
     <fragment
         android:id="@+id/nav_favorites"
         android:name="com.example.luma.views.FavoritesFragment"
         android:label="@string/tv_luma"
         tools:layout="@layout/fragment_favorites" />
-
+// Prod. Detail fragment
     <fragment
         android:id="@+id/nav_prod_detail"
         android:name="com.example.luma.ui.products.ProductDetail"
@@ -43,7 +43,7 @@
             android:id="@+id/action_nav_prod_detail_to_nav_shopping_cart"
             app:destination="@id/nav_shopping_cart" />
     </fragment>
-
+// Shopping Cart fragment
     <fragment
         android:id="@+id/nav_shopping_cart"
         android:name="com.example.luma.ui.cart.CartFragment"
@@ -54,11 +54,7 @@
             app:destination="@id/orderFragment"
             app:popUpTo="@id/nav_home" />
     </fragment>
-
-    <activity
-        android:id="@+id/nav_logout"
-        android:name="com.example.luma.ui.login.ActivityLogin"
-        tools:layout="@layout/login_activity" />
+// Order confirmation fragment
     <fragment
         android:id="@+id/orderFragment"
         android:name="com.example.luma.views.OrderFragment"
