@@ -2,21 +2,26 @@ package com.example.luma.ui.home;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 
 import com.example.luma.R;
 import com.example.luma.data.model.Product;
+import com.example.luma.databinding.ActivityDrawerBinding;
 import com.example.luma.databinding.FragmentHomeBinding;
 import com.example.luma.viewmodels.HomeViewModel;
 import com.google.android.material.snackbar.Snackbar;
@@ -36,6 +41,7 @@ public class HomeFragment extends Fragment implements ProductAdapter.ProductInte
     private HomeViewModel homeViewModel;
     private NavController navController;
     private SharedPreferences storage;
+    private ActivityDrawerBinding activityDrawerBinding;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -52,9 +58,6 @@ public class HomeFragment extends Fragment implements ProductAdapter.ProductInte
 
         //Search product
 //        sv_product.setOnQueryTextListener(this);
-
-        // Start sharedpreference Storage
-//        CartProduct.setCartStorage(cartProducts);
 
         return root;
     }
@@ -73,7 +76,6 @@ public class HomeFragment extends Fragment implements ProductAdapter.ProductInte
         });
         storage = view.getContext().getSharedPreferences("STORAGE", view.getContext().MODE_PRIVATE);
         navController = Navigation.findNavController(view);
-
     }
 
     @Override
