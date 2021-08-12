@@ -19,6 +19,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,7 +80,7 @@ public class HomeViewModel extends ViewModel {
         return cartRepo.addItem2Cart(product);
     }
 
-    public boolean addProduct2Fav(String code, Product product) {
+    public boolean addProduct2Fav(String code, @NotNull Product product) {
 
         Product product2 = new Product(
                 product.getIdProduct(),
