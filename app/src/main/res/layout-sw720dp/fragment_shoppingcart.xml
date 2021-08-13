@@ -25,7 +25,7 @@
             android:layout_alignParentTop="true"
             android:text="@string/subtotal"
             android:textColor="@color/dark3_gray"
-            android:textSize="18sp" />
+            android:textSize="28sp" />
         // Variable: var_cart_total
         <TextView
             android:id="@+id/var_car_total"
@@ -36,7 +36,7 @@
             android:layout_toEndOf="@+id/txt_subtotal"
             android:text="$890.000"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:textSize="28sp" />
         // Texto: txt_prod_quantity
         <TextView
             android:id="@+id/txt_prod_quantity"
@@ -45,7 +45,7 @@
             android:layout_below="@+id/txt_subtotal"
             android:text="@string/references"
             android:textColor="@color/dark3_gray"
-            android:textSize="18sp" />
+            android:textSize="28sp" />
         // Variable: var_prod_quantity
         <TextView
             android:id="@+id/var_prod_quantity"
@@ -56,7 +56,7 @@
             android:layout_marginStart="10dp"
             android:text="8"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:textSize="28sp" />
         // Texto: txt_coupon
         <TextView
             android:id="@+id/txt_coupon"
@@ -65,7 +65,7 @@
             android:layout_below="@+id/txt_prod_quantity"
             android:text="@string/coupon"
             android:textColor="@color/dark3_gray"
-            android:textSize="18sp" />
+            android:textSize="28sp" />
         // Variable: et_coupon
         <EditText
             android:id="@+id/et_coupon"
@@ -76,7 +76,8 @@
             android:layout_below="@+id/txt_prod_quantity"
             android:layout_toEndOf="@+id/txt_coupon"
             android:layout_marginStart="10dp"
-            android:hint="Blackfriday"
+            android:hint="            "
+            android:textSize="28dp"
             android:textColorHint="@color/black"
             android:background="@drawable/et_rounded"
             android:backgroundTint="@color/white"/>
@@ -89,7 +90,7 @@
             android:layout_marginTop="2dp"
             android:text="@string/discount"
             android:textColor="@color/dark3_gray"
-            android:textSize="18sp" />
+            android:textSize="28sp" />
         // Variable: var_discount
         <TextView
             android:id="@+id/var_discount"
@@ -101,7 +102,7 @@
             android:layout_marginStart="10dp"
             android:text="$ 0"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:textSize="28sp" />
         // Texto: txt_shipping
         <TextView
             android:id="@+id/txt_shipping"
@@ -110,7 +111,7 @@
             android:layout_below="@+id/txt_discount"
             android:text="@string/shipping"
             android:textColor="@color/dark3_gray"
-            android:textSize="18sp" />
+            android:textSize="28sp" />
         // Variable: var_shipping
         <TextView
             android:id="@+id/var_shipping"
@@ -121,7 +122,7 @@
             android:layout_marginStart="10dp"
             android:text="$ 0"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:textSize="28sp" />
         // Texto: txt_order_total
         <TextView
             android:id="@+id/txt_order_total"
@@ -130,7 +131,7 @@
             android:layout_below="@+id/txt_shipping"
             android:text="@string/order_total"
             android:textColor="@color/dark3_gray"
-            android:textSize="20sp" />
+            android:textSize="30sp" />
         // Variable: var_total2pay
         <TextView
             android:id="@+id/var_total2pay"
@@ -141,7 +142,7 @@
             android:layout_marginStart="10dp"
             android:text="$60.000"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="30sp" />
         // Button to Checkout: bt_checkout
         <Button
             android:id="@+id/bt_checkout"
@@ -155,7 +156,7 @@
             android:enabled="false"
             android:textColor="@color/white"
             android:textStyle="bold"
-            android:textSize="18sp"
+            android:textSize="28sp"
             android:padding="10dp"/>
     </RelativeLayout>
 

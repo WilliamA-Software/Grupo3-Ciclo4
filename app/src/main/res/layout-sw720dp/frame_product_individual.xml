@@ -69,7 +69,7 @@
                         android:layout_height="wrap_content"
                         android:text="@{product.nameProduct}"
                         android:textColor="@color/dark3_gray"
-                        android:textSize="140sp"
+                        android:textSize="28sp"
                         android:gravity="center"
                         android:maxLines="4" />
 
